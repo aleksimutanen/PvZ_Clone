@@ -8,4 +8,8 @@ public class AmmoNiko : MonoBehaviour {
     void Update() {
         transform.Translate(0, 0, ammospeed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter(Collision collision) {
+        Destroy(gameObject);
+    }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
-    float movespeed = 1f;
+    public float movespeed = 1f;
     public GameObject enemy;
 
     private void Update() {

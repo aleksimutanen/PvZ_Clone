@@ -9,6 +9,8 @@ public class BuyableItems : MonoBehaviour {
 
     Bugtype nowplacing = Bugtype.None;
     public List<GameObject> ghostbugs;
+    public LayerMask ground;
+    public List<GameObject> bugPrefabs;
 
     public GameObject peashooter;
     // nappia klikkaamalla tietää että raahaa tiettyä itemiä
@@ -38,11 +40,27 @@ public class BuyableItems : MonoBehaviour {
         }
     }
 	void Update () {
+        if (nowplacing != Bugtype.None) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground)) {
+                int index = (int)nowplacing - 1;
+                var snapped = new Vector3(Mathf.Round(hit.point.x), 0, Mathf.Round(hit.point.z));
+                ghostbugs[index].transform.position = snapped;
+                if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                    var go = Instantiate(bugPrefabs[index]);
+                    go.transform.position = snapped;
+                }
+            }
 
+        }
 		
 	}
 }
 
+//Vector3 currentPos = new Vector3(Input.mousePosition.x - posX, Input.mousePosition.y - posY, dist.z);
+//Vector3 worldPos = Camera.main.ScreenToWorldPoint(currentPos);
+//transform.position = worldPos;
 
 //public void PlayGame() {
 //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

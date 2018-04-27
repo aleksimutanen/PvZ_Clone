@@ -8,6 +8,9 @@ public class EnemyMovement : MonoBehaviour {
 
     private void Update() {
         transform.Translate(0, 0, -1 * (movespeed*Time.deltaTime));
+        if (gameObject.name == "EnemyFast") {
+            movespeed = 2f;
+        }
     }
 
 }

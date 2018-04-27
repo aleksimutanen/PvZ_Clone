@@ -413,7 +413,6 @@ MonoBehaviour:
     type: 2}
   recourceAmount: 0
   recourceSpawn: 5
-  spawner: {fileID: 0}
 --- !u!4 &1490046347
 Transform:
   m_ObjectHideFlags: 0

@@ -91,7 +91,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1327774715066794}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -109,3 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammo: {fileID: 1829026726394728, guid: 503de0f0808db1743a7aabc58f620f69, type: 2}
   firingspeed: 5
+  maxRaycastDistance: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512

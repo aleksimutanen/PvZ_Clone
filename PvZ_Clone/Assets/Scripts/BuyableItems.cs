@@ -38,7 +38,6 @@ public class BuyableItems : MonoBehaviour {
         }
     }
 	void Update () {
-
 		
 	}
 }

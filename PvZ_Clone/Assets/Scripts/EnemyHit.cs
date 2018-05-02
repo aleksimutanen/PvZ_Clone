@@ -18,10 +18,19 @@ public class EnemyHit : MonoBehaviour {
 
     }
 
+    //private void OnTriggerEnter(Collider other) {
+    //    if (other.gameObject.name == "Ammo(Clone)") {
+    //        healthLeft--;
+    //        print("enemy hit");
+    //    }
+    //}
+
     private void OnCollisionEnter(Collision collision) {
-        healthLeft--;
-        print("enemy hit");
+        if (collision.gameObject.name == "Ammo(Clone)") {
+            healthLeft--;
+            print("enemy hit");
         }
     }
+}
 
 

@@ -8,7 +8,9 @@ public class Drag : MonoBehaviour {
     float posX;
     float posY;
 
-    
+    //private void OnMouseEnter() {
+        
+    //}
     private void OnMouseDown() {
         dist = Camera.main.WorldToScreenPoint(transform.position);
         posX = Input.mousePosition.x - dist.x;

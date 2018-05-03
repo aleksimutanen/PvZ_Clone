@@ -33,10 +33,9 @@ public class GameManager : MonoBehaviour {
 
     bool paused = false;
 
-
-     void Start () {
+    void Start() {
         lanes = GameObject.FindGameObjectsWithTag("Lane");
-     }
+    }
 
     void OnGUI() {
 
@@ -80,23 +79,25 @@ public class GameManager : MonoBehaviour {
             }
         }
 
+        Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0);
+
         if (Time.time > recourceSpawn + timeSinceLastRecource && spawningOnOff) {
-            Instantiate(recourcePrefab, transform.position, transform.rotation);
+            Instantiate(recourcePrefab, transform.position + X, transform.rotation);
             timeSinceLastRecource = Time.time;
         }
 
         if (Time.time > basicEnemySpawn + timeSinceLastBasic && spawningOnOff) {
-            Instantiate(basicEnemy, lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+            Instantiate(basicEnemy, lanes[Random.Range(0, 4)].transform.position, transform.rotation);
             timeSinceLastBasic = Time.time;
         }
 
         if (Time.time > durableEnemySpawn + timeSinceLastDurable && spawningOnOff) {
-            Instantiate(durableEnemy, lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+            Instantiate(durableEnemy, lanes[Random.Range(0, 4)].transform.position, transform.rotation);
             timeSinceLastDurable = Time.time;
         }
 
         if (Time.time > fastEnemySpawn + timeSinceLastFast && spawningOnOff) {
-            Instantiate(fastEnemy, lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+            Instantiate(fastEnemy, lanes[Random.Range(0, 4)].transform.position, transform.rotation);
             timeSinceLastFast = Time.time;
         }
 

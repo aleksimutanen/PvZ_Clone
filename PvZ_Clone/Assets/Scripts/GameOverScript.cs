@@ -17,9 +17,16 @@ public class GameOverScript : MonoBehaviour {
 		
 	}
 
+    //void OnCollisionEnter(Collision collision) {
+    //    if (collision.gameObject == basicEnemy || durableEnemy || fastEnemy) {
+    //        print("gameover");
+    //        gm.GameOver();
+    //    }
+    //}
+
     void OnTriggerEnter(Collider other) {
-        if(other == basicEnemy || durableEnemy || fastEnemy) {
-            print("gamover");
+        if (other == basicEnemy || durableEnemy || fastEnemy) {
+            print("gameover");
             gm.GameOver();
         }
     }

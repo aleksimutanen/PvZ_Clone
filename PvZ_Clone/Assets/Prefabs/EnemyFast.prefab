@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: {fileID: 0}
-  healthLeft: 2
+  healthLeft: 10
 --- !u!114 &114677449562113370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,3 +139,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 0.5
   enemy: {fileID: 1291704373786314}
+  damagePerSecond: 1

@@ -40,8 +40,6 @@ public class BuyableItems : MonoBehaviour {
         }
     }
 	void Update () {
-<<<<<<< HEAD
-=======
         if (nowplacing != Bugtype.None) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -56,7 +54,6 @@ public class BuyableItems : MonoBehaviour {
             }
 
         }
->>>>>>> 1c72120c0ee464861812a280f1572c3f297c0e75
 		
 	}
 }

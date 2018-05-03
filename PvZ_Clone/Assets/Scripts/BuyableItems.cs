@@ -32,11 +32,7 @@ public class BuyableItems : MonoBehaviour {
                     ghostbugs[i].SetActive(true);
                 }
                 else ghostbugs[i].SetActive(false);
-                
             }
-            // muutetaan kursori placing cursoriin tms.
-            //print("jejj");
-           
         }
     }
 	void Update () {
@@ -50,6 +46,12 @@ public class BuyableItems : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.Mouse0)) {
                     var go = Instantiate(bugPrefabs[index]);
                     go.transform.position = snapped;
+                    if (Input.GetKeyDown(KeyCode.Mouse1)) {
+                        // unplace selection
+                        print("buu");
+                        nowplacing = Bugtype.None;
+                        // not working atm...
+                    }
                 }
             }
 

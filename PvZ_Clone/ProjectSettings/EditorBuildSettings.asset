@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MenuScene.unity
+    path: Assets/Scenes/Niko_MenuScene.unity
     guid: 79cf3266bd6734742b19a9e984131503
   - enabled: 1
-    path: Assets/Scenes/DevScene.unity
-    guid: 113e749f70d37e64e9988ad06105ca24
+    path: Assets/Scenes/Niko_devscene.unity
+    guid: a7ad430acd20c034a991d9dc573b9117

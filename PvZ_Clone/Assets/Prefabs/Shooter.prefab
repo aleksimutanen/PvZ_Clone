@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1327774715066794}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -3.2272115, y: -0.33990502, z: -0.5382425}
+  m_LocalPosition: {x: -4.14, y: -2.05, z: -0.8}
   m_LocalScale: {x: 0.6073545, y: 0.6073545, z: 0.6073545}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,6 +56,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -94,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.3636502, y: 1.0709623, z: 1.5043033}
+  m_Center: {x: -0.024645088, y: 0.03548116, z: -0.0035757124}
 --- !u!114 &114035308097569554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4097ed98338977145a4e0329e62af9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bugHealth: 3
   ammo: {fileID: 1829026726394728, guid: 503de0f0808db1743a7aabc58f620f69, type: 2}
   firingspeed: 5
   maxRaycastDistance: 1

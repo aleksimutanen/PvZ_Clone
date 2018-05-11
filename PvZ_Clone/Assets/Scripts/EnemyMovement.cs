@@ -6,10 +6,22 @@ public enum EnemyState { Walking, Eating };
 
 public class EnemyMovement : MonoBehaviour {
 
-    public float movespeed = 1f;
+    float stateSpeed;
+    public float movespeed;
     public GameObject enemy;
     public float damagePerSecond;
     EnemyState state;
+    Obstacle o;
+
+    void Start() {
+        o = GetComponent<Obstacle>();    
+    }
+
+    public void SetEnemyState(EnemyState newState) {
+        EnemyStatusEnd(state);
+        EnemyStatusStart(newState);
+        state = newState;
+    }
 
     void EnemyStatusStart(EnemyState starting) {
         if (starting == EnemyState.Eating) {
@@ -19,7 +31,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void EnemyStatusEnd(EnemyState ending) {
         if (ending == EnemyState.Eating) {
-            movespeed = 1f;
+            movespeed = 0.2f;
         }
     }
 
@@ -37,19 +49,33 @@ public class EnemyMovement : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         //movespeed = 0f;
+        print("stop");
         state = EnemyState.Eating;
         EnemyStatusStart(state);
         var b = other.GetComponent<Bug>();
         if (b != null) {
-            b.TakeDamage(Time.deltaTime * damagePerSecond);
-        } 
-    }
+            bool dead = b.TakeDamage(Time.deltaTime * damagePerSecond);
+            if (dead) {
+                print("bug died");
+                state = EnemyState.Eating;
+                EnemyStatusEnd(state);
+            }
 
-    private void OnTriggerExit(Collider other) {
-        print("exit");
-        state = EnemyState.Walking;
-        EnemyStatusEnd(state);
-    }
+            //if (b == null) {
+            //    print("keep walking");  
+            //    state = EnemyState.Walking;
+            //    EnemyStatusEnd(state);
+        }
+        //o.Moving();
+        }
+
+    //private void OnTriggerExit(Collider other) {
+    //    print("exit");
+    //    state = EnemyState.Walking;
+    //    EnemyStatusEnd(state);
+    //}
 }
+
+
 
 

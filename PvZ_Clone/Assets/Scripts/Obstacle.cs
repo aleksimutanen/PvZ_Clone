@@ -9,6 +9,10 @@ public class Obstacle : MonoBehaviour, Bug {
 	void Start () {
 
 	}
+
+    //public void Moving() {
+    //    movespeed = 1f;
+    //}
 	
 	//void Update () {
  //       if(wallHealth < 0) {

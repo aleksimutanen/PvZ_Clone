@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeaShooter : MonoBehaviour {
+public class PeaShooter : MonoBehaviour, Bug {
 
+    public float bugHealth;
     public GameObject ammo;
     public float firingspeed;
     float lastShot = 0f;
@@ -22,5 +23,14 @@ public class PeaShooter : MonoBehaviour {
                 lastShot = Time.time;
             }
         }
+    }
+
+    public bool TakeDamage(float damage) {
+        bugHealth -= damage;
+        if (bugHealth < 0) {
+            Destroy(gameObject);
+            return true;
+        }
+        return false;
     }
 }

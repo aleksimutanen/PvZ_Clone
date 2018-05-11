@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     public GameObject basicEnemy;
     public GameObject durableEnemy;
     public GameObject fastEnemy;
+    public GameObject PauseMenu;
 
     public float roundTimer = 60f;
 
@@ -45,13 +46,15 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    bool togglePause() {
+    public bool togglePause() {
 
         if (Time.timeScale == 0f) {
             Time.timeScale = 1f;
+            PauseMenu.SetActive(false);
             return (false);
         } else {
             Time.timeScale = 0f;
+            PauseMenu.SetActive(true);
             return (true);
         }
     }

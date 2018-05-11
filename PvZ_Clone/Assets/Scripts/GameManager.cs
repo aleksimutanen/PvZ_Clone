@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 
     GameObject[] lanes;
 
+    public Transform enemyFolder;
+
     public GameObject recourcePrefab;
     public GameObject basicEnemy;
     public GameObject durableEnemy;
@@ -86,23 +88,38 @@ public class GameManager : MonoBehaviour {
             timeSinceLastRecource = Time.time;
         }
 
-        if (Time.time > basicEnemySpawn + timeSinceLastBasic && spawningOnOff) {
-            Instantiate(basicEnemy, lanes[Random.Range(0, 4)].transform.position, transform.rotation);
-            timeSinceLastBasic = Time.time;
-        }
+        EnemySpawn(basicEnemySpawn, ref timeSinceLastBasic, basicEnemy);
+        EnemySpawn(durableEnemySpawn, ref timeSinceLastDurable, durableEnemy);
+        EnemySpawn(fastEnemySpawn, ref timeSinceLastFast, fastEnemy);
 
-        if (Time.time > durableEnemySpawn + timeSinceLastDurable && spawningOnOff) {
-            Instantiate(durableEnemy, lanes[Random.Range(0, 4)].transform.position, transform.rotation);
-            timeSinceLastDurable = Time.time;
-        }
+        //if (Time.time > basicEnemySpawn + timeSinceLastBasic && spawningOnOff) {
+        //    GameObject go = Instantiate(basicEnemy, lanes[Random.Range(0, 4)].transform.position, transform.rotation);
+        //    go.transform.parent = enemyFolder;
+        //    timeSinceLastBasic = Time.time;
+        //}
 
-        if (Time.time > fastEnemySpawn + timeSinceLastFast && spawningOnOff) {
-            Instantiate(fastEnemy, lanes[Random.Range(0, 4)].transform.position, transform.rotation);
-            timeSinceLastFast = Time.time;
-        }
+        //if (Time.time > durableEnemySpawn + timeSinceLastDurable && spawningOnOff) {
+        //    GameObject go = Instantiate(durableEnemy, lanes[Random.Range(0, 4)].transform.position, transform.rotation);
+        //    go.transform.parent = enemyFolder;
+        //    timeSinceLastDurable = Time.time;
+        //}
 
-        if (roundTimer < 30f) {
-            Wave();
+        //if (Time.time > fastEnemySpawn + timeSinceLastFast && spawningOnOff) {
+        //    GameObject go = Instantiate(fastEnemy, lanes[Random.Range(0, 4)].transform.position, transform.rotation);
+        //    go.transform.parent = enemyFolder;
+        //    timeSinceLastFast = Time.time;
+        //}
+
+        //if (roundTimer < 30f) {
+        //    Wave();
+        //}
+    }
+
+    void EnemySpawn(float x, ref float y, GameObject enemy) {
+        if (Time.time > x + y && spawningOnOff) {
+            GameObject go = Instantiate(enemy, lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+            go.transform.parent = enemyFolder;
+            y = Time.time;
         }
     }
 

@@ -41,17 +41,20 @@ public class BuyableItems : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground)) {
                 int index = (int)nowplacing - 1;
-                var snapped = new Vector3(Mathf.Round(hit.point.x), 0, Mathf.Round(hit.point.z));
+                var snapped = new Vector3(Mathf.Round(hit.point.x), Mathf.Round(hit.point.y), -0.44f);
                 ghostbugs[index].transform.position = snapped;
                 if (Input.GetKeyDown(KeyCode.Mouse0)) {
                     var go = Instantiate(bugPrefabs[index]);
                     go.transform.position = snapped;
-                    if (Input.GetKeyDown(KeyCode.Mouse1)) {
-                        // unplace selection
-                        print("buu");
-                        nowplacing = Bugtype.None;
-                        // not working atm...
-                    }
+                    ghostbugs[index].SetActive(false);
+                    nowplacing = Bugtype.None;
+                }
+                else if (Input.GetKeyDown(KeyCode.Mouse1)) {
+                    // unplace selection
+                    ghostbugs[index].SetActive(false);
+                    nowplacing = Bugtype.None;
+                    print("buu");
+                    // not working atm...
                 }
             }
 

@@ -11,8 +11,10 @@ public class BuyableItems : MonoBehaviour {
     public List<GameObject> ghostbugs;
     public LayerMask ground;
     public List<GameObject> bugPrefabs;
-
     public GameObject peashooter;
+
+    private GameManager gm;
+    
     // nappia klikkaamalla tietää että raahaa tiettyä itemiä
 
    public void BuyBasicshooter() {
@@ -35,7 +37,11 @@ public class BuyableItems : MonoBehaviour {
             }
         }
     }
-	void Update () {
+
+     void Start() {
+        gm = GameObject.FindObjectOfType<GameManager>();
+    }
+    void Update () {
         if (nowplacing != Bugtype.None) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -48,6 +54,8 @@ public class BuyableItems : MonoBehaviour {
                     go.transform.position = snapped;
                     ghostbugs[index].SetActive(false);
                     nowplacing = Bugtype.None;
+                    gm.recourceAmount -= 25f;
+                    print("cost 25 resource");
                 }
                 else if (Input.GetKeyDown(KeyCode.Mouse1)) {
                     // unplace selection

@@ -1905,6 +1905,16 @@ Prefab:
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 744731224}
+    - target: {fileID: 114727462363990186, guid: 9477c60f307e71f419b3cbeb98d1c557,
+        type: 2}
+      propertyPath: resourceSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114727462363990186, guid: 9477c60f307e71f419b3cbeb98d1c557,
+        type: 2}
+      propertyPath: resourceText
+      value: 
+      objectReference: {fileID: 1671836771}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9477c60f307e71f419b3cbeb98d1c557, type: 2}
   m_IsPrefabParent: 0
@@ -2084,6 +2094,8 @@ MonoBehaviour:
   m_Text: 'Resource
 
     Amount:
+
+    0
 
 '
 --- !u!222 &1671836772

@@ -18,15 +18,18 @@ public class BuyableItems : MonoBehaviour {
     // nappia klikkaamalla tietää että raahaa tiettyä itemiä
 
    public void BuyBasicshooter() {
-        Buy(Bugtype.Basicshooter);
+        if (gm.resourceAmount >= 25f) {
+            Buy(Bugtype.Basicshooter);
+        }
     }
 
     public void BuyGenerator() {
-        Buy(Bugtype.Generator);
+        if (gm.resourceAmount >= 50) {
+            Buy(Bugtype.Generator);
+        }
     }
 
     void Buy(Bugtype b) {
-       {
             nowplacing = b;
             int index = (int)b - 1;
             for (int i = 0; i < ghostbugs.Count; i++) {
@@ -34,13 +37,13 @@ public class BuyableItems : MonoBehaviour {
                     ghostbugs[i].SetActive(true);
                 }
                 else ghostbugs[i].SetActive(false);
-            }
         }
     }
 
      void Start() {
         gm = GameObject.FindObjectOfType<GameManager>();
     }
+
     void Update () {
         if (nowplacing != Bugtype.None) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -54,7 +57,8 @@ public class BuyableItems : MonoBehaviour {
                     go.transform.position = snapped;
                     ghostbugs[index].SetActive(false);
                     nowplacing = Bugtype.None;
-                    gm.recourceAmount -= 25f;
+                    gm.resourceAmount -= 25f;
+                    gm.UpdateResourceAmountText();
                     print("cost 25 resource");
                 }
                 else if (Input.GetKeyDown(KeyCode.Mouse1)) {

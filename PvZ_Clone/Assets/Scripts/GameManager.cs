@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -19,11 +20,13 @@ public class GameManager : MonoBehaviour {
     public float[] lastEnemySpawn;
     public GameObject[] enemies;
 
-    public float recourceAmount = 0f;
-    public float recourceSpawn;
-    float timeSinceLastRecource = 0f;
+    public float resourceAmount = 0f;
+    public float resourceSpawn;
+    float timeSinceLastResource = 0f;
 
     bool spawningOnOff = true;
+
+    public Text resourceText;
 
     bool paused = false;
 
@@ -53,6 +56,17 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    void ResourceClick() {
+        print("recource hit");
+        resourceAmount += 25f;
+        UpdateResourceAmountText();
+        print(resourceAmount);
+    }
+
+    public void UpdateResourceAmountText() {
+        resourceText.text = "Resource\nAmount: \n" + resourceAmount; 
+    }
+
     void Update() {
 
         roundTimer -= Time.deltaTime;
@@ -66,18 +80,16 @@ public class GameManager : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, recource)) {
-                print("recource hit");
-                recourceAmount += 25f;
-                print(recourceAmount);
+                ResourceClick();
                 Destroy(hit.transform.gameObject);
             }
         }
 
         Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0);
 
-        if (Time.time > recourceSpawn + timeSinceLastRecource && spawningOnOff) {
+        if (Time.time > resourceSpawn + timeSinceLastResource && spawningOnOff) {
             Instantiate(recourcePrefab, transform.position + X, transform.rotation);
-            timeSinceLastRecource = Time.time;
+            timeSinceLastResource = Time.time;
         }
 
         EnemySpawn();

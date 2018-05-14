@@ -50,7 +50,7 @@ public class BuyableItems : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground)) {
                 int index = (int)nowplacing - 1;
-                var snapped = new Vector3(Mathf.Round(hit.point.x), Mathf.Round(hit.point.y), -0.44f);
+                var snapped = new Vector3(Mathf.Round(hit.point.x), Mathf.Round(hit.point.y), -0.8f);
                 ghostbugs[index].transform.position = snapped;
                 if (Input.GetKeyDown(KeyCode.Mouse0)) {
                     var go = Instantiate(bugPrefabs[index]);

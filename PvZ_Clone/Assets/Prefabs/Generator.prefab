@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1342199253558912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.02, y: -1.01, z: -0.67}
+  m_LocalPosition: {x: -1.57, y: -1.01, z: -0.67}
   m_LocalScale: {x: 0.41387147, y: 0.41387144, z: 0.41387144}
   m_Children:
   - {fileID: 4890609544533400}
@@ -85,6 +85,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9849426d3b3e00542a1cff722b77d3d0, type: 2}
   m_StaticBatchInfo:
@@ -120,11 +121,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1342199253558912}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6015764, y: 1.2005253, z: 1}
+  m_Center: {x: -0.005897796, y: -0.01769339, z: 0}
 --- !u!114 &114169093292062708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,5 +140,6 @@ MonoBehaviour:
   recourcePrefab: {fileID: 1064180727709360, guid: 3d0e2e617dc9d5b47b9f71d3a80b0887,
     type: 2}
   recourceAmount: 0
-  recourceSpawn: 5
+  recourceSpawn: 23
   dropPosition: {fileID: 4890609544533400}
+  bugHealth: 3

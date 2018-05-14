@@ -12,7 +12,6 @@ public class PeaShooter : MonoBehaviour, Bug {
     public LayerMask enemyLayer;
 
     void Start() {
-
     }
 
     void Update() {

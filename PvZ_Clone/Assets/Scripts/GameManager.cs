@@ -9,12 +9,15 @@ public class GameManager : MonoBehaviour {
 
     GameObject[] lanes;
 
-    public Transform enemySpawnFolder;
+    public ScriptableObjectClass waveData;
+    List<GameObject[]> waves;
+
+    public Transform spawnFolder;
 
     public GameObject recourcePrefab;
     public GameObject PauseMenu;
 
-    public float roundOverallTimer = 60f;
+    public float levelCountDown = 10f;
     public float roundTimer = 60f;
 
     public float[] enemySpawnInterval;
@@ -22,20 +25,29 @@ public class GameManager : MonoBehaviour {
     public GameObject[] enemies;
 
     public float resourceAmount = 0f;
-    public float resourceSpawn;
+    public float resourceSpawnInterval;
     float timeSinceLastResource = 0f;
 
-    float waveDelay = 10f;
+    public int waveEnemies;
     public int levelEnemyPool;
     int killableEnemiesLeft;
-    bool spawningOnOff = true;
+    bool spawningOnOff;
 
     public Text resourceText;
 
     bool paused = false;
 
     void Start() {
+        spawningOnOff = false;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
+        //waves = new List<GameObject[]>();
+        //waves.Add(waveData.Wave1);
+        //waves.Add(waveData.Wave2);
+        //waves.Add(waveData.Wave3);
+        //levelEnemyPool = 0;
+        //foreach (var wave in waves) {
+        //    levelEnemyPool += wave.Length;
+        //}
     }
 
     void OnGUI() {
@@ -73,7 +85,12 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
 
+        levelCountDown -= Time.deltaTime;
         roundTimer -= Time.deltaTime;
+
+        if (levelCountDown <= 0) {
+            spawningOnOff = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             paused = togglePause();
@@ -89,27 +106,27 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0);
+        Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2f, 2f), 0);
 
-        if (Time.time > resourceSpawn + timeSinceLastResource && spawningOnOff) {
-            Instantiate(recourcePrefab, transform.position + X, transform.rotation);
+        if (Time.time > resourceSpawnInterval + timeSinceLastResource) {
+            GameObject go = Instantiate(recourcePrefab, transform.position + X, transform.rotation);
+            go.transform.parent = spawnFolder;
             timeSinceLastResource = Time.time;
         }
 
         EnemySpawn();
 
-        //if (roundTimer < roundOverallTimer / 2) {
-        //    Wave();
-        //    spawningOnOff = false;
-        //}
+        if (roundTimer < 10f) {
+            //Wave();
+        }
     }
 
     void EnemySpawn() {
-        if (levelEnemyPool != 0) {
+        if (levelEnemyPool >= 0) {
             for (int i = 0; i < enemySpawnInterval.Length; i++) {
                 if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && spawningOnOff) {
                     GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
-                    go.transform.parent = enemySpawnFolder;
+                    go.transform.parent = spawnFolder;
                     killableEnemiesLeft++;
                     levelEnemyPool--;
                     lastEnemySpawn[i] = Time.time;
@@ -120,13 +137,13 @@ public class GameManager : MonoBehaviour {
 
     public void EnemyKilled() {
         killableEnemiesLeft--;
-        if (levelEnemyPool == 0 && killableEnemiesLeft == 0) {
+        if (levelEnemyPool <= 0 && killableEnemiesLeft <= 0) {
             LevelComplete();
         }
     }
 
     void LevelComplete() {
-        print("oot vitun mestari");
+        print("oot mestari");
         Time.timeScale = 0f;
     }
 
@@ -135,20 +152,31 @@ public class GameManager : MonoBehaviour {
     }
 
     //void Wave() {
+    //    for (int i = 0; i < waveData.lvl1_Wave.Length; i++) {
+    //        GameObject go = Instantiate(waveData.lvl1_Wave[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+    //        go.transform.parent = spawnFolder;
+    //        killableEnemiesLeft++;
+    //        levelEnemyPool--;
+    //        //Instantiate(waveData.lvl1_Wave[i]);
+    //    }
+    //}
+
+    //void Wave() {
     //    print("wave");
     //    spawningOnOff = false;
     //    waveDelay -= Time.deltaTime;
-    //    int waveEnemies = 10;
-    //    if (waveDelay < 0 && waveEnemies != 0) {
+    //    waveEnemies = 10;
+    //    if (waveEnemies >= 0) {
     //        for (int i = 0; i < enemySpawnInterval.Length; i++) {
-    //            GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
-    //            go.transform.parent = enemySpawnFolder;
-    //            killableEnemiesLeft++;
-    //            waveEnemies--;
-    //            levelEnemyPool--;
-    //            lastEnemySpawn[i] = Time.time;
-    //            if (waveEnemies == 0) {
-    //                spawningOnOff = true;
+    //            if (waveDelay < 0) {
+    //                GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+    //                go.transform.parent = enemySpawnFolder;
+    //                killableEnemiesLeft++;
+    //                waveEnemies--;
+    //                levelEnemyPool--;
+    //                //if (waveEnemies == 0) {
+    //                //    spawningOnOff = true;
+    //                //}
     //            }
     //        }
     //    }

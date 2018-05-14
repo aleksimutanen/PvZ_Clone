@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lane
+  - SpawnFolders
   layers:
   - Default
   - TransparentFX

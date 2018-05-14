@@ -58,6 +58,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 2f8fb90ee310a8d4aa4c6d90a0cd944d, type: 2}
   m_StaticBatchInfo:
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: {fileID: 0}
-  healthLeft: 10
+  healthLeft: 3
 --- !u!114 &114504126440115162
 MonoBehaviour:
   m_ObjectHideFlags: 1

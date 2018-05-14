@@ -54,15 +54,14 @@ MonoBehaviour:
   recource:
     serializedVersion: 2
     m_Bits: 256
+  enemySpawnFolder: {fileID: 0}
   recourcePrefab: {fileID: 1064180727709360, guid: 3d0e2e617dc9d5b47b9f71d3a80b0887,
     type: 2}
-  basicEnemy: {fileID: 1326102619074756, guid: 4b4e3d00881ad314c99efed220473ef3, type: 2}
-  durableEnemy: {fileID: 1065129760730974, guid: 78184d7750809804b936926a31bf1083,
-    type: 2}
-  fastEnemy: {fileID: 1291704373786314, guid: f72979b99594e464abce4db594636058, type: 2}
+  PauseMenu: {fileID: 0}
   roundTimer: 80
-  recourceAmount: 0
-  recourceSpawn: 5
-  basicEnemySpawn: 10
-  durableEnemySpawn: 15
-  fastEnemySpawn: 20
+  enemySpawnInterval: []
+  lastEnemySpawn: []
+  enemies: []
+  resourceAmount: 0
+  resourceSpawn: 5
+  resourceText: {fileID: 0}

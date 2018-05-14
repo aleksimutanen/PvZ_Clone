@@ -6,14 +6,16 @@ public class EnemyHit : MonoBehaviour {
 
     public GameObject ammo;
     public int healthLeft;
+    GameManager gm;
 
     void Start() {
-
+        gm = FindObjectOfType<GameManager>();
     }
 
     void Update() {
         if (healthLeft == 0) {
             Destroy(gameObject);
+            gm.EnemyKilled();
         }
 
     }

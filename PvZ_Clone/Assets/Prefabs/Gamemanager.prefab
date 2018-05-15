@@ -54,12 +54,11 @@ MonoBehaviour:
   recource:
     serializedVersion: 2
     m_Bits: 256
-  waveData: {fileID: 11400000, guid: 56e3bdf967e1ad54cb5d4b24aa4f2a38, type: 2}
   spawnFolder: {fileID: 0}
   recourcePrefab: {fileID: 1064180727709360, guid: 3d0e2e617dc9d5b47b9f71d3a80b0887,
     type: 2}
   PauseMenu: {fileID: 0}
-  levelCountDown: 15
+  roundOverallTimer: 60
   roundTimer: 300
   enemySpawnInterval:
   - 10
@@ -74,7 +73,8 @@ MonoBehaviour:
   - {fileID: 1065129760730974, guid: 78184d7750809804b936926a31bf1083, type: 2}
   - {fileID: 1291704373786314, guid: f72979b99594e464abce4db594636058, type: 2}
   resourceAmount: 0
-  resourceSpawnInterval: 5
-  waveEnemies: 0
+  resourceSpawn: 5
   levelEnemyPool: 100
   resourceText: {fileID: 0}
+  countdownText: {fileID: 0}
+  leveloverview: {fileID: 0}

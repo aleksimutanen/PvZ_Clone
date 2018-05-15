@@ -77,6 +77,7 @@ public class BuyableItems : MonoBehaviour {
                     //bs.fillamount = 1f;
                     var go = Instantiate(bugPrefabs[index]);
                     go.transform.position = snapped;
+                    go.transform.parent = gm.spawnFolder;
                     ghostbugs[index].SetActive(false);
                     if (nowplacing == Bugtype.Basicshooter) {
                         gm.resourceAmount -= 25f;

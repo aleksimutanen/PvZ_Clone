@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 
     GameObject[] lanes;
 
-    public Transform enemySpawnFolder;
+    public Transform spawnFolder;
 
     public GameObject recourcePrefab;
     public GameObject PauseMenu;
@@ -126,7 +126,8 @@ public class GameManager : MonoBehaviour {
         Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0);
 
         if (Time.time > resourceSpawn + timeSinceLastResource && spawningOnOff) {
-            Instantiate(recourcePrefab, transform.position + X, transform.rotation);
+            GameObject go = Instantiate(recourcePrefab, transform.position + X, transform.rotation);
+            go.transform.parent = spawnFolder;
             timeSinceLastResource = Time.time;
         }
 
@@ -143,7 +144,7 @@ public class GameManager : MonoBehaviour {
             for (int i = 0; i < enemySpawnInterval.Length; i++) {
                 if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && spawningOnOff) {
                     GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
-                    go.transform.parent = enemySpawnFolder;
+                    go.transform.parent = spawnFolder;
                     killableEnemiesLeft++;
                     levelEnemyPool--;
                     lastEnemySpawn[i] = Time.time;

@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1aa25d1738ab44c8579bb239f4b342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 0.3
+  movespeed: 0.15
   enemy: {fileID: 1065129760730974}
   damagePerSecond: 1
 --- !u!114 &114892728289852146

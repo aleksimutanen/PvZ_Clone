@@ -10,16 +10,18 @@ public class PeaShooter : MonoBehaviour, Bug {
     float lastShot = 0f;
     public float maxRaycastDistance = 1f;
     public LayerMask enemyLayer;
+    GameManager gm;
 
     void Start() {
-
+        gm = GameObject.FindObjectOfType<GameManager>();
     }
 
     void Update() {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, enemyLayer)) {
             if (Time.time > firingspeed + lastShot) {
-                Instantiate(ammo, transform.position, transform.rotation);
+                GameObject go = Instantiate(ammo, transform.position, transform.rotation);
+                go.transform.parent = gm.spawnFolder;
                 lastShot = Time.time;
             }
         }

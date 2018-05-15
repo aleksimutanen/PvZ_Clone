@@ -11,13 +11,11 @@ public class EnemyMovement : MonoBehaviour {
     public GameObject enemy;
     public float damagePerSecond;
     EnemyState state;
-    Obstacle o;
 
     void Start() {
-        o = GetComponent<Obstacle>();    
     }
 
-    public void SetEnemyState(EnemyState newState) {
+    void SetEnemyState(EnemyState newState) {
         EnemyStatusEnd(state);
         EnemyStatusStart(newState);
         state = newState;
@@ -31,15 +29,15 @@ public class EnemyMovement : MonoBehaviour {
 
     void EnemyStatusEnd(EnemyState ending) {
         if (ending == EnemyState.Eating) {
-            movespeed = 0.2f;
+            movespeed = 0.15f;
         }
     }
 
     void Update() {
         transform.Translate(0, 0, -1 * (movespeed * Time.deltaTime));
-        if (gameObject.name == "EnemyFast") {
-            movespeed = 2f;
-        }
+        //if (gameObject.name == "EnemyFast") {
+        //    movespeed = 2f;
+        //}
     }
 
     private void OnTriggerEnter(Collider other) {

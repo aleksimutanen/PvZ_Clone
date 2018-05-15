@@ -10,15 +10,17 @@ public class Generator : MonoBehaviour, Bug {
     float timeSinceLastRecource = 0f;
     public Transform dropPosition;
     public float bugHealth;
+    GameManager gm;
 
     void Start() {
-
+        gm = GameObject.FindObjectOfType<GameManager>();
     }
 
     void Update() {
 
         if (Time.time > recourceSpawn + timeSinceLastRecource) {
-            Instantiate(recourcePrefab, dropPosition.transform.position, transform.rotation);
+            GameObject go = Instantiate(recourcePrefab, dropPosition.transform.position, transform.rotation);
+            go.transform.parent = gm.spawnFolder;
             timeSinceLastRecource = Time.time;
         }
     }

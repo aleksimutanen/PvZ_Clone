@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour {
 
     GameObject[] lanes;
 
-    public ScriptableObjectClass waveData;
+    public ScriptableObjectClass levelData;
     List<GameObject[]> waves;
 
     public Transform spawnFolder;
@@ -114,14 +115,14 @@ public class GameManager : MonoBehaviour {
             timeSinceLastResource = Time.time;
         }
 
-        EnemySpawn();
+        EnemySpawn(levelData.enemySpawnInterval, ref levelData.lastEnemySpawn , levelData.level1);
 
         if (roundTimer < 10f) {
             //Wave();
         }
     }
 
-    void EnemySpawn() {
+    void EnemySpawn(float []enemySpawnInterval, ref float []lastEnemySpawn, GameObject []enemies) {
         if (levelEnemyPool >= 0) {
             for (int i = 0; i < enemySpawnInterval.Length; i++) {
                 if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && spawningOnOff) {
@@ -134,6 +135,20 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
+
+    //void EnemySpawn() {
+    //    if (levelEnemyPool >= 0) {
+    //        for (int i = 0; i < enemySpawnInterval.Length; i++) {
+    //            if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && spawningOnOff) {
+    //                GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+    //                go.transform.parent = spawnFolder;
+    //                killableEnemiesLeft++;
+    //                levelEnemyPool--;
+    //                lastEnemySpawn[i] = Time.time;
+    //            }
+    //        }
+    //    }
+    //}
 
     public void EnemyKilled() {
         killableEnemiesLeft--;
@@ -150,6 +165,11 @@ public class GameManager : MonoBehaviour {
     public void GameOver() {
         Time.timeScale = 0f;
     }
+
+    //void Level1() {
+    //    SceneManager.LoadScene(1);
+    //    EnemySpawn(float enemySpawnInterval, ref float lastEnemySpawn, GameObject enemy);
+    //}
 
     //void Wave() {
     //    for (int i = 0; i < waveData.lvl1_Wave.Length; i++) {

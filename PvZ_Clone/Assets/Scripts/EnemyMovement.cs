@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour {
     void Start() {
     }
 
-    public void SetEnemyState(EnemyState newState) {
+    void SetEnemyState(EnemyState newState) {
         EnemyStatusEnd(state);
         EnemyStatusStart(newState);
         state = newState;

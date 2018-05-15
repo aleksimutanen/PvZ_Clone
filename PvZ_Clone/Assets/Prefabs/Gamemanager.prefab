@@ -57,11 +57,14 @@ MonoBehaviour:
   enemySpawnFolder: {fileID: 0}
   recourcePrefab: {fileID: 1064180727709360, guid: 3d0e2e617dc9d5b47b9f71d3a80b0887,
     type: 2}
-  PauseMenu: {fileID: 0}
+  PauseMenu: {fileID: 1517700275086512, guid: f3edf05dc090ace4482ebb5f13dcffe5, type: 2}
+  roundOverallTimer: 60
   roundTimer: 80
   enemySpawnInterval: []
   lastEnemySpawn: []
   enemies: []
-  resourceAmount: 0
+  resourceAmount: 500
   resourceSpawn: 5
-  resourceText: {fileID: 0}
+  levelEnemyPool: 0
+  resourceText: {fileID: 114001728762628488, guid: 0e24862a6db6baa44bc8f7770bf8e912,
+    type: 2}

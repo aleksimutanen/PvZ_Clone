@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GameManager : MonoBehaviour {
 
     public LayerMask recource;
@@ -31,11 +32,44 @@ public class GameManager : MonoBehaviour {
     bool spawningOnOff = true;
 
     public Text resourceText;
+    public Text countdownText;
+    public Animator leveloverview;
 
     bool paused = false;
+    int countdownCounter = 3;
 
     void Start() {
         lanes = GameObject.FindGameObjectsWithTag("Lane");
+        AtGameStart();
+    }
+
+    void ShowCountdown() {
+        if (countdownCounter <= 3) {
+            countdownText.text = ("3");
+        }
+        if (countdownCounter <= 2) {
+            countdownText.text = ("2");
+        }
+        if (countdownCounter <= 1) {
+            countdownText.text = ("1");
+        }
+        if (countdownCounter == 0) {
+            countdownText.text = ("GO!");
+        }
+        if (countdownCounter < 0) {
+            countdownText.text = ("");
+        }
+        countdownCounter--;
+    }
+
+    void AtGameStart() {
+        Invoke("ShowCountdown", 7f);
+        Invoke("ShowCountdown", 8f);
+        Invoke("ShowCountdown", 9f);
+        Invoke("ShowCountdown", 10f);
+        Invoke("ShowCountdown", 11.5f);
+
+        leveloverview.Play("LevelOverview");
     }
 
     void OnGUI() {
@@ -128,6 +162,7 @@ public class GameManager : MonoBehaviour {
     void LevelComplete() {
         print("oot vitun mestari");
         Time.timeScale = 0f;
+
     }
 
     public void GameOver() {

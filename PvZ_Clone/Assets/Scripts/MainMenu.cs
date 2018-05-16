@@ -18,4 +18,14 @@ public class MainMenu : MonoBehaviour {
         print("next level load");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
+
+    public void RetryLevel() {
+        print("retrylvl");
+        // lataa sama lvl uudestaan
+    }
+
+    public void ResumeGame() {
+        print("palaa pelaamaan");
+        // palaa takaisin peliin
+    }
 }

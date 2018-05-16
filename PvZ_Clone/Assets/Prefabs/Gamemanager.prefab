@@ -51,13 +51,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7941cfb69e74eed408c37a5453c77c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recource:
+  levelData: {fileID: 11400000, guid: 56e3bdf967e1ad54cb5d4b24aa4f2a38, type: 2}
+  resource:
     serializedVersion: 2
     m_Bits: 256
+  newAnt:
+    serializedVersion: 2
+    m_Bits: 2048
   spawnFolder: {fileID: 0}
-  recourcePrefab: {fileID: 1064180727709360, guid: 3d0e2e617dc9d5b47b9f71d3a80b0887,
+  resourcePrefab: {fileID: 1064180727709360, guid: 3d0e2e617dc9d5b47b9f71d3a80b0887,
     type: 2}
   PauseMenu: {fileID: 0}
+  newAntCardPrefab: {fileID: 1519052631182312, guid: cd21560117601d844bb113f5030a19f8,
+    type: 2}
+  newAntScreen: {fileID: 0}
   roundOverallTimer: 60
   roundTimer: 300
   enemySpawnInterval:
@@ -74,7 +81,8 @@ MonoBehaviour:
   - {fileID: 1291704373786314, guid: f72979b99594e464abce4db594636058, type: 2}
   resourceAmount: 0
   resourceSpawn: 5
-  levelEnemyPool: 100
+  levelEnemyPool: 3
   resourceText: {fileID: 0}
   countdownText: {fileID: 0}
   leveloverview: {fileID: 0}
+  buildPanel: {fileID: 0}

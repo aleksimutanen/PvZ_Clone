@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
     public Text resourceText;
     public Text countdownText;
     public Animator leveloverview;
+    public GameObject buildPanel;
 
     bool paused = false;
     int countdownCounter = 3;
@@ -52,11 +53,13 @@ public class GameManager : MonoBehaviour {
     void StartPauseOff() {
         paused = false;
     }
+    void ShowBuildPanel() {
+        buildPanel.SetActive(true);
+    }
 
     void Start() {
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         AtGameStart();
-
     }
 
     void ShowCountdown() {
@@ -80,7 +83,9 @@ public class GameManager : MonoBehaviour {
 
     void AtGameStart() {
         paused = true;
+
         Invoke("ShowCountdown", 7f);
+        Invoke("ShowBuildPanel", 7f);
         Invoke("ShowCountdown", 8f);
         Invoke("ShowCountdown", 9f);
         Invoke("ShowCountdown", 10f);
@@ -163,7 +168,7 @@ public class GameManager : MonoBehaviour {
             timeSinceLastResource = Time.time;
         }
 
-        EnemySpawn(levelData.enemySpawnInterval, ref levelData.lastEnemySpawn, levelData.levelEnemies, levelData.levelPool);
+        EnemySpawn(levelData.enemySpawnInterval, ref lastEnemySpawn, levelData.levelEnemies);
 
         //if (roundTimer < roundOverallTimer / 2) {
         //    Wave();
@@ -171,14 +176,14 @@ public class GameManager : MonoBehaviour {
         //}
     }
 
-    public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies, int levelPool) {
-        if (levelEnemyPool >= 0) {
+    public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies) {
+        if (levelEnemyPool != 0) {
             for (int i = 0; i < enemySpawnInterval.Length; i++) {
                 if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && spawningOnOff) {
                     GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
                     go.transform.parent = spawnFolder;
                     killableEnemiesLeft++;
-                    levelPool--;
+                    levelEnemyPool--;
                     lastEnemySpawn[i] = Time.time;
                 }
             }

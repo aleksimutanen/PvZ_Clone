@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Inventory/List", order = 1)]
+[CreateAssetMenu(fileName = "Leveldata", menuName = "Leveldata", order = 1)]
 public class ScriptableObjectClass : ScriptableObject {
 
     public float[] enemySpawnInterval;
     public float[] lastEnemySpawn;
-
-    public GameObject[] level1;
-    public int level1Pool;
+    public int levelPool;
+    public GameObject[] levelEnemies;
 
     public GameObject[] Wave1;
     public GameObject[] Wave2;

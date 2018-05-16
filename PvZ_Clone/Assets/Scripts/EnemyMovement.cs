@@ -4,13 +4,14 @@ using UnityEngine;
 
 public enum EnemyState { Walking, Eating };
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyMovement : MonoBehaviour, Bot {
 
     float stateSpeed;
     public float movespeed;
     public GameObject enemy;
     public float damagePerSecond;
     EnemyState state;
+    public float botHealth;
 
     void Start() {
     }
@@ -39,11 +40,10 @@ public class EnemyMovement : MonoBehaviour {
         //    movespeed = 2f;
         //}
     }
-
-    private void OnTriggerEnter(Collider other) {
-        //animaatiojotain
-        //movespeed = 0f;
-    }
+    //private void OnTriggerEnter(Collider other) {
+    //    //animaatiojotain
+    //    //movespeed = 0f;
+    //}
 
     private void OnTriggerStay(Collider other) {
         //movespeed = 0f;
@@ -66,6 +66,31 @@ public class EnemyMovement : MonoBehaviour {
         }
         //o.Moving();
         }
+
+    public bool TakeDamage(float damage) {
+        botHealth -= damage;
+        if (botHealth <= 0) {
+            Destroy(gameObject);
+            return true;
+        } else {
+            state = EnemyState.Eating;
+            EnemyStatusEnd(state);
+        }
+        return false;
+        //if (botHealth > 0) {
+        //    state = EnemyState.Walking;
+        //    EnemyStatusStart(state);
+        //}
+
+        //public bool TakeDamage(float damage) {
+        //    bugHealth -= damage;
+        //    if (bugHealth <= 0) {
+        //        Destroy(gameObject);
+        //        return true;
+        //    }
+        //    return false;
+        //}
+    }
 
     //private void OnTriggerExit(Collider other) {
     //    print("exit");

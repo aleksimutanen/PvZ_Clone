@@ -29,7 +29,7 @@ public class PeaShooter : MonoBehaviour, Bug {
 
     public bool TakeDamage(float damage) {
         bugHealth -= damage;
-        if (bugHealth < 0) {
+        if (bugHealth <= 0) {
             Destroy(gameObject);
             return true;
         }

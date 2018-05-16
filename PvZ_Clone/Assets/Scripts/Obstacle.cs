@@ -28,7 +28,7 @@ public class Obstacle : MonoBehaviour, Bug {
     //returns true if bug dies
     public bool TakeDamage(float damage) {
         bugHealth -= damage;
-        if (bugHealth < 0) {
+        if (bugHealth <= 0) {
             Destroy(gameObject);
             return true;
         }

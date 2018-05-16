@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoNiko : MonoBehaviour {
+
+    public float ammoDamage = 1f;
     public float ammospeed;
     public float ammoDuration;
     public GameObject recource;
@@ -23,7 +25,9 @@ public class AmmoNiko : MonoBehaviour {
     //}
     // this is for without rigidbody
 
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(Collider other) {
+        var b = other.GetComponent<Bot>();
+        b.TakeDamage(ammoDamage);
             print("ammo hit");
             Destroy(gameObject);
         }

@@ -6,13 +6,17 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+    Levels lvl;
+
+    public ScriptableObjectClass levelData;
+
     public LayerMask recource;
 
     GameObject[] lanes;
 
     public Transform spawnFolder;
 
-    public GameObject recourcePrefab;
+    public GameObject resourcePrefab;
     public GameObject PauseMenu;
 
     public float roundOverallTimer = 60f;
@@ -95,7 +99,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void ResourceClick() {
-        print("recource hit");
+        print("resource hit");
         resourceAmount += 25f;
         UpdateResourceAmountText();
         print(resourceAmount);
@@ -123,35 +127,45 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0);
+        Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2f, 2f), 0);
 
         if (Time.time > resourceSpawn + timeSinceLastResource && spawningOnOff) {
-            GameObject go = Instantiate(recourcePrefab, transform.position + X, transform.rotation);
+            GameObject go = Instantiate(resourcePrefab, transform.position + X, transform.rotation);
             go.transform.parent = spawnFolder;
             timeSinceLastResource = Time.time;
         }
 
-        EnemySpawn();
+        EnemySpawn(levelData.enemySpawnInterval, ref levelData.lastEnemySpawn, levelData.levelEnemies, levelData.levelPool);
 
-        //if (roundTimer < roundOverallTimer / 2) {
-        //    Wave();
-        //    spawningOnOff = false;
-        //}
     }
 
-    void EnemySpawn() {
-        if (levelEnemyPool != 0) {
+    public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies, int levelPool) {
+        if (levelPool >= 0) {
             for (int i = 0; i < enemySpawnInterval.Length; i++) {
                 if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && spawningOnOff) {
                     GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
                     go.transform.parent = spawnFolder;
                     killableEnemiesLeft++;
-                    levelEnemyPool--;
+                    levelPool--;
                     lastEnemySpawn[i] = Time.time;
                 }
             }
         }
     }
+
+    //void EnemySpawn() {
+    //    if (levelEnemyPool != 0) {
+    //        for (int i = 0; i < enemySpawnInterval.Length; i++) {
+    //            if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && spawningOnOff) {
+    //                GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+    //                go.transform.parent = spawnFolder;
+    //                killableEnemiesLeft++;
+    //                levelEnemyPool--;
+    //                lastEnemySpawn[i] = Time.time;
+    //            }
+    //        }
+    //    }
+    //}
 
     public void EnemyKilled() {
         killableEnemiesLeft--;

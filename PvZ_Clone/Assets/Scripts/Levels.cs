@@ -6,26 +6,30 @@ public enum LevelSelected { Menu, Level1, Level2, Level3 };
 
 public class Levels : MonoBehaviour {
 
+    ScriptableObjectClass levelData;
+    GameManager gm;
 
-    LevelSelected level;
+    public LevelSelected level;
 
 	void Start () {
-        level = LevelSelected.Menu;
+        level = LevelSelected.Level1;
         LevelSelectedStart(level);
+        gm = GameObject.FindObjectOfType<GameManager>();
     }
 
-    void SetLevelNumber(LevelSelected newLevel) {
+    public void SetLevelNumber(LevelSelected newLevel) {
         LevelSelectedEnd(level);
         LevelSelectedStart(newLevel);
         level = newLevel;
     }
 
-    void LevelSelectedStart(LevelSelected starting) {
-        if (starting != LevelSelected.Menu) {
+    public void LevelSelectedStart(LevelSelected starting) {
+        if (starting == LevelSelected.Level1) {
+
         }
     }
 
-    void LevelSelectedEnd(LevelSelected ending) {
+    public void LevelSelectedEnd(LevelSelected ending) {
         if (ending == LevelSelected.Menu) {
         }
     }

@@ -9,8 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65b188344c10d1849aea5ee664a763e5, type: 3}
-  m_Name: Data
+  m_Name: Leveldata2
   m_EditorClassIdentifier: 
+  enemySpawnInterval: []
+  lastEnemySpawn: []
+  level1: []
+  level1Pool: 0
   Wave1: []
   Wave2: []
   Wave3: []

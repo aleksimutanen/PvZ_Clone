@@ -60,6 +60,9 @@ public class BuyableItems : MonoBehaviour {
     }
 
     void Update() {
+        if (gm.Paused())
+            return;
+
         for (int i = 0; i < bugCooldownTimers.Count; i++) {
             bugCooldownTimers[i] -= Time.deltaTime;
         }

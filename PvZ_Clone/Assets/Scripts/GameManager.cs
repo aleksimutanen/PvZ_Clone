@@ -6,14 +6,19 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-    public LayerMask recource;
+    public ScriptableObjectClass levelData;
+
+    public LayerMask resource;
+    public LayerMask newAnt;
 
     GameObject[] lanes;
 
     public Transform spawnFolder;
 
-    public GameObject recourcePrefab;
+    public GameObject resourcePrefab;
     public GameObject PauseMenu;
+    public GameObject newAntCardPrefab;
+    public GameObject newAntScreen;
 
     public float roundOverallTimer = 60f;
     public float roundTimer = 60f;
@@ -38,9 +43,20 @@ public class GameManager : MonoBehaviour {
     bool paused = false;
     int countdownCounter = 3;
 
+    GameObject le;
+
+    public bool Paused() {
+        return paused;
+    }
+
+    void StartPauseOff() {
+        paused = false;
+    }
+
     void Start() {
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         AtGameStart();
+
     }
 
     void ShowCountdown() {
@@ -63,10 +79,12 @@ public class GameManager : MonoBehaviour {
     }
 
     void AtGameStart() {
+        paused = true;
         Invoke("ShowCountdown", 7f);
         Invoke("ShowCountdown", 8f);
         Invoke("ShowCountdown", 9f);
         Invoke("ShowCountdown", 10f);
+        Invoke("StartPauseOff", 11.5f);
         Invoke("ShowCountdown", 11.5f);
 
         leveloverview.Play("LevelOverview");
@@ -76,12 +94,12 @@ public class GameManager : MonoBehaviour {
 
         if (paused) {
             if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
-                paused = togglePause();
+                paused = TogglePaused();
             }
         }
     }
 
-    public bool togglePause() {
+    public bool TogglePaused() {
 
         if (Time.timeScale == 0f) {
             Time.timeScale = 1f;
@@ -95,10 +113,15 @@ public class GameManager : MonoBehaviour {
     }
 
     void ResourceClick() {
-        print("recource hit");
+        print("resource hit");
         resourceAmount += 25f;
         UpdateResourceAmountText();
         print(resourceAmount);
+    }
+    void NewAntClick() {
+        print("New Ant");
+        newAntScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void UpdateResourceAmountText() {
@@ -107,31 +130,40 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
 
-        roundTimer -= Time.deltaTime;
-
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            paused = togglePause();
+            paused = TogglePaused();
         }
+
+        if (paused)
+            return;
+
+        le = GameObject.FindGameObjectWithTag("Enemy");
+        roundTimer -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, recource)) {
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, resource)) {
                 ResourceClick();
+                Destroy(hit.transform.gameObject);
+            }
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, newAnt)) {
+                NewAntClick();
                 Destroy(hit.transform.gameObject);
             }
         }
 
-        Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0);
+        Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2f, 2f), 0);
+
 
         if (Time.time > resourceSpawn + timeSinceLastResource && spawningOnOff) {
-            GameObject go = Instantiate(recourcePrefab, transform.position + X, transform.rotation);
+            GameObject go = Instantiate(resourcePrefab, transform.position + X, transform.rotation);
             go.transform.parent = spawnFolder;
             timeSinceLastResource = Time.time;
         }
 
-        EnemySpawn();
+        EnemySpawn(levelData.enemySpawnInterval, ref levelData.lastEnemySpawn, levelData.levelEnemies, levelData.levelPool);
 
         //if (roundTimer < roundOverallTimer / 2) {
         //    Wave();
@@ -139,14 +171,14 @@ public class GameManager : MonoBehaviour {
         //}
     }
 
-    void EnemySpawn() {
-        if (levelEnemyPool != 0) {
+    public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies, int levelPool) {
+        if (levelEnemyPool >= 0) {
             for (int i = 0; i < enemySpawnInterval.Length; i++) {
                 if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && spawningOnOff) {
                     GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
                     go.transform.parent = spawnFolder;
                     killableEnemiesLeft++;
-                    levelEnemyPool--;
+                    levelPool--;
                     lastEnemySpawn[i] = Time.time;
                 }
             }
@@ -155,15 +187,18 @@ public class GameManager : MonoBehaviour {
 
     public void EnemyKilled() {
         killableEnemiesLeft--;
-        if (levelEnemyPool == 0 && killableEnemiesLeft == 0) {
-            LevelComplete();
+        //if (levelEnemyPool == 0 && killableEnemiesLeft == 0) {
+        //    LevelComplete();
+        //}
+        if (killableEnemiesLeft == 0) {
+            Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
         }
     }
 
     void LevelComplete() {
         print("oot vitun mestari");
         Time.timeScale = 0f;
-
+        
     }
 
     public void GameOver() {

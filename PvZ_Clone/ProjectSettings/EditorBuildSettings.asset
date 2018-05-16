@@ -11,3 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Niko_devscene.unity
     guid: a7ad430acd20c034a991d9dc573b9117
+  - enabled: 1
+    path: Assets/Scenes/Kemi_devscene.unity
+    guid: 71c5742daa8464f4f9dcc9c08b82d9fa
+  m_configObjects: {}

@@ -13,4 +13,9 @@ public class MainMenu : MonoBehaviour {
         print("Goodbye!");
         Application.Quit();
     }
+
+    public void NextLevel() {
+        print("next level load");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+    }
 }

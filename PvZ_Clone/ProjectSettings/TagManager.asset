@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lane
   - LevelOverviewCamera
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Recource
   - Enemy
   - ground
-  - 
+  - NewAnt
   - 
   - 
   - 

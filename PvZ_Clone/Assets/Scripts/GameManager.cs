@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
     float timeSinceLastResource = 0f;
 
     float waveDelay = 10f;
+    public int waveEnemies;
     public int levelEnemyPool;
     public int killableEnemiesLeft;
 
@@ -169,66 +170,67 @@ public class GameManager : MonoBehaviour {
             timeSinceLastResource = Time.time;
         }
 
+        EnemySpawn(levelData.enemySpawnInterval, ref lastEnemySpawn, levelData.levelEnemies);
+
         //if (roundStartDelay < 0) {
-            EnemySpawn(levelData.enemySpawnInterval, ref lastEnemySpawn, levelData.levelEnemies);
-        //}
-        //if (roundTimer < roundOverallTimer / 2) {
-        //    Wave();
-        //    spawningOnOff = false;
+        //if (levelEnemyPool < waveEnemies) {
+        //    waveDelay -= Time.deltaTime;
+        //    enemySpawningOnOff = false;
+        //    if (waveDelay < 0) {
+        //        Wave();
+        //        //}
+        //        //if (roundTimer < roundOverallTimer / 2) {
+        //        //    Wave();
+        //        //    spawningOnOff = false;
+        //        //}
+        //    }
         //}
     }
 
-    public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies) {
-        if (levelEnemyPool != 0) {
-            for (int i = 0; i < enemySpawnInterval.Length; i++) {
-                if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && enemySpawningOnOff) {
-                    GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
-                    go.transform.parent = spawnFolder;
-                    killableEnemiesLeft++;
-                    levelEnemyPool--;
-                    lastEnemySpawn[i] = Time.time;
+        public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies) {
+            if (levelEnemyPool != 0) {
+                for (int i = 0; i < enemySpawnInterval.Length; i++) {
+                    if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && enemySpawningOnOff) {
+                        GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+                        go.transform.parent = spawnFolder;
+                        killableEnemiesLeft++;
+                        levelEnemyPool--;
+                        lastEnemySpawn[i] = Time.time;
+                    }
                 }
             }
         }
-    }
 
-    public void EnemyKilled() {
-        killableEnemiesLeft--;
-        if (killableEnemiesLeft == 0 && levelEnemyPool == 0) {
-            //resourceSpawnOnOff = false;
-            Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
-            LevelComplete();
+        public void EnemyKilled() {
+            killableEnemiesLeft--;
+            if (killableEnemiesLeft == 0 && levelEnemyPool == 0) {
+                //resourceSpawnOnOff = false;
+                Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
+                LevelComplete();
+            }
         }
-    }
 
-    void LevelComplete() {
-        print("oot vitun mestari");
-        Time.timeScale = 0f;
-        
-    }
+        void LevelComplete() {
+            print("oot vitun mestari");
+            Time.timeScale = 0f;
 
-    public void GameOver() {
-        Time.timeScale = 0f;
-    }
+        }
+
+        public void GameOver() {
+            Time.timeScale = 0f;
+        }
 
     //void Wave() {
-    //    print("wave");
-    //    spawningOnOff = false;
-    //    waveDelay -= Time.deltaTime;
-    //    int waveEnemies = 10;
-    //    if (waveDelay < 0 && waveEnemies != 0) {
+    //    if (levelEnemyPool != 0) {
     //        for (int i = 0; i < enemySpawnInterval.Length; i++) {
     //            GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
-    //            go.transform.parent = enemySpawnFolder;
+    //            go.transform.parent = spawnFolder;
     //            killableEnemiesLeft++;
-    //            waveEnemies--;
     //            levelEnemyPool--;
     //            lastEnemySpawn[i] = Time.time;
-    //            if (waveEnemies == 0) {
-    //                spawningOnOff = true;
-    //            }
     //        }
     //    }
     //}
 }
+
 

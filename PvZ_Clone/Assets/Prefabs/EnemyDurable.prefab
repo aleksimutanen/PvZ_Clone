@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 65418995883477800}
   - component: {fileID: 23830339623822532}
   - component: {fileID: 114396304938593530}
-  - component: {fileID: 114892728289852146}
   - component: {fileID: 54995374203945286}
   m_Layer: 9
   m_Name: EnemyDurable
@@ -128,16 +127,4 @@ MonoBehaviour:
   movespeed: 0.15
   enemy: {fileID: 1065129760730974}
   damagePerSecond: 1
---- !u!114 &114892728289852146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1065129760730974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab3df65673139f4f878a39398e77f83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: {fileID: 0}
-  healthLeft: 3
+  botHealth: 2

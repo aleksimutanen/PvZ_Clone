@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Bugtype {None, Basicshooter, Generator, Block}
+public enum Bugtype {None, Basicshooter, Generator, Block, Mine}
 
 public class BuyableItems : MonoBehaviour {
 
@@ -31,7 +31,7 @@ public class BuyableItems : MonoBehaviour {
     }
 
    public void BuyBasicshooter() {
-        if (gm.resourceAmount >= 25f /*&& bs.fillAmount <=0f*/) {
+        if (gm.resourceAmount >= 100f /*&& bs.fillAmount <=0f*/) {
             Buy(Bugtype.Basicshooter);
         }
     }
@@ -39,6 +39,18 @@ public class BuyableItems : MonoBehaviour {
     public void BuyGenerator() {
         if (gm.resourceAmount >= 50f /*&& bs.fillAmount <= 0f*/) {
             Buy(Bugtype.Generator);
+        }
+    }
+
+    public void BuyBlock() {
+        if (gm.resourceAmount >= 50f) {
+            Buy(Bugtype.Block);
+        }
+    }
+
+    public void BuyMine() {
+        if (gm.resourceAmount >= 25f) {
+            Buy(Bugtype.Mine);
         }
     }
 
@@ -83,15 +95,27 @@ public class BuyableItems : MonoBehaviour {
                     go.transform.parent = gm.spawnFolder;
                     ghostbugs[index].SetActive(false);
                     if (nowplacing == Bugtype.Basicshooter) {
-                        gm.resourceAmount -= 25f;
+                        gm.resourceAmount -= 100f;
                         gm.UpdateResourceAmountText();
-                        print("cost 25 resource");
+                        print("cost 100 resource");
                         nowplacing = Bugtype.None;
                     }
                     if (nowplacing == Bugtype.Generator) {
                         gm.resourceAmount -= 50f;
                         gm.UpdateResourceAmountText();
                         print("cost 50 resource");
+                        nowplacing = Bugtype.None;
+                    }
+                    if (nowplacing == Bugtype.Block) {
+                        gm.resourceAmount -= 50f;
+                        gm.UpdateResourceAmountText();
+                        print("cost 50 resource");
+                        nowplacing = Bugtype.None;
+                    }
+                    if (nowplacing == Bugtype.Mine) {
+                        gm.resourceAmount -= 25f;
+                        gm.UpdateResourceAmountText();
+                        print("cost 25 resource");
                         nowplacing = Bugtype.None;
                     }
                     bugCooldownTimers[index] = bugCooldowns[index];
@@ -101,7 +125,6 @@ public class BuyableItems : MonoBehaviour {
                     // unplace selection
                     ghostbugs[index].SetActive(false);
                     nowplacing = Bugtype.None;
-                    print("buu");
                 }
             }
 

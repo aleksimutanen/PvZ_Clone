@@ -17,6 +17,7 @@ public class PeaShooter : MonoBehaviour, Bug {
     }
 
     void Update() {
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, enemyLayer)) {
             if (Time.time > firingspeed + lastShot) {

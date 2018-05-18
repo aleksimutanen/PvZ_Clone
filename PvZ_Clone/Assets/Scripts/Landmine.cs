@@ -9,11 +9,13 @@ public class Landmine : MonoBehaviour, Bug {
     public float givenDamage;
     int enemyLayer;
     public float bugHealth;
+    GameManager gm;
 
     // Use this for initialization
     void Start() {
         willExplode = false;
         enemyLayer = LayerMask.NameToLayer("Enemy");
+        gm.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -31,8 +33,11 @@ public class Landmine : MonoBehaviour, Bug {
             // other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             print ("explosion");
             var b = other.GetComponent<Bot>();
-            b.TakeDamage(givenDamage);
-            Destroy(gameObject);
+            bool dead = b.TakeDamage(givenDamage);
+            if (dead) {
+                Destroy(gameObject);
+                gm.EnemyKilled();
+            }
     }
 }
     public bool TakeDamage(float damage) {

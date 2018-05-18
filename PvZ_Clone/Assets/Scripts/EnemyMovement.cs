@@ -12,8 +12,10 @@ public class EnemyMovement : MonoBehaviour, Bot {
     public float damagePerSecond;
     EnemyState state;
     public float botHealth;
+    GameManager gm;
 
     void Start() {
+        gm = gameObject.GetComponent<GameManager>();
     }
 
     void SetEnemyState(EnemyState newState) {
@@ -71,6 +73,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
         botHealth -= damage;
         if (botHealth <= 0) {
             Destroy(gameObject);
+            gm.EnemyKilled();
             return true;
         } else {
             state = EnemyState.Eating;

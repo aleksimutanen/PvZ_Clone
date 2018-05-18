@@ -1406,6 +1406,9 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 1024
+  bug:
+    serializedVersion: 2
+    m_Bits: 4096
   bugPrefabs:
   - {fileID: 1327774715066794, guid: 6781affdaea52504c8cfbcfe89c78471, type: 2}
   - {fileID: 1342199253558912, guid: 7ebe174324ac1cb4fbe3781ea0863029, type: 2}

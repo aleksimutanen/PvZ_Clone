@@ -26,8 +26,8 @@ public class AmmoNiko : MonoBehaviour {
     //}
     // this is for without rigidbody
 
-    void OnCollisionEnter(Collider other) {
-        var b = other.GetComponent<Bot>();
+    void OnCollisionEnter(Collision collision) {
+        var b = collision.gameObject.GetComponent<Bot>();
         b.TakeDamage(ammoDamage);
             print("ammo hit");
             Destroy(gameObject);

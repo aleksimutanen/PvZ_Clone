@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
 
     float waveDelay = 10f;
     public int levelEnemyPool;
-    int killableEnemiesLeft;
+    public int killableEnemiesLeft;
     bool spawningOnOff = true;
 
     public Text resourceText;
@@ -195,7 +195,7 @@ public class GameManager : MonoBehaviour {
         //if (levelEnemyPool == 0 && killableEnemiesLeft == 0) {
         //    LevelComplete();
         //}
-        if (killableEnemiesLeft == 0) {
+        if (killableEnemiesLeft == 0 && levelEnemyPool == 0) {
             Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
         }
     }

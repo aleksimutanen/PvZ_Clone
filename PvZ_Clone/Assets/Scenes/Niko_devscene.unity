@@ -776,11 +776,6 @@ Prefab:
       propertyPath: buildPanel
       value: 
       objectReference: {fileID: 190518413}
-    - target: {fileID: 114727462363990186, guid: 9477c60f307e71f419b3cbeb98d1c557,
-        type: 2}
-      propertyPath: resourceAmount
-      value: 300
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9477c60f307e71f419b3cbeb98d1c557, type: 2}
   m_IsPrefabParent: 0
@@ -1027,6 +1022,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1327774715066794, guid: 8d73114471a2ad64286dd0c6fc7171a4, type: 2}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65240446634179150, guid: 8d73114471a2ad64286dd0c6fc7171a4,
+        type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

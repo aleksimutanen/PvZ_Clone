@@ -9,14 +9,10 @@ public class AmmoNiko : MonoBehaviour {
     public float ammoDuration;
     public GameObject recource;
 
-
-    void Start() {
-    }
-
     void Update() {
         transform.Translate(0, 0, ammospeed * Time.deltaTime);
         ammoDuration -= Time.deltaTime;
-        if (ammoDuration < 0) {
+        if(ammoDuration < 0) {
             Destroy(gameObject);
         }
     }
@@ -32,18 +28,9 @@ public class AmmoNiko : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         var b = collision.gameObject.GetComponent<Bot>();
-            b.TakeDamage(ammoDamage);
+        b.TakeDamage(ammoDamage);
             print("ammo hit");
             Destroy(gameObject);
         }
     }
-
-
-//void OnCollisionEnter(Collider other) {
-//        var b = other.GetComponent<Bot>();
-//        b.TakeDamage(ammoDamage);
-//            print("ammo hit");
-//            Destroy(gameObject);
-//        }
-//    }
 

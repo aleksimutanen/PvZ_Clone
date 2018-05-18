@@ -21,7 +21,6 @@ public class AoEShooter : MonoBehaviour {
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, enemyLayer)) {
-            print("enemy spotted!!");
             hitPoint = hit.point.x;
             middlePoint = (transform.position.x + hit.point.x) / 2;
             if (Time.time > firingspeed + lastShot) {

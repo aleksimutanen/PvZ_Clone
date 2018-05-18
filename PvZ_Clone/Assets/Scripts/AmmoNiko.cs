@@ -20,6 +20,7 @@ public class AmmoNiko : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+   
 
     //private void OnTriggerEnter(Collider other) {
     //    if (other.gameObject == !recource) {

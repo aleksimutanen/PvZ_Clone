@@ -11,10 +11,12 @@ public class BarScript : MonoBehaviour {
 
     BuyableItems bi;
     Button button;
+    GameManager gm;
 
     private void Start() {
         bi = FindObjectOfType<BuyableItems>();
         button = GetComponent<Button>();
+        gm = GetComponent<GameManager>();
     }
     
     private void Update() {
@@ -28,6 +30,10 @@ public class BarScript : MonoBehaviour {
 
         generatorContent.fillAmount = bi.CooldownPercentLeft((int)bug);
 
+        
+        // TODO
+        // gm resourceAmount pitää olla kans vähintään ostohinta
+        // jos amount ei ole tarpeeks = button harmaa
     }
 
     //public void CooldownTime () {

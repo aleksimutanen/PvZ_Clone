@@ -228,8 +228,8 @@ public class GameManager : MonoBehaviour {
         }
 
     void Wave() {
-        if (levelEnemyPool > 0) {
-            for (int i = 0; i < enemySpawnInterval.Length; i++) {
+        for (int i = 0; i < enemySpawnInterval.Length; i++) {
+            if (levelEnemyPool != 0) {
                 GameObject go = Instantiate(levelData.levelEnemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
                 go.transform.parent = spawnFolder;
                 killableEnemiesLeft++;

@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour {
 
     GameObject le;
 
+    public Vector3 targetPos;
+
+
     public bool Paused() {
         return paused;
     }
@@ -137,6 +140,8 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
 
+        targetPos = new Vector3(Random.Range(-3f, 3f), Random.Range(0f, -3f), 0);
+
         if (Input.GetKeyDown(KeyCode.Escape)) {
             paused = TogglePaused();
         }
@@ -161,11 +166,10 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2f, 2f), 0);
-
+        Vector3 spawnPoint = new Vector3(0, 5, 0);
 
         if (Time.time > resourceSpawn + timeSinceLastResource && resourceSpawnOnOff) {
-            GameObject go = Instantiate(resourcePrefab, transform.position + X, transform.rotation);
+            GameObject go = Instantiate(resourcePrefab, transform.position + targetPos + spawnPoint, transform.rotation);
             go.transform.parent = spawnFolder;
             timeSinceLastResource = Time.time;
         }

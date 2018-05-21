@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour {
     void Start() {
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         AtGameStart();
+        
     }
 
     void ShowCountdown() {
@@ -128,10 +129,10 @@ public class GameManager : MonoBehaviour {
         UpdateResourceAmountText();
         print(resourceAmount);
     }
-    void NewAntClick() {
+    public void NewAntClick() {
         print("New Ant");
         newAntScreen.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void UpdateResourceAmountText() {
@@ -216,9 +217,9 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        void LevelComplete() {
+        public void LevelComplete() {
             print("oot vitun mestari");
-            Time.timeScale = 0f;
+            resourceSpawnOnOff = false;
 
         }
 

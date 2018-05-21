@@ -172,36 +172,38 @@ public class GameManager : MonoBehaviour {
 
         EnemySpawn(levelData.enemySpawnInterval, ref lastEnemySpawn, levelData.levelEnemies);
 
-        //if (roundStartDelay < 0) {
-        //if (levelEnemyPool < waveEnemies) {
-        //    waveDelay -= Time.deltaTime;
-        //    enemySpawningOnOff = false;
-        //    if (waveDelay < 0) {
-        //        Wave();
-        //        //}
-        //        //if (roundTimer < roundOverallTimer / 2) {
-        //        //    Wave();
-        //        //    spawningOnOff = false;
-        //        //}
-        //    }
-        //}
+        if (roundStartDelay < 0) {
+            if (levelEnemyPool < waveEnemies) {
+                waveDelay -= Time.deltaTime;
+                enemySpawningOnOff = false;
+                if (waveDelay < 0) {
+                    Wave();
+                }
+                //        //if (roundTimer < roundOverallTimer / 2) {
+                //        //    Wave();
+                //        //    spawningOnOff = false;
+                //        //}
+                //    }
+                //}
+            }
+        }
     }
 
-        public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies) {
-            if (levelEnemyPool != 0) {
-                for (int i = 0; i < enemySpawnInterval.Length; i++) {
-                    if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && enemySpawningOnOff) {
-                        GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
-                        go.transform.parent = spawnFolder;
-                        killableEnemiesLeft++;
-                        levelEnemyPool--;
-                        lastEnemySpawn[i] = Time.time;
-                    }
+    public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies) {
+        if (levelEnemyPool != 0) {
+            for (int i = 0; i < enemySpawnInterval.Length; i++) {
+                if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && enemySpawningOnOff) {
+                    GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+                    go.transform.parent = spawnFolder;
+                    killableEnemiesLeft++;
+                    levelEnemyPool--;
+                    lastEnemySpawn[i] = Time.time;
                 }
             }
         }
+    }
 
-        public void EnemyKilled() {
+    public void EnemyKilled() {
             killableEnemiesLeft--;
             if (killableEnemiesLeft == 0 && levelEnemyPool == 0) {
                 //resourceSpawnOnOff = false;
@@ -220,17 +222,17 @@ public class GameManager : MonoBehaviour {
             Time.timeScale = 0f;
         }
 
-    //void Wave() {
-    //    if (levelEnemyPool != 0) {
-    //        for (int i = 0; i < enemySpawnInterval.Length; i++) {
-    //            GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
-    //            go.transform.parent = spawnFolder;
-    //            killableEnemiesLeft++;
-    //            levelEnemyPool--;
-    //            lastEnemySpawn[i] = Time.time;
-    //        }
-    //    }
-    //}
+    void Wave() {
+        if (levelEnemyPool > 0) {
+            for (int i = 0; i < enemySpawnInterval.Length; i++) {
+                GameObject go = Instantiate(levelData.levelEnemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+                go.transform.parent = spawnFolder;
+                killableEnemiesLeft++;
+                levelEnemyPool--;
+                lastEnemySpawn[i] = Time.time;
+            }
+        }
+    }
 }
 
 

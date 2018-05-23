@@ -39,14 +39,13 @@ public class EnemyMovement : MonoBehaviour, Bot {
     void Update() {
         transform.Translate(0, 0, -1 * (movespeed * Time.deltaTime));
         }
-    
+
     //private void OnTriggerEnter(Collider other) {
     //    //animaatiojotain
     //    //movespeed = 0f;
     //}
 
     private void OnTriggerStay(Collider other) {
-        //movespeed = 0f;
         print("stop");
         state = EnemyState.Eating;
         EnemyStatusStart(state);
@@ -58,14 +57,8 @@ public class EnemyMovement : MonoBehaviour, Bot {
                 state = EnemyState.Eating;
                 EnemyStatusEnd(state);
             }
-
-            //if (b == null) {
-            //    print("keep walking");  
-            //    state = EnemyState.Walking;
-            //    EnemyStatusEnd(state);
         }
-        //o.Moving();
-        }
+    }
 
     public bool TakeDamage(float damage) {
         botHealth -= damage;
@@ -78,26 +71,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
             EnemyStatusEnd(state);
         }
         return false;
-        //if (botHealth > 0) {
-        //    state = EnemyState.Walking;
-        //    EnemyStatusStart(state);
-        //}
-
-        //public bool TakeDamage(float damage) {
-        //    bugHealth -= damage;
-        //    if (bugHealth <= 0) {
-        //        Destroy(gameObject);
-        //        return true;
-        //    }
-        //    return false;
-        //}
     }
-
-    //private void OnTriggerExit(Collider other) {
-    //    print("exit");
-    //    state = EnemyState.Walking;
-    //    EnemyStatusEnd(state);
-    //}
 }
 
 

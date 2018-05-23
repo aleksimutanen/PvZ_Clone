@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugHealth: 3
   ammo: {fileID: 1829026726394728, guid: 503de0f0808db1743a7aabc58f620f69, type: 2}
-  firingspeed: 5
+  firingspeed: 2
   maxRaycastDistance: 1
   enemyLayer:
     serializedVersion: 2

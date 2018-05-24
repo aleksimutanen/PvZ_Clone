@@ -10,7 +10,8 @@ public class AmmoNiko : MonoBehaviour {
     public GameObject recource;
 
     void Update() {
-        transform.Translate(0, 0, ammospeed * Time.deltaTime);
+        //transform.Translate(0, 0, ammospeed * Time.deltaTime);
+        transform.position += Vector3.right * ammospeed * Time.deltaTime;
         ammoDuration -= Time.deltaTime;
         if(ammoDuration < 0) {
             Destroy(gameObject);

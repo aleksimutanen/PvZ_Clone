@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void UpdateResourceAmountText() {
-        resourceText.text = "Resource\nAmount: \n" + resourceAmount;
+        resourceText.text = ""+ resourceAmount;
     }
 
     void Update() {

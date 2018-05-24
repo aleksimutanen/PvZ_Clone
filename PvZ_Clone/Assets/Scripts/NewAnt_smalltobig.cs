@@ -10,7 +10,7 @@ public class NewAnt_smalltobig : MonoBehaviour {
     }
     void FixedUpdate() {
         if (transform.localScale.x < 1f)
-       transform.localScale += new Vector3(0.4f, 0.4f, 0.4f) * Time.deltaTime;
+       transform.localScale += new Vector3(0.8f, 0.8f, 0.8f) * Time.deltaTime;
         
     }
 }

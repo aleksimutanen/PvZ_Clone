@@ -192,18 +192,18 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-
+    
     public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies) {
         if (levelEnemyPool != 0) {
             for (int i = 0; i < enemySpawnInterval.Length; i++) {
                 if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && enemySpawningOnOff) {
-                    GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+                    GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, lanes[0].transform.rotation);
                     go.transform.parent = spawnFolder;
                     killableEnemiesLeft++;
                     levelEnemyPool--;
                     lastEnemySpawn[i] = Time.time;
                 } else if (Time.time > enemySpawnInterval[0] + lastEnemySpawn[0] && basicSpawningOnly) {
-                    GameObject go = Instantiate(enemies[0], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
+                    GameObject go = Instantiate(enemies[0], lanes[Random.Range(0, 5)].transform.position, lanes[0].transform.rotation);
                     go.transform.parent = spawnFolder;
                     killableEnemiesLeft++;
                     levelEnemyPool--;

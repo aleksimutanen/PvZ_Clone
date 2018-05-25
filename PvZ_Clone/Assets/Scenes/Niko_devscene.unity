@@ -391,6 +391,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 226673956}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &284861046
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.09176134
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.31377685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.5507555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: df34789851e28d14683c90e8d065016a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!95 &303189032 stripped
 Animator:
   m_PrefabParentObject: {fileID: 95858480575669726, guid: e290aa90bf824584598083817d5ba7cb,
@@ -711,48 +753,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 595122171}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &608244368
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.09176134
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.31377685
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.5507555
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742718279450066, guid: df34789851e28d14683c90e8d065016a, type: 2}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: df34789851e28d14683c90e8d065016a, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &625839801
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,8 +20,7 @@ public class GameManager : MonoBehaviour {
     public GameObject newAntCardPrefab;
     public GameObject newAntScreen;
 
-    public float roundOverallTimer = 60f;
-    public float roundTimer = 60f;
+    public float roundStartDelay;
 
     public float[] enemySpawnInterval;
     public float[] lastEnemySpawn;
@@ -34,7 +33,9 @@ public class GameManager : MonoBehaviour {
     float waveDelay = 10f;
     public int levelEnemyPool;
     public int killableEnemiesLeft;
-    bool spawningOnOff = true;
+
+    bool resourceSpawnOnOff = true;
+    bool enemySpawningOnOff = true;
 
     public Text resourceText;
     public Text countdownText;
@@ -143,7 +144,7 @@ public class GameManager : MonoBehaviour {
             return;
 
         le = GameObject.FindGameObjectWithTag("Enemy");
-        roundTimer -= Time.deltaTime;
+        roundStartDelay -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             RaycastHit hit;
@@ -162,14 +163,15 @@ public class GameManager : MonoBehaviour {
         Vector3 X = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2f, 2f), 0);
 
 
-        if (Time.time > resourceSpawn + timeSinceLastResource && spawningOnOff) {
+        if (Time.time > resourceSpawn + timeSinceLastResource && resourceSpawnOnOff) {
             GameObject go = Instantiate(resourcePrefab, transform.position + X, transform.rotation);
             go.transform.parent = spawnFolder;
             timeSinceLastResource = Time.time;
         }
 
-        EnemySpawn(levelData.enemySpawnInterval, ref lastEnemySpawn, levelData.levelEnemies);
-
+        //if (roundStartDelay < 0) {
+            EnemySpawn(levelData.enemySpawnInterval, ref lastEnemySpawn, levelData.levelEnemies);
+        //}
         //if (roundTimer < roundOverallTimer / 2) {
         //    Wave();
         //    spawningOnOff = false;
@@ -179,7 +181,7 @@ public class GameManager : MonoBehaviour {
     public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies) {
         if (levelEnemyPool != 0) {
             for (int i = 0; i < enemySpawnInterval.Length; i++) {
-                if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && spawningOnOff) {
+                if (Time.time > enemySpawnInterval[i] + lastEnemySpawn[i] && enemySpawningOnOff) {
                     GameObject go = Instantiate(enemies[i], lanes[Random.Range(0, 5)].transform.position, transform.rotation);
                     go.transform.parent = spawnFolder;
                     killableEnemiesLeft++;
@@ -192,11 +194,10 @@ public class GameManager : MonoBehaviour {
 
     public void EnemyKilled() {
         killableEnemiesLeft--;
-        //if (levelEnemyPool == 0 && killableEnemiesLeft == 0) {
-        //    LevelComplete();
-        //}
         if (killableEnemiesLeft == 0 && levelEnemyPool == 0) {
+            //resourceSpawnOnOff = false;
             Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
+            LevelComplete();
         }
     }
 

@@ -15,7 +15,7 @@ public class Landmine : MonoBehaviour, Bug {
     void Start() {
         willExplode = false;
         enemyLayer = LayerMask.NameToLayer("Enemy");
-        gm.GetComponent<GameManager>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -29,17 +29,16 @@ public class Landmine : MonoBehaviour, Bug {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (willExplode && other.gameObject.layer == enemyLayer){
+        if (willExplode && other.gameObject.layer == enemyLayer) {
             // other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            print ("explosion");
+            print("explosion");
             var b = other.GetComponent<Bot>();
             bool dead = b.TakeDamage(givenDamage);
             if (dead) {
                 Destroy(gameObject);
-                gm.EnemyKilled();
             }
+        }
     }
-}
     public bool TakeDamage(float damage) {
         bugHealth -= damage;
         if (bugHealth <= 0) {

@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 23003634928925952}
   - component: {fileID: 114504126440115162}
   - component: {fileID: 54244419217763868}
-  - component: {fileID: 114836564019388906}
   m_Layer: 9
   m_Name: EnemyBasic
   m_TagString: Enemy
@@ -129,16 +128,3 @@ MonoBehaviour:
   enemy: {fileID: 1326102619074756}
   damagePerSecond: 1
   botHealth: 2
---- !u!114 &114836564019388906
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1326102619074756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab3df65673139f4f878a39398e77f83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: {fileID: 0}
-  healthLeft: 0

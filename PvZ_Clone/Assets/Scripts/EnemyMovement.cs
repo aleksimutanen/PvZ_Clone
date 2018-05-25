@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
     GameManager gm;
 
     void Start() {
-        gm = gameObject.GetComponent<GameManager>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     void SetEnemyState(EnemyState newState) {
@@ -38,10 +38,8 @@ public class EnemyMovement : MonoBehaviour, Bot {
 
     void Update() {
         transform.Translate(0, 0, -1 * (movespeed * Time.deltaTime));
-        //if (gameObject.name == "EnemyFast") {
-        //    movespeed = 2f;
-        //}
-    }
+        }
+    
     //private void OnTriggerEnter(Collider other) {
     //    //animaatiojotain
     //    //movespeed = 0f;
@@ -72,8 +70,8 @@ public class EnemyMovement : MonoBehaviour, Bot {
     public bool TakeDamage(float damage) {
         botHealth -= damage;
         if (botHealth <= 0) {
-            Destroy(gameObject);
             gm.EnemyKilled();
+            Destroy(gameObject);
             return true;
         } else {
             state = EnemyState.Eating;

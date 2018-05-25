@@ -13,6 +13,7 @@ public class BuyableItems : MonoBehaviour {
     Bugtype nowplacing = Bugtype.None;
     public List<GameObject> ghostbugs;
     public LayerMask ground;
+    public LayerMask bug;
     public List<GameObject> bugPrefabs;
 
     private GameManager gm;
@@ -85,7 +86,8 @@ public class BuyableItems : MonoBehaviour {
                 int index = (int)nowplacing - 1;
                 var snapped = new Vector3(Mathf.Round(hit.point.x), Mathf.Round(hit.point.y), -0.8f);
                 ghostbugs[index].transform.position = snapped;
-                if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                Collider[] b /*tai var b*/ = Physics.OverlapSphere(snapped, 0.45f, bug);
+                if (Input.GetKeyDown(KeyCode.Mouse0) && b.Length == 0) {
                     if (!CooldownAvailable(index + 1))
                         Debug.LogError("Tried to place while cooldown not done");
 

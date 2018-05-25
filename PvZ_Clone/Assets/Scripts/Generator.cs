@@ -13,7 +13,7 @@ public class Generator : MonoBehaviour, Bug {
     GameManager gm;
 
     void Start() {
-        gm = GameObject.FindObjectOfType<GameManager>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     void Update() {

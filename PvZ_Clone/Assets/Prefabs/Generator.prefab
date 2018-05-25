@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43554943e20af134eb1d5893e5c20a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recourcePrefab: {fileID: 1064180727709360, guid: 3d0e2e617dc9d5b47b9f71d3a80b0887,
+  recourcePrefab: {fileID: 1064180727709360, guid: d9a21fb59645e1a4fab6f2598458a0ab,
     type: 2}
   recourceAmount: 0
   recourceSpawn: 23

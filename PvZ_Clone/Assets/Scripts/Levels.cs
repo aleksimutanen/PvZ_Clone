@@ -7,14 +7,12 @@ public enum LevelSelected { Menu, Level1, Level2, Level3 };
 public class Levels : MonoBehaviour {
 
     ScriptableObjectClass levelData;
-    GameManager gm;
 
     public LevelSelected level;
 
 	void Start () {
         level = LevelSelected.Level1;
         LevelSelectedStart(level);
-        gm = GameObject.FindObjectOfType<GameManager>();
     }
 
     public void SetLevelNumber(LevelSelected newLevel) {

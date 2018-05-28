@@ -12,18 +12,17 @@ public class AoEShooter : MonoBehaviour {
     GameManager gm;
     public float hitPoint;
     public float middlePoint;
+    public RaycastHit target;
 
     void Start() {
         gm = GameObject.FindObjectOfType<GameManager>();
     }
 
     void Update() {
-        RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, enemyLayer)) {
+        if (Physics.Raycast(transform.position, transform.right, out target, Mathf.Infinity, enemyLayer)) {
             print("enemy spotted!!");
-            hitPoint = hit.point.x;
-            middlePoint = (transform.position.x + hit.point.x) / 2;
+            //middlePoint = (transform.position.x + hit.point.x) / 2;
             if (Time.time > firingspeed + lastShot) {
                 GameObject go = Instantiate(ammo, transform.position, transform.rotation);
                 go.transform.parent = gm.spawnFolder;

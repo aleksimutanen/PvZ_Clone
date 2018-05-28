@@ -10,6 +10,18 @@ public class Landmine : MonoBehaviour, Bug {
     int enemyLayer;
     public float bugHealth;
 
+    public Sprite phase1;
+    public Sprite phase2;
+    public Sprite phase3;
+
+    public GameObject splash;
+
+    SpriteRenderer sr;
+
+    void Awake () {
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
+
     // Use this for initialization
     void Start() {
         willExplode = false;
@@ -20,8 +32,12 @@ public class Landmine : MonoBehaviour, Bug {
     void Update() {
         triggeringTime -= Time.deltaTime;
 
+        if (triggeringTime < 0.5) {
+            sr.sprite = phase2;
+        }
+
         if (triggeringTime < 0) {
-            print("time out");
+            sr.sprite = phase3;
             willExplode = true;
         }
     }
@@ -34,6 +50,8 @@ public class Landmine : MonoBehaviour, Bug {
             bool dead = b.TakeDamage(givenDamage);
             if (dead) {
                 Destroy(gameObject);
+                var go = Instantiate(splash, transform.position, transform.rotation);
+                Destroy(go, 1f);
             }
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyState { Walking, Eating };
+public enum EnemyState { Walking, Eating, Freezed };
 
 public class EnemyMovement : MonoBehaviour, Bot {
 
@@ -10,9 +10,11 @@ public class EnemyMovement : MonoBehaviour, Bot {
     public float movespeed;
     public GameObject enemy;
     public float damagePerSecond;
-    EnemyState state;
+    public EnemyState state;
     public float botHealth;
     GameManager gm;
+    public float freezeTime = 0f;
+    public float freezeTimeout = 3f;
 
     void Start() {
         gm = FindObjectOfType<GameManager>();
@@ -24,14 +26,17 @@ public class EnemyMovement : MonoBehaviour, Bot {
         state = newState;
     }
 
-    void EnemyStatusStart(EnemyState starting) {
+    public void EnemyStatusStart(EnemyState starting) {
         if (starting == EnemyState.Eating) {
             movespeed = 0f;
+        } else if (starting == EnemyState.Freezed) {
+            movespeed = movespeed / 2;
         }
     }
 
+
     void EnemyStatusEnd(EnemyState ending) {
-        if (ending == EnemyState.Eating) {
+        if (ending == EnemyState.Eating || ending == EnemyState.Freezed) {
             if (gameObject.name == ("EnemyFast(Clone)")) {
                 movespeed = 0.3f;
             } else {
@@ -42,6 +47,14 @@ public class EnemyMovement : MonoBehaviour, Bot {
 
     void Update() {
         transform.Translate(-1 * movespeed * Time.deltaTime, 0, 0);
+        if (state == EnemyState.Freezed) {
+            freezeTime += Time.deltaTime;
+            if (freezeTime > freezeTimeout) {
+                state = EnemyState.Freezed;
+                EnemyStatusEnd(state);
+                state = EnemyState.Walking;
+            }
+        }
         }
 
     //private void OnTriggerEnter(Collider other) {
@@ -65,6 +78,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
 
     public bool TakeDamage(float damage) {
         botHealth -= damage;
+
         if (botHealth <= 0) {
             gm.EnemyKilled();
             Destroy(gameObject);

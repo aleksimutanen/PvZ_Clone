@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Bugtype {None, Basicshooter, Generator, Block, Mine}
+public enum Bugtype {None, Basicshooter, Generator, Block, Mine, Freeze}
 
 public class BuyableItems : MonoBehaviour {
 
@@ -52,6 +52,12 @@ public class BuyableItems : MonoBehaviour {
     public void BuyMine() {
         if (gm.resourceAmount >= 25f) {
             Buy(Bugtype.Mine);
+        }
+    }
+    
+    public void BuyFreeze() {
+        if (gm.resourceAmount >= 175f) {
+            Buy(Bugtype.Freeze);
         }
     }
 
@@ -118,6 +124,12 @@ public class BuyableItems : MonoBehaviour {
                         gm.resourceAmount -= 25f;
                         gm.UpdateResourceAmountText();
                         print("cost 25 resource");
+                        nowplacing = Bugtype.None;
+                    }
+                    if (nowplacing == Bugtype.Freeze) {
+                        gm.resourceAmount -= 175f;
+                        gm.UpdateResourceAmountText();
+                        print("cost 175 resource");
                         nowplacing = Bugtype.None;
                     }
                     bugCooldownTimers[index] = bugCooldowns[index];

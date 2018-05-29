@@ -133,7 +133,10 @@ MonoBehaviour:
   movespeed: 0.16
   enemy: {fileID: 1326102619074756}
   damagePerSecond: 1
+  state: 0
   botHealth: 5
+  freezeTime: 0
+  freezeTimeout: 3
 --- !u!114 &114847589793196108
 MonoBehaviour:
   m_ObjectHideFlags: 1

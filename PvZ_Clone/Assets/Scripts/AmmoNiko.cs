@@ -8,6 +8,14 @@ public class AmmoNiko : MonoBehaviour {
     public float ammospeed;
     public float ammoDuration;
     public GameObject recource;
+    EnemyMovement em;
+    int enemyLayer;
+
+
+    private void Start() {
+        em = GetComponent<EnemyMovement>();
+        enemyLayer = LayerMask.NameToLayer("Enemy");
+    }
 
     void Update() {
         //transform.Translate(0, 0, ammospeed * Time.deltaTime);
@@ -17,7 +25,7 @@ public class AmmoNiko : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-   
+
 
     //private void OnTriggerEnter(Collider other) {
     //    if (other.gameObject == !recource) {
@@ -28,10 +36,18 @@ public class AmmoNiko : MonoBehaviour {
     // this is for without rigidbody
 
     void OnCollisionEnter(Collision collision) {
-        var b = collision.gameObject.GetComponent<Bot>();
-        b.TakeDamage(ammoDamage);
+            var b = collision.gameObject.GetComponent<Bot>();
+            b.TakeDamage(ammoDamage);
             print("ammo hit");
+            //Destroy(gameObject);
+        if (collision.gameObject.layer == enemyLayer) {
+            b.TakeDamage(ammoDamage);
+            em = collision.gameObject.GetComponent<EnemyMovement>();
+            em.state = EnemyState.Freezed;
+            em.EnemyStatusStart(em.state);
+            print("freezed hit");
             Destroy(gameObject);
         }
     }
+}
 

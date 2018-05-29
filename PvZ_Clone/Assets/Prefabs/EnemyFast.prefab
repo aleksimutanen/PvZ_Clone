@@ -144,7 +144,10 @@ MonoBehaviour:
   movespeed: 0.3
   enemy: {fileID: 1291704373786314}
   damagePerSecond: 1
+  state: 0
   botHealth: 4
+  freezeTime: 0
+  freezeTimeout: 3
 --- !u!212 &212203342230931736
 SpriteRenderer:
   m_ObjectHideFlags: 1

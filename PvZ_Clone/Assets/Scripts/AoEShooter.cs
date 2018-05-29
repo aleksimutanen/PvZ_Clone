@@ -10,8 +10,8 @@ public class AoEShooter : MonoBehaviour {
     float lastShot = 0f;
     public LayerMask enemyLayer;
     GameManager gm;
-    public float hitPoint;
-    public float middlePoint;
+    //public float hitPoint;
+    //public float middlePoint;
 
     void Start() {
         gm = GameObject.FindObjectOfType<GameManager>();
@@ -20,11 +20,12 @@ public class AoEShooter : MonoBehaviour {
     void Update() {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, enemyLayer)) {
-            hitPoint = hit.point.x;
-            middlePoint = (transform.position.x + hit.point.x) / 2;
+        if (Physics.Raycast(transform.position, transform.right, out hit, Mathf.Infinity, enemyLayer)) {
+            //hitPoint = hit.point.x;
+            //middlePoint = (transform.position.x + hit.point.x) / 2;
             if (Time.time > firingspeed + lastShot) {
                 GameObject go = Instantiate(ammo, transform.position, transform.rotation);
+                go.GetComponent<AoEAmmo>().target = hit.collider.transform;
                 go.transform.parent = gm.spawnFolder;
                 lastShot = Time.time;
             }

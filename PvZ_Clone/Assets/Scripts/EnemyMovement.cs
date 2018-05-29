@@ -32,12 +32,16 @@ public class EnemyMovement : MonoBehaviour, Bot {
 
     void EnemyStatusEnd(EnemyState ending) {
         if (ending == EnemyState.Eating) {
-            movespeed = 0.15f;
+            if (gameObject.name == ("EnemyFast(Clone)")) {
+                movespeed = 0.3f;
+            } else {
+                movespeed = 0.15f;
+            }
         }
     }
 
     void Update() {
-        transform.Translate(0, 0, -1 * (movespeed * Time.deltaTime));
+        transform.Translate(-1 * movespeed * Time.deltaTime, 0, 0);
         }
 
     //private void OnTriggerEnter(Collider other) {
@@ -46,7 +50,6 @@ public class EnemyMovement : MonoBehaviour, Bot {
     //}
 
     private void OnTriggerStay(Collider other) {
-        print("stop");
         state = EnemyState.Eating;
         EnemyStatusStart(state);
         var b = other.GetComponent<Bug>();

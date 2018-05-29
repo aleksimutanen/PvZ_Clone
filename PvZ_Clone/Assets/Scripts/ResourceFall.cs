@@ -19,7 +19,7 @@ public class ResourceFall : MonoBehaviour {
 
         transform.localScale += new Vector3(growingSpeed, growingSpeed, growingSpeed) * Time.deltaTime;
 
-        if (transform.localScale.x > 0.5f) {
+        if (transform.localScale.x > 0.34f) {
             growingSpeed = 0f;
         }
         if (growingSpeed == 0f) {
@@ -29,7 +29,7 @@ public class ResourceFall : MonoBehaviour {
             transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;
             vanishing = true;
         }
-        if (transform.localScale.x < 0.5f && vanishing) {
+        if (transform.localScale.x < 0.34f && vanishing) {
             transform.position += Vector3.up * 0.8f * Time.deltaTime;
         }
         if (transform.localScale.x < 0.05f) {

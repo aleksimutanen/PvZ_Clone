@@ -64,7 +64,7 @@ Animator:
   m_GameObject: {fileID: 1465771146628176}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9b8f959981242614faa5997d09e1e98a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 41593e41b79feb44ea3c84c974a546fa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -85,12 +85,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bugHealth: 3
-  ammo: {fileID: 1533043300769862, guid: 2ba1044c9f2e9374792e543c1cac4a93, type: 2}
+  ammo: {fileID: 1829026726394728, guid: 503de0f0808db1743a7aabc58f620f69, type: 2}
+  freezeammo: {fileID: 1533043300769862, guid: 2ba1044c9f2e9374792e543c1cac4a93, type: 2}
   firingspeed: 5
   maxRaycastDistance: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
+  shootanimation: ant(freeze)_shoot
 --- !u!212 &212110759161573688
 SpriteRenderer:
   m_ObjectHideFlags: 1

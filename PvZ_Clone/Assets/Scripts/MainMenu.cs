@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+    public GameObject crazydoc;
+
     public void PlayGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -12,6 +14,10 @@ public class MainMenu : MonoBehaviour {
     public void QuitGame() {
         print("Goodbye!");
         Application.Quit();
+    }
+
+    public void CrazyDoc() {
+        crazydoc.SetActive(true);
     }
 
     public void NextLevel() {

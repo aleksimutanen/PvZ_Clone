@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     public GameObject crazydoc;
+    public AudioClip clicksound;
 
     public void PlayGame() {
+        AudioSource.PlayClipAtPoint(clicksound, Camera.main.transform.position);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame() {
+        AudioSource.PlayClipAtPoint(clicksound, Camera.main.transform.position);
         print("Goodbye!");
         Application.Quit();
     }

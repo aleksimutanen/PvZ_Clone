@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 69e90c94f210f2f439002bec8bc5c1af
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DK Jambo
+  fontNames:
+  - DK Jambo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 364cf8c9fe1dd204292231bdb14bb197, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

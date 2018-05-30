@@ -148,6 +148,7 @@ MonoBehaviour:
   botHealth: 10
   freezeTime: 0
   freezeTimeout: 3
+  hitfadespeed: 1.5
 --- !u!212 &212864183257068938
 SpriteRenderer:
   m_ObjectHideFlags: 1

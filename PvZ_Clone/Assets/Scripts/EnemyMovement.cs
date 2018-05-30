@@ -15,9 +15,19 @@ public class EnemyMovement : MonoBehaviour, Bot {
     GameManager gm;
     public float freezeTime = 0f;
     public float freezeTimeout = 3f;
+    SpriteRenderer sr;
+    public float hitfadespeed;
+    Animator animator;
+    public string hitanimation;
+    public string walkinganimation;
+
+    private void Awake() {
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
 
     void Start() {
         gm = FindObjectOfType<GameManager>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void SetEnemyState(EnemyState newState) {
@@ -63,12 +73,10 @@ public class EnemyMovement : MonoBehaviour, Bot {
         //        movespeed = 0.15f;
         //    }
         //}
+
+        sr.color += Color.white * hitfadespeed * Time.deltaTime;
     }
 
-    //private void OnTriggerEnter(Collider other) {
-    //    //animaatiojotain
-    //    //movespeed = 0f;
-    //}
 
     private void OnTriggerStay(Collider other) {
         var b = other.GetComponent<Bug>();
@@ -76,6 +84,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
             state = EnemyState.Eating;
             EnemyStatusStart(state);
             other.GetComponent<EaterList>().RegisterEater(this);
+            animator.Play(hitanimation);
             b.TakeDamage(Time.deltaTime * damagePerSecond);
             //state = EnemyState.Walking;
             //if (dead) {
@@ -91,11 +100,20 @@ public class EnemyMovement : MonoBehaviour, Bot {
         if (state == EnemyState.Eating) {
             EnemyStatusEnd(state);
             state = EnemyState.Walking;
+            animator.Play(walkinganimation);
         }
+    }
+
+    public void ResetColor() {
+        sr.color = Color.white;
     }
 
     public void TakeDamage(float damage) {
         botHealth -= damage;
+        Color c;
+        ColorUtility.TryParseHtmlString("#B01515", out c);
+        sr.color = c;
+        //Invoke("ResetColor", 1f);
 
         if (botHealth <= 0) {
             gm.EnemyKilled();

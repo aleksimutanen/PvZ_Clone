@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EaterList))]
 public class PeaShooter : MonoBehaviour, Bug {
 
+    
     public float bugHealth;
     public GameObject ammo;
     public float firingspeed;
@@ -12,6 +14,8 @@ public class PeaShooter : MonoBehaviour, Bug {
     public LayerMask enemyLayer;
     GameManager gm;
     Animator animator;
+
+   
 
     public void Shoot() {
         GameObject go = Instantiate(ammo, transform.position - new Vector3(-0.3f, 0.2f, 0f), transform.rotation);
@@ -34,12 +38,15 @@ public class PeaShooter : MonoBehaviour, Bug {
         }
     }
 
-    public bool TakeDamage(float damage) {
+    public void TakeDamage(float damage) {
         bugHealth -= damage;
         if (bugHealth <= 0) {
+            GetComponent<EaterList>().NotifyEaters();
             Destroy(gameObject);
-            return true;
+            //return true;
         }
-        return false;
+        //return false;
     }
+
+    
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EaterList))]
 public class Generator : MonoBehaviour, Bug {
 
     public GameObject recourcePrefab;
@@ -25,12 +26,12 @@ public class Generator : MonoBehaviour, Bug {
         }
     }
     
-    public bool TakeDamage(float damage) {
+    public void TakeDamage(float damage) {
         bugHealth -= damage;
         if (bugHealth < 0) {
             Destroy(gameObject);
-            return true;
+            //return true;
         }
-        return false;
+        //return false;
     }
 }

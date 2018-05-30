@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-interface Bot {
-    bool TakeDamage(float damage);
+public interface Bot {
+    void TakeDamage(float damage);
+    void NotifyBugEaten();
 }

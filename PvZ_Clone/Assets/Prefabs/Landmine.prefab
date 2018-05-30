@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 65376237526372158}
   - component: {fileID: 114613828972178702}
   - component: {fileID: 95158496509421114}
+  - component: {fileID: 114778992757026272}
   m_Layer: 12
   m_Name: Landmine
   m_TagString: Untagged
@@ -120,6 +121,17 @@ MonoBehaviour:
   phase2: {fileID: 21300000, guid: fd1de10e190d94643b868fd83db53b06, type: 3}
   phase3: {fileID: 21300000, guid: a6cbe4d8650140b429e41b3a20e20b76, type: 3}
   splash: {fileID: 1950088471807750, guid: 31d1422a70255a740bc246e92a6d0ff3, type: 2}
+--- !u!114 &114778992757026272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1272955621694538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69764719988c1414a99ff278edbc4c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212334637329457840
 SpriteRenderer:
   m_ObjectHideFlags: 1

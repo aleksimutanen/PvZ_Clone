@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-interface Bug {
-    bool TakeDamage(float damage);
+public interface Bug {
+    void TakeDamage(float damage);
+    //void RegisterEater(Bot b);
 }
-	

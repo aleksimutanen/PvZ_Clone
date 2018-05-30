@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EaterList))]
 public class Landmine : MonoBehaviour, Bug {
 
     public float triggeringTime;
@@ -47,20 +48,21 @@ public class Landmine : MonoBehaviour, Bug {
             // other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             print("explosion");
             var b = other.GetComponent<Bot>();
-            bool dead = b.TakeDamage(givenDamage);
-            if (dead) {
+            //bool dead = b.TakeDamage(givenDamage);
+            b.TakeDamage(givenDamage);
+            //if (dead) {
                 Destroy(gameObject);
                 var go = Instantiate(splash, transform.position, transform.rotation);
                 Destroy(go, 1f);
             }
         }
-    }
-    public bool TakeDamage(float damage) {
+    
+    public void TakeDamage(float damage) {
         bugHealth -= damage;
         if (bugHealth <= 0) {
             Destroy(gameObject);
-            return true;
+            //return true;
         }
-        return false;
+        //return false;
     }
 }

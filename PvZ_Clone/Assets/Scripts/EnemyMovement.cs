@@ -53,9 +53,17 @@ public class EnemyMovement : MonoBehaviour, Bot {
                 state = EnemyState.Freezed;
                 EnemyStatusEnd(state);
                 state = EnemyState.Walking;
+                freezeTime = 0f;
             }
         }
-        }
+        //if (state == EnemyState.Walking && movespeed == 0f) {
+        //    if (gameObject.name == ("EnemyFast(Clone)")) {
+        //        movespeed = 0.3f;
+        //    } else {
+        //        movespeed = 0.15f;
+        //    }
+        //}
+    }
 
     //private void OnTriggerEnter(Collider other) {
     //    //animaatiojotain
@@ -63,33 +71,43 @@ public class EnemyMovement : MonoBehaviour, Bot {
     //}
 
     private void OnTriggerStay(Collider other) {
-        state = EnemyState.Eating;
-        EnemyStatusStart(state);
         var b = other.GetComponent<Bug>();
         if (b != null) {
-            bool dead = b.TakeDamage(Time.deltaTime * damagePerSecond);
-            if (dead) {
-                print("bug died");
-                state = EnemyState.Eating;
-                EnemyStatusEnd(state);
+            state = EnemyState.Eating;
+            EnemyStatusStart(state);
+            other.GetComponent<EaterList>().RegisterEater(this);
+            b.TakeDamage(Time.deltaTime * damagePerSecond);
+            //state = EnemyState.Walking;
+            //if (dead) {
+            //    print("bug died");
+            //    state = EnemyState.Eating;
+            //    EnemyStatusEnd(state);
+                //state = EnemyState.Walking;
             }
+        }
+    
+
+    public void NotifyBugEaten() {
+        if (state == EnemyState.Eating) {
+            EnemyStatusEnd(state);
+            state = EnemyState.Walking;
         }
     }
 
-    public bool TakeDamage(float damage) {
+    public void TakeDamage(float damage) {
         botHealth -= damage;
 
         if (botHealth <= 0) {
             gm.EnemyKilled();
             Destroy(gameObject);
-            return true;
-        } else {
-            state = EnemyState.Eating;
-            EnemyStatusEnd(state);
-        }
-        return false;
+            //return true;
+        } /*else {*/
+          //state = EnemyState.Eating;
+          //EnemyStatusEnd(state);
+        //return false;
     }
 }
+
 
 
 

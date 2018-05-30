@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 65223076395813942}
   - component: {fileID: 114169093292062708}
   - component: {fileID: 95657653171690608}
+  - component: {fileID: 114481175635861184}
   m_Layer: 12
   m_Name: Generator
   m_TagString: Untagged
@@ -148,6 +149,17 @@ MonoBehaviour:
   recourceSpawn: 23
   dropPosition: {fileID: 4890609544533400}
   bugHealth: 3
+--- !u!114 &114481175635861184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1342199253558912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69764719988c1414a99ff278edbc4c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212341065438229886
 SpriteRenderer:
   m_ObjectHideFlags: 1

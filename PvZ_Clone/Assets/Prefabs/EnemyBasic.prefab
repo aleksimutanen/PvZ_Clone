@@ -134,7 +134,7 @@ MonoBehaviour:
   enemy: {fileID: 1326102619074756}
   damagePerSecond: 1
   state: 0
-  botHealth: 5
+  botHealth: 10
   freezeTime: 0
   freezeTimeout: 3
 --- !u!114 &114847589793196108

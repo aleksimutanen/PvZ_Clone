@@ -36,11 +36,13 @@ public class AmmoNiko : MonoBehaviour {
     // this is for without rigidbody
 
     void OnCollisionEnter(Collision collision) {
-            var b = collision.gameObject.GetComponent<Bot>();
+        var b = collision.gameObject.GetComponent<Bot>();
+        if (gameObject.name == "Ammo(Clone)") {
             b.TakeDamage(ammoDamage);
             print("ammo hit");
-            //Destroy(gameObject);
-        if (collision.gameObject.layer == enemyLayer) {
+            Destroy(gameObject);
+        }
+            if (/*collision.gameObject.layer == enemyLayer && */gameObject.name == "Ammo_Freezing(Clone)") {
             b.TakeDamage(ammoDamage);
             em = collision.gameObject.GetComponent<EnemyMovement>();
             em.state = EnemyState.Freezed;

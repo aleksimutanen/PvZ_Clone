@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(EaterList))]
 public class PeaShooter : MonoBehaviour, Bug {
-
     
     public float bugHealth;
     public GameObject ammo;

@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void UpdateResourceAmountText() {
-        resourceText.text = ""+ resourceAmount;
+        resourceText.text = "" + resourceAmount;
     }
 
     void Update() {
@@ -179,9 +179,8 @@ public class GameManager : MonoBehaviour {
         if (normalSpawnonly < 0) {
             basicSpawningOnly = false;
             enemySpawningOnOff = true;
-            EnemySpawn(levelData.enemySpawnInterval, ref lastEnemySpawn, levelData.levelEnemies);
         }
-        
+
         if (roundStartDelay < 0) {
             if (levelEnemyPool < waveEnemies) {
                 waveDelay -= Time.deltaTime;
@@ -192,7 +191,7 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-    
+
     public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies) {
         if (levelEnemyPool != 0) {
             for (int i = 0; i < enemySpawnInterval.Length; i++) {
@@ -214,22 +213,22 @@ public class GameManager : MonoBehaviour {
     }
 
     public void EnemyKilled() {
-            killableEnemiesLeft--;
-            if (killableEnemiesLeft <= 0 && levelEnemyPool == 0) {
-                Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
-                LevelComplete();
-            }
+        killableEnemiesLeft--;
+        if (killableEnemiesLeft <= 0 && levelEnemyPool == 0) {
+            Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
+            LevelComplete();
         }
+    }
 
-        public void LevelComplete() {
-            print("oot vitun mestari");
-            resourceSpawnOnOff = false;
+    public void LevelComplete() {
+        print("oot vitun mestari");
+        resourceSpawnOnOff = false;
 
-        }
+    }
 
-        public void GameOver() {
-            Time.timeScale = 0f;
-        }
+    public void GameOver() {
+        Time.timeScale = 0f;
+    }
 
     void Wave() {
         for (int i = 0; i < enemySpawnInterval.Length; i++) {

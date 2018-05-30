@@ -51,7 +51,8 @@ public class Landmine : MonoBehaviour, Bug {
             //bool dead = b.TakeDamage(givenDamage);
             b.TakeDamage(givenDamage);
             //if (dead) {
-                Destroy(gameObject);
+            GetComponent<EaterList>().NotifyEaters();
+            Destroy(gameObject);
                 var go = Instantiate(splash, transform.position, transform.rotation);
                 Destroy(go, 1f);
             }

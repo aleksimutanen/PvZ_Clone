@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour {
 
     public void EnemyKilled() {
             killableEnemiesLeft--;
-            if (killableEnemiesLeft == 0 && levelEnemyPool == 0) {
+            if (killableEnemiesLeft <= 0 && levelEnemyPool == 0) {
                 Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
                 LevelComplete();
             }

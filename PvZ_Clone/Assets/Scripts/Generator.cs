@@ -29,6 +29,7 @@ public class Generator : MonoBehaviour, Bug {
     public void TakeDamage(float damage) {
         bugHealth -= damage;
         if (bugHealth < 0) {
+            GetComponent<EaterList>().NotifyEaters();
             Destroy(gameObject);
             //return true;
         }

@@ -39,7 +39,6 @@ public class Obstacle : MonoBehaviour, Bug {
             sr.sprite = maxhp;
         }
         else if (bugHealth >= 8) {
-            print("shieet");
             sr.sprite = firstcrack;
         }
         else if (bugHealth >= 6) {
@@ -49,6 +48,7 @@ public class Obstacle : MonoBehaviour, Bug {
             sr.sprite = thirdcrack;
         }
         if (bugHealth <= 0) {
+            GetComponent<EaterList>().NotifyEaters();
             Destroy(gameObject);
             //return true;
         }

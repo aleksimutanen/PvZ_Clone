@@ -2125,15 +2125,6 @@ Prefab:
       propertyPath: ghostbugs.Array.data[4]
       value: 
       objectReference: {fileID: 1246829849}
-    - target: {fileID: 224194864284289368, guid: 478e7149780ce2d42a0ca95fbf1612d6,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.6384445
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777919569430998, guid: 478e7149780ce2d42a0ca95fbf1612d6, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 478e7149780ce2d42a0ca95fbf1612d6, type: 2}
   m_IsPrefabParent: 0

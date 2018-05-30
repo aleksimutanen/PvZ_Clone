@@ -46,6 +46,7 @@ public class PeaShooter : MonoBehaviour, Bug {
 
     public void TakeDamage(float damage) {
         bugHealth -= damage;
+
         if (bugHealth <= 0) {
             GetComponent<EaterList>().NotifyEaters();
             Destroy(gameObject);

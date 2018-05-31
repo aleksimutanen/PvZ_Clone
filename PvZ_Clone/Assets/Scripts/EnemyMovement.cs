@@ -21,9 +21,11 @@ public class EnemyMovement : MonoBehaviour, Bot {
     Animator animator;
     public string hitanimation;
     public string walkinganimation;
+    ShieldFlash sf;
 
     private void Awake() {
-        sr = GetComponentInChildren<SpriteRenderer>();
+        sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
+        sf = GetComponentInChildren<ShieldFlash>();
     }
 
     void Start() {
@@ -119,22 +121,23 @@ public class EnemyMovement : MonoBehaviour, Bot {
     }
 
     public void TakeDamage(float damage) {
-        botHealth -= damage;
-        Color c;
-        ColorUtility.TryParseHtmlString("#B01515", out c);
-        sr.color = c;
-        //Invoke("ResetColor", 1f);
+        if (sf) {
+            var shieldDestroyed = sf.TakeDamage(damage);
+            if (shieldDestroyed) {
+                sf = null;
+            }
+        } else {
+            botHealth -= damage;
+            Color c;
+            ColorUtility.TryParseHtmlString("#B01515", out c);
+            sr.color = c;
 
-        if (botHealth <= 0) {
-            gm.EnemyKilled();
-
-            el.eaters.Remove(this);
-            Destroy(gameObject);
-            //return true;
-        } /*else {*/
-          //state = EnemyState.Eating;
-          //EnemyStatusEnd(state);
-        //return false;
+            if (botHealth <= 0) {
+                gm.EnemyKilled();
+                el.eaters.Remove(this);
+                Destroy(gameObject);
+            }
+        }
     }
 }
 

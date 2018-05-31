@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour {
         Invoke("StartPauseOff", 11.5f);
         Invoke("ShowCountdown", 11.5f);
 
-        leveloverview.Play("LevelOverview");
+        //leveloverview.Play("LevelOverview");
     }
 
     void OnGUI() {

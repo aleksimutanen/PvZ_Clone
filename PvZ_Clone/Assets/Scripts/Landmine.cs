@@ -65,6 +65,7 @@ public class Landmine : MonoBehaviour, Bug {
 
         bugHealth -= damage;
         if (bugHealth <= 0) {
+            GetComponent<EaterList>().NotifyEaters();
             Destroy(gameObject);
             //return true;
         }

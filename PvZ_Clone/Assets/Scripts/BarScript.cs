@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BarScript : MonoBehaviour {
-    public Bugtype bug;
+    public UIMode bug;
 
     public float fillAmount = 1f;
     public Image generatorContent;
@@ -26,9 +26,9 @@ public class BarScript : MonoBehaviour {
         //    button.interactable = false;
         //}
 
-        button.interactable = bi.CooldownAvailable((int)bug); // sama kuin yllä
+        button.interactable = bi.CooldownAvailable(bug); // sama kuin yllä
 
-        generatorContent.fillAmount = bi.CooldownPercentLeft((int)bug);
+        generatorContent.fillAmount = bi.CooldownPercentLeft(bug);
 
         
         // TODO

@@ -33,9 +33,11 @@ public class PeaShooter : MonoBehaviour, Bug {
         Destroy(gameObject);
     }
 
+
     void Start() {
         gm = GameObject.FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
+        
     }
 
     void Update() {

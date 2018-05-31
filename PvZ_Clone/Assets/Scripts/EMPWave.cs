@@ -5,7 +5,7 @@ using UnityEngine;
 public class EMPWave : MonoBehaviour {
 
     public float empDamage;
-    float empDuration = 2f;
+    float empDuration = 1.4f;
     Animator animator;
     SpriteRenderer sr;
     public string beamanimation;

@@ -121,7 +121,6 @@ public class EnemyMovement : MonoBehaviour, Bot {
             Color c;
             ColorUtility.TryParseHtmlString("#B01515", out c);
             sr.color = c;
-            //Invoke("ResetColor", 1f);
 
             if (botHealth <= 0) {
                 gm.EnemyKilled();

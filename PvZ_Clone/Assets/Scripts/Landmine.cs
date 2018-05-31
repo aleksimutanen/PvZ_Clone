@@ -18,6 +18,7 @@ public class Landmine : MonoBehaviour, Bug {
     public GameObject splash;
 
     SpriteRenderer sr;
+    public float flashspeed;
 
     void Awake () {
         sr = GetComponentInChildren<SpriteRenderer>();
@@ -59,6 +60,9 @@ public class Landmine : MonoBehaviour, Bug {
         }
     
     public void TakeDamage(float damage) {
+        float f = ((Mathf.Sin(Time.time * flashspeed) + 1) * 0.5f);
+        sr.material.SetFloat("_FlashAmount", f);
+
         bugHealth -= damage;
         if (bugHealth <= 0) {
             Destroy(gameObject);

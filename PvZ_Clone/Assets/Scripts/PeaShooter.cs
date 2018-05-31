@@ -16,6 +16,8 @@ public class PeaShooter : MonoBehaviour, Bug {
     Animator animator;
     public string shootanimation;
     public string dieanimation;
+    public float flashspeed;
+    SpriteRenderer sr;
 
    
 
@@ -40,6 +42,11 @@ public class PeaShooter : MonoBehaviour, Bug {
         
     }
 
+    void Awake() {
+        sr = GetComponent<SpriteRenderer>();
+    }
+
+
     void Update() {
 
         RaycastHit hit;
@@ -53,7 +60,8 @@ public class PeaShooter : MonoBehaviour, Bug {
 
     public void TakeDamage(float damage) {
         bugHealth -= damage;
-
+        float f = ((Mathf.Sin(Time.time * flashspeed) + 1) * 0.5f);
+        sr.material.SetFloat("_FlashAmount", f);
         if (bugHealth <= 0) {
             animator.Play(dieanimation);
             GetComponent<EaterList>().NotifyEaters();

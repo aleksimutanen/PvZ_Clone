@@ -10,6 +10,7 @@ public class Obstacle : MonoBehaviour, Bug {
     public Sprite firstcrack;
     public Sprite secondcrack;
     public Sprite thirdcrack;
+    public float flashspeed;
 
     SpriteRenderer sr;
 
@@ -34,6 +35,9 @@ public class Obstacle : MonoBehaviour, Bug {
 
     //returns true if bug dies
     public void TakeDamage(float damage) {
+        float f = ((Mathf.Sin(Time.time * flashspeed) + 1) * 0.5f);
+        sr.material.SetFloat("_FlashAmount", f);
+
         bugHealth -= damage;
         if (bugHealth >= 10) {
             sr.sprite = maxhp;

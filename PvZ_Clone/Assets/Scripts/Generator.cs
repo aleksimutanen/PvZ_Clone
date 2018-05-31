@@ -12,11 +12,16 @@ public class Generator : MonoBehaviour, Bug {
     public Transform dropPosition;
     public float bugHealth;
     GameManager gm;
+    SpriteRenderer sr;
+    public float flashspeed;
 
     void Start() {
         gm = FindObjectOfType<GameManager>();
     }
 
+    void Awake() {
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
     void Update() {
 
         if (Time.time > recourceSpawn + timeSinceLastRecource) {
@@ -27,6 +32,9 @@ public class Generator : MonoBehaviour, Bug {
     }
     
     public void TakeDamage(float damage) {
+        float f = ((Mathf.Sin(Time.time * flashspeed) + 1) * 0.5f);
+        sr.material.SetFloat("_FlashAmount", f);
+
         bugHealth -= damage;
         if (bugHealth < 0) {
             GetComponent<EaterList>().NotifyEaters();

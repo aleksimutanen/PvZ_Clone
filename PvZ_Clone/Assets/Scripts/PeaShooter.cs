@@ -15,6 +15,7 @@ public class PeaShooter : MonoBehaviour, Bug {
     GameManager gm;
     Animator animator;
     public string shootanimation;
+    public string dieanimation;
 
    
 
@@ -26,6 +27,10 @@ public class PeaShooter : MonoBehaviour, Bug {
     public void ShootFreeze() {
         GameObject go = Instantiate(freezeammo, transform.position - new Vector3(-0.3f, 0.2f, 0f), transform.rotation);
         go.transform.parent = gm.spawnFolder;
+    }
+
+    public void DestroyAfterAnimation() {
+        Destroy(gameObject);
     }
 
     void Start() {
@@ -46,9 +51,11 @@ public class PeaShooter : MonoBehaviour, Bug {
 
     public void TakeDamage(float damage) {
         bugHealth -= damage;
+
         if (bugHealth <= 0) {
+            animator.Play(dieanimation);
             GetComponent<EaterList>().NotifyEaters();
-            Destroy(gameObject);
+            //Destroy(gameObject);
             //return true;
         }
         //return false;

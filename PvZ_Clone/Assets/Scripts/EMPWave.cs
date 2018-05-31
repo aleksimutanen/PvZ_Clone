@@ -6,6 +6,14 @@ public class EMPWave : MonoBehaviour {
 
     public float empDamage;
     float empDuration = 2f;
+    Animator animator;
+    SpriteRenderer sr;
+    public string beamanimation;
+
+    private void Awake() {
+        sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+    }
 
     void Update() {
         empDuration -= Time.deltaTime;
@@ -15,6 +23,7 @@ public class EMPWave : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
+        animator.Play(beamanimation);
         var b = collision.gameObject.GetComponent<Bot>();
         b.TakeDamage(empDamage);
         print("Emp active");

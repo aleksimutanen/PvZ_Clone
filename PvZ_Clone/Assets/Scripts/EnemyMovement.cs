@@ -6,6 +6,7 @@ public enum EnemyState { Walking, Eating, Freezed };
 
 public class EnemyMovement : MonoBehaviour, Bot {
 
+    EaterList el;
     float stateSpeed;
     public float movespeed;
     public GameObject enemy;
@@ -83,7 +84,15 @@ public class EnemyMovement : MonoBehaviour, Bot {
         if (b != null) {
             state = EnemyState.Eating;
             EnemyStatusStart(state);
-            other.GetComponent<EaterList>().RegisterEater(this);
+            if (el == null) {
+                el = other.GetComponent<EaterList>();
+                el.RegisterEater(this);
+            } else {
+                if (el != other.GetComponent<EaterList>())
+                    Debug.LogError("was eating something else!");
+            }
+            //var d = other.GetComponent<EaterList>();
+            //el.RegisterEater(this);
             animator.Play(hitanimation);
             b.TakeDamage(Time.deltaTime * damagePerSecond);
             //state = EnemyState.Walking;
@@ -98,6 +107,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
 
     public void NotifyBugEaten() {
         if (state == EnemyState.Eating) {
+            el = null;
             EnemyStatusEnd(state);
             state = EnemyState.Walking;
             animator.Play(walkinganimation);
@@ -117,6 +127,8 @@ public class EnemyMovement : MonoBehaviour, Bot {
 
         if (botHealth <= 0) {
             gm.EnemyKilled();
+
+            el.eaters.Remove(this);
             Destroy(gameObject);
             //return true;
         } /*else {*/

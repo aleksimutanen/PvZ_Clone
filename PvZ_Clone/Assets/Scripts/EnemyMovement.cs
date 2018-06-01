@@ -133,8 +133,10 @@ public class EnemyMovement : MonoBehaviour, Bot {
             sr.color = c;
 
             if (botHealth <= 0) {
-                gm.EnemyKilled();
-                el.eaters.Remove(this);
+                gm.EnemyKilled(transform.position);
+                if (el) {
+                    el.eaters.Remove(this);
+                }
                 Destroy(gameObject);
             }
         }

@@ -18,6 +18,7 @@ public class PeaShooter : MonoBehaviour, Bug {
     public string dieanimation;
     public float flashspeed;
     SpriteRenderer sr;
+    bool lastdamageTaken;
 
    
 
@@ -47,6 +48,13 @@ public class PeaShooter : MonoBehaviour, Bug {
     }
 
 
+    void FixedUpdate() {
+        if (lastdamageTaken == false) {
+            sr.material.SetFloat("_FlashAmount", 0);
+        }
+        lastdamageTaken = false;
+    }
+
     void Update() {
 
         RaycastHit hit;
@@ -59,13 +67,14 @@ public class PeaShooter : MonoBehaviour, Bug {
     }
 
     public void TakeDamage(float damage) {
+        lastdamageTaken = true;
         bugHealth -= damage;
         float f = ((Mathf.Sin(Time.time * flashspeed) + 1) * 0.5f);
         sr.material.SetFloat("_FlashAmount", f);
         if (bugHealth <= 0) {
-            animator.Play(dieanimation);
+            //animator.Play(dieanimation);
             GetComponent<EaterList>().NotifyEaters();
-            //Destroy(gameObject);
+            Destroy(gameObject);
             //return true;
         }
         //return false;

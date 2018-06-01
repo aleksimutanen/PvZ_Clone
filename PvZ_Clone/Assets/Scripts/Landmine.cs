@@ -19,6 +19,7 @@ public class Landmine : MonoBehaviour, Bug {
 
     SpriteRenderer sr;
     public float flashspeed;
+    bool lastdamageTaken;
 
     void Awake () {
         sr = GetComponentInChildren<SpriteRenderer>();
@@ -28,6 +29,13 @@ public class Landmine : MonoBehaviour, Bug {
     void Start() {
         willExplode = false;
         enemyLayer = LayerMask.NameToLayer("Enemy");
+    }
+
+    void FixedUpdate() {
+        if (lastdamageTaken == false) {
+            sr.material.SetFloat("_FlashAmount", 0);
+        }
+        lastdamageTaken = false;
     }
 
     // Update is called once per frame
@@ -60,6 +68,8 @@ public class Landmine : MonoBehaviour, Bug {
         }
     
     public void TakeDamage(float damage) {
+        lastdamageTaken = true;
+
         float f = ((Mathf.Sin(Time.time * flashspeed) + 1) * 0.5f);
         sr.material.SetFloat("_FlashAmount", f);
 

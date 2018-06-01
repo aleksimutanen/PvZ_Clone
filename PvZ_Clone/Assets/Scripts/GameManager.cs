@@ -149,7 +149,6 @@ public class GameManager : MonoBehaviour {
         if (paused)
             return;
 
-        le = GameObject.FindGameObjectWithTag("Enemy");
         roundStartDelay -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
@@ -212,10 +211,10 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void EnemyKilled() {
+    public void EnemyKilled(Vector3 position) {
         killableEnemiesLeft--;
         if (killableEnemiesLeft <= 0 && levelEnemyPool == 0) {
-            Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
+            Instantiate(newAntCardPrefab, position, Quaternion.identity);
             LevelComplete();
         }
     }

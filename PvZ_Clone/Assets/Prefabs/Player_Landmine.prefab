@@ -126,13 +126,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggeringTime: 10
-  givenDamage: 5
+  givenDamage: 15
   bugHealth: 2
   phase1: {fileID: 21300000, guid: b8310256636f05843906f4e77eff3c80, type: 3}
   phase2: {fileID: 21300000, guid: fd1de10e190d94643b868fd83db53b06, type: 3}
   phase3: {fileID: 21300000, guid: a6cbe4d8650140b429e41b3a20e20b76, type: 3}
   splash: {fileID: 1950088471807750, guid: 31d1422a70255a740bc246e92a6d0ff3, type: 2}
   flashspeed: 10
+  lastdamageTaken: 0
 --- !u!212 &212297708462474528
 SpriteRenderer:
   m_ObjectHideFlags: 1

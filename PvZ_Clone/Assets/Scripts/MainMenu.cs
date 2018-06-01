@@ -7,10 +7,16 @@ public class MainMenu : MonoBehaviour {
 
     public GameObject crazydoc;
     public AudioClip clicksound;
+    public Animator animator;
+    public string extramenuDrop;
 
     public void PlayGame() {
         AudioSource.PlayClipAtPoint(clicksound, Camera.main.transform.position);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void PlaySwatter() {
+        //scenenro joka swatterilla on
+        SceneManager.LoadScene(6);
     }
 
     public void QuitGame() {
@@ -30,11 +36,17 @@ public class MainMenu : MonoBehaviour {
 
     public void RetryLevel() {
         print("retrylvl");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // lataa sama lvl uudestaan
     }
 
     public void ResumeGame() {
         print("palaa pelaamaan");
+        Time.timeScale = 1f;
         // palaa takaisin peliin
+    }
+
+    public void QuitToMenu() {
+        SceneManager.LoadScene(0);
     }
 }

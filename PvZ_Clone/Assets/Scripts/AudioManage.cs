@@ -8,22 +8,34 @@ public class AudioManage : MonoBehaviour {
     public AudioClip selectSound;
     public AudioClip buttonDown;
     public AudioClip buttonUp;
+    public AudioClip bojoing;
+    
 
+    void Play(AudioClip ac) {
+        var currentTS = Time.timeScale;
+        Time.timeScale = 1f;
+        AudioSource.PlayClipAtPoint(ac, Camera.main.transform.position);
+        Time.timeScale = currentTS;
+    }
 
     public void MenuOverSound() {
-        AudioSource.PlayClipAtPoint(menuOversound, Camera.main.transform.position);
+        Play(menuOversound);
     }
 
     public void SelectSound() {
-        AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position);
+        Play(selectSound);
     }
 
     public void ButtonDown() {
-        AudioSource.PlayClipAtPoint(buttonDown, Camera.main.transform.position);
+        Play(buttonDown);
     }
 
     public void ButtonUp() {
-        AudioSource.PlayClipAtPoint(buttonUp, Camera.main.transform.position);
+        Play(buttonUp);
+    }
+
+    public void MenuBojoing() {
+        Play(bojoing);
     }
 
 

@@ -33,13 +33,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1610417151459798}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114727462363990186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,12 +65,11 @@ MonoBehaviour:
   newAntCardPrefab: {fileID: 1519052631182312, guid: cd21560117601d844bb113f5030a19f8,
     type: 2}
   newAntScreen: {fileID: 0}
-  roundOverallTimer: 60
-  roundTimer: 300
+  roundStartDelay: 0
   enemySpawnInterval:
   - 10
-  - 15
-  - 20
+  - 1
+  - 10
   lastEnemySpawn:
   - 0
   - 0
@@ -79,11 +78,13 @@ MonoBehaviour:
   - {fileID: 1326102619074756, guid: 4b4e3d00881ad314c99efed220473ef3, type: 2}
   - {fileID: 1065129760730974, guid: 78184d7750809804b936926a31bf1083, type: 2}
   - {fileID: 1291704373786314, guid: f72979b99594e464abce4db594636058, type: 2}
-  resourceAmount: 300
+  resourceAmount: 1000
   resourceSpawn: 5
-  levelEnemyPool: 3
+  waveEnemies: 15
+  levelEnemyPool: 50
   killableEnemiesLeft: 0
   resourceText: {fileID: 0}
   countdownText: {fileID: 0}
   leveloverview: {fileID: 0}
   buildPanel: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}

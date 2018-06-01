@@ -91,13 +91,13 @@ public class GameManager : MonoBehaviour {
     void AtGameStart() {
         paused = true;
 
-        Invoke("ShowCountdown", 7f);
-        Invoke("ShowBuildPanel", 7f);
-        Invoke("ShowCountdown", 8f);
-        Invoke("ShowCountdown", 9f);
-        Invoke("ShowCountdown", 10f);
-        Invoke("StartPauseOff", 11.5f);
-        Invoke("ShowCountdown", 11.5f);
+        Invoke("ShowCountdown", 2f);
+        //Invoke("ShowBuildPanel", 3f);
+        Invoke("ShowCountdown", 3f);
+        Invoke("ShowCountdown", 4f);
+        Invoke("ShowCountdown", 5f);
+        Invoke("StartPauseOff", 6.5f);
+        Invoke("ShowCountdown", 6.5f);
 
         //leveloverview.Play("LevelOverview");
     }

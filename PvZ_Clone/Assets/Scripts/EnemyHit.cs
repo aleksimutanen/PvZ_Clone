@@ -15,7 +15,7 @@ public class EnemyHit : MonoBehaviour {
     void Update() {
         if (healthLeft == 0) {
             Destroy(gameObject);
-            gm.EnemyKilled();
+            gm.EnemyKilled(transform.position);
         }
 
     }

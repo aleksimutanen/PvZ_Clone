@@ -165,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1150583232854850
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1191306239195320
 GameObject:
   m_ObjectHideFlags: 1
@@ -479,7 +479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1463906700767142
 GameObject:
   m_ObjectHideFlags: 1
@@ -667,7 +667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1697920682366596
 GameObject:
   m_ObjectHideFlags: 1
@@ -821,7 +821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1794836538983690
 GameObject:
   m_ObjectHideFlags: 1
@@ -1316,6 +1316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crazydoc: {fileID: 1463548122422656}
+  clicksound: {fileID: 0}
 --- !u!114 &114151415070359872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1699,7 +1700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b949a700f6f623942811856f7ce00734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bug: 1
+  bug: 2
   fillAmount: 1
   generatorContent: {fileID: 114259015629865106}
 --- !u!114 &114259015629865106
@@ -1794,7 +1795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b949a700f6f623942811856f7ce00734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bug: 3
+  bug: 4
   fillAmount: 1
   generatorContent: {fileID: 114534031138978144}
 --- !u!114 &114292384315725724
@@ -1887,7 +1888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b949a700f6f623942811856f7ce00734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bug: 2
+  bug: 3
   fillAmount: 1
   generatorContent: {fileID: 114432899751939864}
 --- !u!114 &114317253994974766
@@ -2096,11 +2097,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   bugPrefabs:
-  - {fileID: 1974342321061672, guid: df7f0a3dd463d9e4f927a26afe95191f, type: 2}
-  - {fileID: 1342199253558912, guid: 7ebe174324ac1cb4fbe3781ea0863029, type: 2}
-  - {fileID: 1600196419069884, guid: e90a709f86e314f49bec516f3157f7c6, type: 2}
-  - {fileID: 1272955621694538, guid: f20be98647890e1408db451ebfc04b6d, type: 2}
-  - {fileID: 1465771146628176, guid: 755158b10dd67b041a6a74b53f2cbccb, type: 2}
+  - {fileID: 1571081637607048, guid: b73b2e6c2939c584ea95b8beffec4473, type: 2}
+  - {fileID: 1474575271951154, guid: 5f75a9b4234537b40b21ccca0fe9f44d, type: 2}
+  - {fileID: 1570851421297912, guid: c0f52569de12ef847a0ef0e9d8215a91, type: 2}
+  - {fileID: 1850540080519820, guid: 269b9a55ab3676346b8b1bd739c598f7, type: 2}
+  - {fileID: 1033743805694524, guid: d6aa52f62a59c3f4787ede0b907a8747, type: 2}
 --- !u!114 &114432899751939864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2139,7 +2140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b949a700f6f623942811856f7ce00734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bug: 5
+  bug: 6
   fillAmount: 1
   generatorContent: {fileID: 114565631316471322}
 --- !u!114 &114469777696678656
@@ -2319,7 +2320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b949a700f6f623942811856f7ce00734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bug: 4
+  bug: 5
   fillAmount: 1
   generatorContent: {fileID: 114254527090131152}
 --- !u!114 &114564432438132500
@@ -2783,6 +2784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crazydoc: {fileID: 0}
+  clicksound: {fileID: 0}
 --- !u!114 &114783081053664214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3031,6 +3033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crazydoc: {fileID: 0}
+  clicksound: {fileID: 0}
 --- !u!114 &114947498053321020
 MonoBehaviour:
   m_ObjectHideFlags: 1

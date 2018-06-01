@@ -14,6 +14,7 @@ public class Generator : MonoBehaviour, Bug {
     GameManager gm;
     SpriteRenderer sr;
     public float flashspeed;
+    bool lastdamageTaken;
 
     void Start() {
         gm = FindObjectOfType<GameManager>();
@@ -22,6 +23,14 @@ public class Generator : MonoBehaviour, Bug {
     void Awake() {
         sr = GetComponentInChildren<SpriteRenderer>();
     }
+
+    void FixedUpdate() {
+        if (lastdamageTaken == false) {
+            sr.material.SetFloat("_FlashAmount", 0);
+        }
+        lastdamageTaken = false;
+    }
+
     void Update() {
 
         if (Time.time > recourceSpawn + timeSinceLastRecource) {
@@ -32,6 +41,7 @@ public class Generator : MonoBehaviour, Bug {
     }
     
     public void TakeDamage(float damage) {
+        lastdamageTaken = true;
         float f = ((Mathf.Sin(Time.time * flashspeed) + 1) * 0.5f);
         sr.material.SetFloat("_FlashAmount", f);
 

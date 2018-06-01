@@ -91,13 +91,13 @@ public class GameManager : MonoBehaviour {
     void AtGameStart() {
         paused = true;
 
-        Invoke("ShowCountdown", 7f);
-        Invoke("ShowBuildPanel", 7f);
-        Invoke("ShowCountdown", 8f);
-        Invoke("ShowCountdown", 9f);
-        Invoke("ShowCountdown", 10f);
-        Invoke("StartPauseOff", 11.5f);
-        Invoke("ShowCountdown", 11.5f);
+        Invoke("ShowCountdown", 2f);
+        //Invoke("ShowBuildPanel", 3f);
+        Invoke("ShowCountdown", 3f);
+        Invoke("ShowCountdown", 4f);
+        Invoke("ShowCountdown", 5f);
+        Invoke("StartPauseOff", 6.5f);
+        Invoke("ShowCountdown", 6.5f);
 
         //leveloverview.Play("LevelOverview");
     }
@@ -149,7 +149,6 @@ public class GameManager : MonoBehaviour {
         if (paused)
             return;
 
-        le = GameObject.FindGameObjectWithTag("Enemy");
         roundStartDelay -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
@@ -212,10 +211,10 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void EnemyKilled() {
+    public void EnemyKilled(Vector3 position) {
         killableEnemiesLeft--;
         if (killableEnemiesLeft <= 0 && levelEnemyPool == 0) {
-            Instantiate(newAntCardPrefab, le.transform.position, le.transform.rotation);
+            Instantiate(newAntCardPrefab, position, Quaternion.identity);
             LevelComplete();
         }
     }

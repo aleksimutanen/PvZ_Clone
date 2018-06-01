@@ -16,6 +16,11 @@ public class BuyableItems : MonoBehaviour {
     public LayerMask bug;
     public List<GameObject> bugPrefabs;
 
+    public Texture2D cursorTexture;
+    Vector2 hotspot = Vector2.zero;
+    CursorMode cm = CursorMode.ForceSoftware;
+
+
     private GameManager gm;
 
     // nappia klikkaamalla tietää että raahaa tiettyä itemiä
@@ -66,9 +71,12 @@ public class BuyableItems : MonoBehaviour {
 
     public void Flyswatter() {
         nowplacing = UIMode.Flyswatter;
+        Cursor.SetCursor(cursorTexture, hotspot, cm);
+        //Cursor.
         // TODO
-        foreach (var gb in ghostbugs)
+        foreach (var gb in ghostbugs) {
             gb.SetActive(false);
+        }
     }
 
     void Buy(UIMode b) {
@@ -85,6 +93,7 @@ public class BuyableItems : MonoBehaviour {
      void Start() {
         gm = GameObject.FindObjectOfType<GameManager>();
         bugCooldownTimers = new List<float>(bugCooldowns);
+        //cursorTexture.Resize(2000, 2000);
     }
 
     void Update() {
@@ -151,18 +160,22 @@ public class BuyableItems : MonoBehaviour {
             }
 
         } else if (nowplacing == UIMode.Flyswatter && Input.GetKeyDown(KeyCode.Mouse0)) {
-            //Cursor.SetCursor(texture, hotspot, CursorMode);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, bug)) {
                 hit.transform.gameObject.GetComponent<EaterList>().NotifyEaters();
                 print("swatted");
                 Destroy(hit.transform.gameObject);
+                Cursor.SetCursor(null, hotspot, cm);
                 nowplacing = UIMode.None;
             }
             // jos on alla kasvi:
             // poistetaan
             // disabloidaan flyswatter
+        } else if (nowplacing == UIMode.Flyswatter && Input.GetKeyDown(KeyCode.Mouse1)) {
+            Cursor.SetCursor(null, hotspot, cm);
+            nowplacing = UIMode.None;
+
         }
 
     }

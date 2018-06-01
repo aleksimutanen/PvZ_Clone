@@ -19,12 +19,14 @@ public class PeaShooter : MonoBehaviour, Bug {
     public float flashspeed;
     SpriteRenderer sr;
     bool lastdamageTaken;
+    public AudioSource shotsfx;
 
    
 
     public void Shoot() {
         GameObject go = Instantiate(ammo, transform.position - new Vector3(-0.3f, 0.2f, 0f), transform.rotation);
         go.transform.parent = gm.spawnFolder;
+        shotsfx.Play();
     }
 
     public void ShootFreeze() {

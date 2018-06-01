@@ -20,11 +20,13 @@ public class GameManager : MonoBehaviour {
     public GameObject newAntScreen;
 
     public float roundStartDelay;
+    public float startingTime;
 
     public float[] enemySpawnInterval;
     public float[] lastEnemySpawn;
     public GameObject[] enemies;
 
+    public float resourceClick = 25f;
     public float resourceAmount = 0f;
     public float resourceSpawn;
     float timeSinceLastResource = 0f;
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour {
 
     public Text resourceText;
     public Text countdownText;
+    public Text kpm;
     public Animator leveloverview;
     public GameObject buildPanel;
 
@@ -98,12 +101,13 @@ public class GameManager : MonoBehaviour {
         Invoke("ShowCountdown", 5f);
         Invoke("StartPauseOff", 6.5f);
         Invoke("ShowCountdown", 6.5f);
+        startingTime = Time.time;
 
         //leveloverview.Play("LevelOverview");
     }
 
     void OnGUI() {
-
+        
         if (paused) {
             if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
                 paused = TogglePaused();
@@ -124,9 +128,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void ResourceClick() {
+    public void ResourceClick() {
         print("resource hit");
-        resourceAmount += 25f;
+        resourceAmount += resourceClick;
         UpdateResourceAmountText();
         print(resourceAmount);
     }
@@ -149,7 +153,18 @@ public class GameManager : MonoBehaviour {
         if (paused)
             return;
 
-        roundStartDelay -= Time.deltaTime;
+        if (levelData.swatterMode) {
+            kpm.text = "" + (resourceAmount * 60) / (Time.time - startingTime);
+            if (resourceSpawn >= 0.15f)
+            for (int i = 0; i < levelData.swatterModeTimes.Length; i++) {
+                if (Time.time - startingTime > levelData.swatterModeTimes[i]) {
+                    resourceSpawn = levelData.swatterModeSpawnInterval[i];
+                    print(resourceSpawn);
+                    //levelData.swatterModeTimes[i] = Mathf.Infinity;
+                }
+            }
+        }
+            //roundStartDelay -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             RaycastHit hit;

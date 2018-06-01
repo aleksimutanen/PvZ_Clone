@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class GameOverScript : MonoBehaviour {
 
-    public GameObject basicEnemy;
-    public GameObject durableEnemy;
-    public GameObject fastEnemy;
+    public LayerMask enemy;
     GameManager gm;
 
     void Start() {
         gm = GameObject.FindObjectOfType<GameManager>();
+        enemy = LayerMask.NameToLayer("Enemy");
     }
 
     void Update () {
@@ -25,7 +24,7 @@ public class GameOverScript : MonoBehaviour {
     //}
 
     void OnTriggerEnter(Collider other) {
-        if (other == basicEnemy || durableEnemy || fastEnemy) {
+        if (other.gameObject.layer == enemy) {
             print("gameover");
             gm.GameOver();
         }

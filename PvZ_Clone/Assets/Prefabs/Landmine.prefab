@@ -83,8 +83,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4185853, y: 5.786017, z: 1}
-  m_Center: {x: 0.35559183, y: 0.29979277, z: 0}
+  m_Size: {x: 5.0428715, y: 5.9289923, z: 1}
+  m_Center: {x: -0.9565484, y: 0.22830524, z: 0}
 --- !u!95 &95158496509421114
 Animator:
   serializedVersion: 3
@@ -121,6 +121,7 @@ MonoBehaviour:
   phase2: {fileID: 21300000, guid: fd1de10e190d94643b868fd83db53b06, type: 3}
   phase3: {fileID: 21300000, guid: a6cbe4d8650140b429e41b3a20e20b76, type: 3}
   splash: {fileID: 1950088471807750, guid: 31d1422a70255a740bc246e92a6d0ff3, type: 2}
+  flashspeed: 0
 --- !u!114 &114778992757026272
 MonoBehaviour:
   m_ObjectHideFlags: 1

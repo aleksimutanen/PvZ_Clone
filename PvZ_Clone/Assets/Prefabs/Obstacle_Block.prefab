@@ -101,6 +101,7 @@ MonoBehaviour:
   firstcrack: {fileID: 21300000, guid: 187e2ae82486f42428bdb58b7c7b72a7, type: 3}
   secondcrack: {fileID: 21300000, guid: 9cd4c0b3ba6ffc24e9c96dd30e1c2ab1, type: 3}
   thirdcrack: {fileID: 21300000, guid: 01c92589bfcf84c46a639eb3dabcc2d2, type: 3}
+  flashspeed: 0
 --- !u!212 &212303069806622152
 SpriteRenderer:
   m_ObjectHideFlags: 1

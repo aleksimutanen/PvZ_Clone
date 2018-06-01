@@ -112,8 +112,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.088361, y: 4.712064, z: 0.9999995}
-  m_Center: {x: -0.04247698, y: 0.1286206, z: -0.000000031918}
+  m_Size: {x: 7.088361, y: 5.106946, z: 0.9999995}
+  m_Center: {x: -0.04247698, y: -0.06882171, z: -0.000000031918}
 --- !u!95 &95657653171690608
 Animator:
   serializedVersion: 3
@@ -149,6 +149,7 @@ MonoBehaviour:
   recourceSpawn: 23
   dropPosition: {fileID: 4890609544533400}
   bugHealth: 3
+  flashspeed: 0
 --- !u!114 &114481175635861184
 MonoBehaviour:
   m_ObjectHideFlags: 1

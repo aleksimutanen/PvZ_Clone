@@ -20,6 +20,7 @@ public class BuyableItems : MonoBehaviour {
     Vector2 hotspot = Vector2.zero;
     CursorMode cm = CursorMode.ForceSoftware;
 
+    public bool swatterMode;
 
     private GameManager gm;
 
@@ -166,8 +167,13 @@ public class BuyableItems : MonoBehaviour {
                 hit.transform.gameObject.GetComponent<EaterList>().NotifyEaters();
                 print("swatted");
                 Destroy(hit.transform.gameObject);
-                Cursor.SetCursor(null, hotspot, cm);
-                nowplacing = UIMode.None;
+                if (swatterMode == false) {
+                    Cursor.SetCursor(null, hotspot, cm);
+                    nowplacing = UIMode.None;
+                } else if (swatterMode == true) {
+                    gm.ResourceClick();
+                    //nothing
+                }
             }
             // jos on alla kasvi:
             // poistetaan
@@ -175,9 +181,7 @@ public class BuyableItems : MonoBehaviour {
         } else if (nowplacing == UIMode.Flyswatter && Input.GetKeyDown(KeyCode.Mouse1)) {
             Cursor.SetCursor(null, hotspot, cm);
             nowplacing = UIMode.None;
-
         }
-
     }
 }
 

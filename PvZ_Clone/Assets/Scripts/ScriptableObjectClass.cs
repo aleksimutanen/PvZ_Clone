@@ -10,6 +10,10 @@ public class ScriptableObjectClass : ScriptableObject {
     public int levelPool;
     public GameObject[] levelEnemies;
 
+    public float[] swatterModeTimes;
+    public float[] swatterModeSpawnInterval;
+    public bool swatterMode;
+
     public GameObject[] Wave1;
     public GameObject[] Wave2;
     public GameObject[] Wave3;

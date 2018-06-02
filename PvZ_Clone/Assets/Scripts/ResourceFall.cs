@@ -30,7 +30,7 @@ public class ResourceFall : MonoBehaviour {
             vanishing = true;
         }
         if (transform.localScale.x < 0.34f && vanishing) {
-            transform.position += Vector3.up * 0.8f * Time.deltaTime;
+            transform.position += Vector3.up * 0.5f * Time.deltaTime;
         }
         if (transform.localScale.x < 0.05f) {
             Destroy(gameObject);

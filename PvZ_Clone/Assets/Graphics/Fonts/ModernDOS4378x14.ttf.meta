@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fd9c1af83f06e144795827d17b8a4056
+timeCreated: 1527972803
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Modern DOS 437 8x14
+  fontNames:
+  - Modern DOS 437 8x14
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

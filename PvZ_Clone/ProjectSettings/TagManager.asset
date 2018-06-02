@@ -53,3 +53,6 @@ TagManager:
   - name: enemy
     uniqueID: 3456970703
     locked: 0
+  - name: Ant
+    uniqueID: 375706575
+    locked: 0

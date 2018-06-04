@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public enum UIMode {None, Flyswatter, Basicshooter, Generator, Block, Mine, Freeze}
 
@@ -10,17 +10,18 @@ public class BuyableItems : MonoBehaviour {
     public List<float> bugCooldowns;
     List<float> bugCooldownTimers;
 
-    UIMode nowplacing = UIMode.None;
+    public UIMode nowplacing = UIMode.None;
     public List<GameObject> ghostbugs;
     public LayerMask ground;
     public LayerMask bug;
     public List<GameObject> bugPrefabs;
+    public Button swatterButton;
 
     public Texture2D cursorTexture;
     Vector2 hotspot = Vector2.zero;
     CursorMode cm = CursorMode.ForceSoftware;
 
-    public bool swatterMode;
+    //public bool swatterMode;
 
     private GameManager gm;
 
@@ -92,6 +93,8 @@ public class BuyableItems : MonoBehaviour {
     }
 
      void Start() {
+        swatterButton.interactable = true;
+        Cursor.SetCursor(null, hotspot, cm);
         gm = GameObject.FindObjectOfType<GameManager>();
         bugCooldownTimers = new List<float>(bugCooldowns);
         //cursorTexture.Resize(2000, 2000);
@@ -167,11 +170,12 @@ public class BuyableItems : MonoBehaviour {
                 hit.transform.gameObject.GetComponent<EaterList>().NotifyEaters();
                 print("swatted");
                 Destroy(hit.transform.gameObject);
-                if (swatterMode == false) {
+                if (gm.levelData.swatterMode == false) {
                     Cursor.SetCursor(null, hotspot, cm);
                     nowplacing = UIMode.None;
-                } else if (swatterMode == true) {
+                } else if (gm.levelData.swatterMode == true) {
                     gm.ResourceClick();
+                    //hit.transform.localScale = new Vector3(0, 0.1f, 0);
                     //nothing
                 }
             }
@@ -182,6 +186,11 @@ public class BuyableItems : MonoBehaviour {
             Cursor.SetCursor(null, hotspot, cm);
             nowplacing = UIMode.None;
         }
+    }
+
+    public void GameOver() {
+        Cursor.SetCursor(null, hotspot, cm);
+        nowplacing = UIMode.None;
     }
 }
 

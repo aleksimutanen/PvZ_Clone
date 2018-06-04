@@ -21,8 +21,11 @@ public class Landmine : MonoBehaviour, Bug {
     public float flashspeed;
     bool lastdamageTaken;
 
+    GameManager gm;
+
     void Awake () {
         sr = GetComponentInChildren<SpriteRenderer>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     // Use this for initialization
@@ -49,6 +52,12 @@ public class Landmine : MonoBehaviour, Bug {
         if (triggeringTime < 0) {
             sr.sprite = phase3;
             willExplode = true;
+            if (gm.levelData.swatterMode) {
+                gm.TickExplodes();
+                var go = Instantiate(splash, transform.position, transform.rotation);
+                Destroy(go, 1f);
+                Destroy(gameObject);
+            }
         }
     }
 

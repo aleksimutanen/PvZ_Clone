@@ -16,16 +16,16 @@ MonoBehaviour:
   levelPool: 0
   levelEnemies: []
   swatterModeTimes:
-  - 0
-  - 10
-  - 20
+  - 15
   - 30
-  - 40
-  - 50
+  - 45
   - 60
-  - 70
-  - 80
+  - 75
   - 90
+  - 105
+  - 120
+  - 135
+  - 150
   swatterModeSpawnInterval:
   - 0.55
   - 0.5

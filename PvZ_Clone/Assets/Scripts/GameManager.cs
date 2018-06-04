@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour {
     public Text resourceText;
     public Text countdownText;
     public Text kpm;
+    public Text swatterLives;
+    public Text highscore;
     public Animator leveloverview;
     public GameObject buildPanel;
 
@@ -55,6 +58,9 @@ public class GameManager : MonoBehaviour {
 
     public Vector3 targetPos;
 
+    public GameObject pdPrefab;
+    PersistentDataStorage pd;
+    public int swatterModeLivesLeft;
 
     public bool Paused() {
         return paused;
@@ -68,7 +74,13 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        //Time.timeScale = 1f;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
+        pd = FindObjectOfType<PersistentDataStorage>();
+        //if (pd = null) {
+        //    var pdp = Instantiate(pdPrefab);
+        //    pd = pdp.GetComponent<PersistentDataStorage>();
+        //}
         AtGameStart();
     }
 
@@ -102,7 +114,8 @@ public class GameManager : MonoBehaviour {
         Invoke("StartPauseOff", 6.5f);
         Invoke("ShowCountdown", 6.5f);
         startingTime = Time.time;
-
+        swatterLives.text = "Lives left:\n" + swatterModeLivesLeft;
+        highscore.text = "Highscore:\n" + pd.highScore;
         //leveloverview.Play("LevelOverview");
     }
 
@@ -129,10 +142,16 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ResourceClick() {
-        print("resource hit");
+        //print("resource hit");
         resourceAmount += resourceClick;
         UpdateResourceAmountText();
-        print(resourceAmount);
+        //print(resourceAmount);
+        if (levelData.swatterMode) {
+            if (resourceAmount > pd.highScore) {
+                pd.highScore = resourceAmount;
+                //Text.diibadaaba
+            }
+        }
     }
 
     public void NewAntClick() {
@@ -154,17 +173,25 @@ public class GameManager : MonoBehaviour {
             return;
 
         if (levelData.swatterMode) {
-            kpm.text = "" + (resourceAmount * 60) / (Time.time - startingTime);
-            if (resourceSpawn >= 0.15f)
-            for (int i = 0; i < levelData.swatterModeTimes.Length; i++) {
-                if (Time.time - startingTime > levelData.swatterModeTimes[i]) {
-                    resourceSpawn = levelData.swatterModeSpawnInterval[i];
-                    print(resourceSpawn);
-                    //levelData.swatterModeTimes[i] = Mathf.Infinity;
+            kpm.text = "Swats per minute:\n" + (resourceAmount * 60) / (Time.time - startingTime);
+            if (resourceSpawn >= 0.15f) { 
+                for (int i = 0; i < levelData.swatterModeTimes.Length; i++) {
+                    if (resourceSpawn >= levelData.swatterModeSpawnInterval[i]) {
+                        if (Time.time - startingTime > levelData.swatterModeTimes[i]) {
+                            resourceSpawn = levelData.swatterModeSpawnInterval[i];
+                        }
+                    }
                 }
             }
         }
-            //roundStartDelay -= Time.deltaTime;
+        
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            SceneManager.LoadScene(6);
+            Time.timeScale = 1f;
+
+        }
+
+        //roundStartDelay -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             RaycastHit hit;
@@ -234,14 +261,28 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void TickExplodes() {
+        swatterModeLivesLeft--;
+        swatterLives.text = "Lives left:\n" + swatterModeLivesLeft;
+        if (swatterModeLivesLeft == 0) {
+            GameOver();
+        }
+    }
+
     public void LevelComplete() {
         print("oot vitun mestari");
         resourceSpawnOnOff = false;
-
     }
 
     public void GameOver() {
-        Time.timeScale = 0f;
+
+        if (levelData.swatterMode) {
+            highscore.text = "Highscore:\n" + resourceAmount;
+            Time.timeScale = 0f;
+            var b = FindObjectOfType<BuyableItems>();
+            b.swatterButton.interactable = false;
+            b.GameOver();
+        }
     }
 
     void Wave() {

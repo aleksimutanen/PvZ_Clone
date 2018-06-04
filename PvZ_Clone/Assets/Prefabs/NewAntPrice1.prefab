@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 65814482224140680}
   - component: {fileID: 95216360893438312}
   m_Layer: 11
-  m_Name: NewAntPrice
+  m_Name: NewAntPrice1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1749220046446144}
   m_LocalRotation: {x: -0, y: -0, z: -0.017953193, w: 0.9998388}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1.13}
   m_LocalScale: {x: 0.055259123, y: 0.05525911, z: 0.05525911}
   m_Children: []
   m_Father: {fileID: 4638195211821422}

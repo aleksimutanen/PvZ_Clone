@@ -9,17 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65b188344c10d1849aea5ee664a763e5, type: 3}
-  m_Name: LevelData1
+  m_Name: LevelData5
   m_EditorClassIdentifier: 
   enemySpawnInterval:
+  - 10
   - 15
-  - 60
-  - 60
-  lastEnemySpawn:
-  - 0
-  - 0
-  - 0
-  levelPool: 3
+  - 15
+  lastEnemySpawn: []
+  levelPool: 0
   levelEnemies:
   - {fileID: 1326102619074756, guid: 4b4e3d00881ad314c99efed220473ef3, type: 2}
   - {fileID: 1065129760730974, guid: 78184d7750809804b936926a31bf1083, type: 2}

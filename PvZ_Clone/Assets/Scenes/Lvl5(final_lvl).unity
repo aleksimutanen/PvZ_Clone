@@ -3000,11 +3000,11 @@ Prefab:
     - target: {fileID: 114701701073030870, guid: 478e7149780ce2d42a0ca95fbf1612d6,
         type: 2}
       propertyPath: m_Text
-      value: LEVEL 4 COMPLETED!
+      value: LEVEL 5 COMPLETED!
       objectReference: {fileID: 0}
     - target: {fileID: 1150583232854850, guid: 478e7149780ce2d42a0ca95fbf1612d6, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224182169926502688, guid: 478e7149780ce2d42a0ca95fbf1612d6,
         type: 2}
@@ -3164,6 +3164,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 224201490234251318, guid: 478e7149780ce2d42a0ca95fbf1612d6,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 478e7149780ce2d42a0ca95fbf1612d6, type: 2}

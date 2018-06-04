@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour {
         countdownCounter--;
     }
 
-    void AtGameStart() {
+    public void AtGameStart() {
         paused = true;
 
         Invoke("ShowCountdown", 2f);

@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
-  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -55,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -424,6 +424,17 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3728b3c37ed256941808a1344d5642c9, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &785379370 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114758413007203546, guid: 478e7149780ce2d42a0ca95fbf1612d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1059506159}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &893080046 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1463906700767142, guid: 478e7149780ce2d42a0ca95fbf1612d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1059506159}
 --- !u!1 &975687495
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +827,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114407043939599850, guid: 478e7149780ce2d42a0ca95fbf1612d6,
+        type: 2}
+      propertyPath: bugCooldowns.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114407043939599850, guid: 478e7149780ce2d42a0ca95fbf1612d6,
+        type: 2}
+      propertyPath: bugPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 893080046}
+    - target: {fileID: 114407043939599850, guid: 478e7149780ce2d42a0ca95fbf1612d6,
+        type: 2}
+      propertyPath: swatterButton
+      value: 
+      objectReference: {fileID: 785379370}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 478e7149780ce2d42a0ca95fbf1612d6, type: 2}
   m_IsPrefabParent: 0

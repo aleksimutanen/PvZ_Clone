@@ -6,6 +6,7 @@ public class GameOverScript : MonoBehaviour {
 
     public LayerMask enemy;
     GameManager gm;
+    public GameObject gameover_screen;
 
     void Start() {
         gm = GameObject.FindObjectOfType<GameManager>();
@@ -26,6 +27,7 @@ public class GameOverScript : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == enemy) {
             print("gameover");
+            gameover_screen.SetActive(true);
             gm.GameOver();
         }
     }

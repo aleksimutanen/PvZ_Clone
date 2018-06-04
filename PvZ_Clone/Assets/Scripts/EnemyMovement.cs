@@ -121,6 +121,9 @@ public class EnemyMovement : MonoBehaviour, Bot {
     }
 
     public void TakeDamage(float damage) {
+        if (botHealth <= 0) {
+            return;
+        }
         if (sf) {
             var shieldDestroyed = sf.TakeDamage(damage);
             if (shieldDestroyed) {

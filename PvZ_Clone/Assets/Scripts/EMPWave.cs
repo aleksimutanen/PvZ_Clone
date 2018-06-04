@@ -26,6 +26,7 @@ public class EMPWave : MonoBehaviour {
         animator.Play(beamanimation);
         var b = collision.gameObject.GetComponent<Bot>();
         b.TakeDamage(empDamage);
+        b.TakeDamage(empDamage);
         print("Emp active");
     }
 }

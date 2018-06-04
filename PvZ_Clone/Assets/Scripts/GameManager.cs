@@ -275,11 +275,14 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameOver() {
-        highscore.text = "Highscore:\n" + resourceAmount;
-        Time.timeScale = 0f;
-        var b = FindObjectOfType<BuyableItems>();
-        b.swatterButton.interactable = false;
-        b.GameOver();
+
+        if (levelData.swatterMode) {
+            highscore.text = "Highscore:\n" + resourceAmount;
+            Time.timeScale = 0f;
+            var b = FindObjectOfType<BuyableItems>();
+            b.swatterButton.interactable = false;
+            b.GameOver();
+        }
     }
 
     void Wave() {

@@ -53,6 +53,10 @@ public class GameManager : MonoBehaviour {
 
     public AudioSource crop;
     public AudioSource gameover;
+    public AudioSource melody;
+    public AudioSource perc;
+    public AudioSource clear;
+    
 
     bool paused = false;
     int countdownCounter = 3;
@@ -80,6 +84,11 @@ public class GameManager : MonoBehaviour {
     }
     void ShowBuildPanel() {
         buildPanel.SetActive(true);
+    }
+
+    void LevelMusic() {
+        melody.Play();
+        perc.Play();
     }
 
     void Start() {
@@ -125,6 +134,8 @@ public class GameManager : MonoBehaviour {
         Invoke("ShowCountdown", 5f);
         Invoke("StartPauseOff", 6.5f);
         Invoke("ShowCountdown", 6.5f);
+        Invoke("LevelMusic", 6.5f);
+
      
         //leveloverview.Play("LevelOverview");
 
@@ -286,9 +297,14 @@ public class GameManager : MonoBehaviour {
     public void LevelComplete() {
         print("oot vitun mestari");
         resourceSpawnOnOff = false;
+        melody.Stop();
+        perc.Stop();
+        clear.Play();
     }
 
     public void GameOver() {
+        melody.Stop();
+        perc.Stop();
         gameover.Play();
         if (levelData.swatterMode) {
             Time.timeScale = 0f;

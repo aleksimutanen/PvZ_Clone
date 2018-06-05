@@ -171,8 +171,7 @@ public class BuyableItems : MonoBehaviour {
                 print("swatted");
                 Destroy(hit.transform.gameObject);
                 if (gm.levelData.swatterMode == false) {
-                    Cursor.SetCursor(null, hotspot, cm);
-                    nowplacing = UIMode.None;
+                    ResetCursor();
                 } else if (gm.levelData.swatterMode == true) {
                     gm.ResourceClick();
                     //hit.transform.localScale = new Vector3(0, 0.1f, 0);
@@ -188,7 +187,7 @@ public class BuyableItems : MonoBehaviour {
         }
     }
 
-    public void GameOver() {
+    public void ResetCursor() {
         Cursor.SetCursor(null, hotspot, cm);
         nowplacing = UIMode.None;
     }

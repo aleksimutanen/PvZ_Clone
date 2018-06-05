@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour {
     public GameObject pdPrefab;
     PersistentDataStorage pd;
     public int swatterModeLivesLeft;
+    public GameObject highscorePanel;
+    public GameObject gameoverPanel;
 
     public bool Paused() {
         return paused;
@@ -84,10 +86,10 @@ public class GameManager : MonoBehaviour {
         //Time.timeScale = 1f;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         pd = FindObjectOfType<PersistentDataStorage>();
-        //if (pd = null) {
-        //    var pdp = Instantiate(pdPrefab);
-        //    pd = pdp.GetComponent<PersistentDataStorage>();
-        //}
+        if (pd == null) {
+            var pdp = Instantiate(pdPrefab);
+            pd = pdp.GetComponent<PersistentDataStorage>();
+        }
         AtGameStart();
     }
 
@@ -121,11 +123,13 @@ public class GameManager : MonoBehaviour {
         Invoke("StartPauseOff", 6.5f);
         Invoke("ShowCountdown", 6.5f);
 
-        startingTime = Time.time;
-        if (levelData.swatterMode) { 
-        swatterLives.text = "Lives left:\n" + swatterModeLivesLeft;
-        highscore.text = "Highscore:\n" + pd.highScore;
-    }
+        if (levelData.swatterMode) {
+            startingTime = Time.time;
+            swatterLives.text = "Lives left:\n" + swatterModeLivesLeft;
+            highscore.text = "Highscore:\n" + pd.highScore;
+            //highscorePanel.SetActive(false);
+            //gameoverPanel.SetActive(false);
+        }
         //leveloverview.Play("LevelOverview");
     }
 
@@ -150,7 +154,8 @@ public class GameManager : MonoBehaviour {
         //print(resourceAmount);
         if (levelData.swatterMode) {
             if (resourceAmount > pd.highScore) {
-                pd.highScore = resourceAmount;
+                //pd.highScore = resourceAmount;
+                highscore.text = "Highscore:\n" + pd.highScore;
                 //Text.diibadaaba
             }
         }
@@ -186,11 +191,12 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
-        
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            SceneManager.LoadScene(6);
-            Time.timeScale = 1f;
 
+        if (levelData.swatterMode) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                SceneManager.LoadScene(6);
+                Time.timeScale = 1f;
+            }
         }
 
         //roundStartDelay -= Time.deltaTime;
@@ -279,11 +285,17 @@ public class GameManager : MonoBehaviour {
     public void GameOver() {
 
         if (levelData.swatterMode) {
-            highscore.text = "Highscore:\n" + resourceAmount;
             Time.timeScale = 0f;
             var b = FindObjectOfType<BuyableItems>();
             b.swatterButton.interactable = false;
-            b.GameOver();
+            b.ResetCursor();
+            if (resourceAmount > pd.highScore) {
+                pd.highScore = resourceAmount;
+                highscore.text = "Highscore:\n" + pd.highScore;
+                highscorePanel.SetActive(true);
+            } else {
+                gameoverPanel.SetActive(true);
+            }
         }
         Time.timeScale = 0f;
     }

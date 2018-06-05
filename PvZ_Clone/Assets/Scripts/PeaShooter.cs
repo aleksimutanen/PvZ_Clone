@@ -20,12 +20,18 @@ public class PeaShooter : MonoBehaviour, Bug {
     SpriteRenderer sr;
     bool lastdamageTaken;
     public AudioSource shotsfx;
+    public AudioSource death;
+    public AudioClip[] screams;
+    public float maxPitch;
+    float origPitch;
 
-   
+
 
     public void Shoot() {
         GameObject go = Instantiate(ammo, transform.position - new Vector3(-0.3f, 0.2f, 0f), transform.rotation);
         go.transform.parent = gm.spawnFolder;
+        float randomPitch = Random.Range(origPitch, maxPitch);
+        shotsfx.pitch = randomPitch; 
         shotsfx.Play();
     }
 
@@ -42,7 +48,7 @@ public class PeaShooter : MonoBehaviour, Bug {
     void Start() {
         gm = GameObject.FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
-        
+        origPitch = shotsfx.pitch;
     }
 
     void Awake() {
@@ -75,8 +81,13 @@ public class PeaShooter : MonoBehaviour, Bug {
         sr.material.SetFloat("_FlashAmount", f);
         if (bugHealth <= 0) {
             //animator.Play(dieanimation);
+            //int index = Random.Range(0, screamy.Length);
+            //screamy[index].Play();
+            //death.PlayOneShot(screams[Random.Range(0, screams.Length)]);
+            AudioSource.PlayClipAtPoint( screams[ Random.Range(0, screams.Length) ], Camera.main.transform.position );
             GetComponent<EaterList>().NotifyEaters();
             Destroy(gameObject);
+            
             //return true;
         }
         //return false;

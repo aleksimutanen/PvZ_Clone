@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour {
     public Animator leveloverview;
     public GameObject buildPanel;
 
+    public AudioSource crop;
+    public AudioSource gameover;
+
     bool paused = false;
     int countdownCounter = 3;
 
@@ -83,7 +86,7 @@ public class GameManager : MonoBehaviour {
         if (levelData.name == "LevelData1") {
             Time.timeScale = 0f;
         }
-        //Time.timeScale = 1f;
+        Time.timeScale = 1f;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         pd = FindObjectOfType<PersistentDataStorage>();
         if (pd == null) {
@@ -122,6 +125,8 @@ public class GameManager : MonoBehaviour {
         Invoke("ShowCountdown", 5f);
         Invoke("StartPauseOff", 6.5f);
         Invoke("ShowCountdown", 6.5f);
+     
+        //leveloverview.Play("LevelOverview");
 
         if (levelData.swatterMode) {
             startingTime = Time.time;
@@ -149,6 +154,7 @@ public class GameManager : MonoBehaviour {
 
     public void ResourceClick() {
         //print("resource hit");
+        crop.Play();
         resourceAmount += resourceClick;
         UpdateResourceAmountText();
         //print(resourceAmount);
@@ -283,7 +289,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameOver() {
-
+        gameover.Play();
         if (levelData.swatterMode) {
             Time.timeScale = 0f;
             var b = FindObjectOfType<BuyableItems>();

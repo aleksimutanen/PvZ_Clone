@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class GameManager : MonoBehaviour {
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour {
     public Text kpm;
     public Text swatterLives;
     public Text highscore;
+    public TextMeshProUGUI newcountdownText;
     public Animator leveloverview;
     public GameObject buildPanel;
 
@@ -98,19 +100,19 @@ public class GameManager : MonoBehaviour {
 
     void ShowCountdown() {
         if (countdownCounter <= 3) {
-            countdownText.text = ("3");
+            newcountdownText.text = ("3");
         }
         if (countdownCounter <= 2) {
-            countdownText.text = ("2");
+            newcountdownText.text = ("2");
         }
         if (countdownCounter <= 1) {
-            countdownText.text = ("1");
+            newcountdownText.text = ("1");
         }
         if (countdownCounter == 0) {
-            countdownText.text = ("GO!");
+            newcountdownText.text = ("GO!");
         }
         if (countdownCounter < 0) {
-            countdownText.text = ("");
+            newcountdownText.text = ("");
         }
         countdownCounter--;
     }

@@ -69,11 +69,18 @@ public class GameManager : MonoBehaviour {
     void StartPauseOff() {
         paused = false;
     }
+
+    public void SetTimeScaleNormal() {
+        Time.timeScale = 1f;
+    }
     void ShowBuildPanel() {
         buildPanel.SetActive(true);
     }
 
     void Start() {
+        if (levelData.name == "LevelData1") {
+            Time.timeScale = 0f;
+        }
         //Time.timeScale = 1f;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         pd = FindObjectOfType<PersistentDataStorage>();
@@ -107,26 +114,21 @@ public class GameManager : MonoBehaviour {
         paused = true;
 
         Invoke("ShowCountdown", 2f);
-        //Invoke("ShowBuildPanel", 3f);
+        Invoke("ShowBuildPanel", 2f);
         Invoke("ShowCountdown", 3f);
         Invoke("ShowCountdown", 4f);
         Invoke("ShowCountdown", 5f);
         Invoke("StartPauseOff", 6.5f);
         Invoke("ShowCountdown", 6.5f);
+
         startingTime = Time.time;
+        if (levelData.swatterMode) { 
         swatterLives.text = "Lives left:\n" + swatterModeLivesLeft;
         highscore.text = "Highscore:\n" + pd.highScore;
+    }
         //leveloverview.Play("LevelOverview");
     }
 
-    void OnGUI() {
-        
-        if (paused) {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
-                paused = TogglePaused();
-            }
-        }
-    }
 
     public bool TogglePaused() {
 
@@ -283,6 +285,7 @@ public class GameManager : MonoBehaviour {
             b.swatterButton.interactable = false;
             b.GameOver();
         }
+        Time.timeScale = 0f;
     }
 
     void Wave() {

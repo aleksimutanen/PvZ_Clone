@@ -1377,6 +1377,7 @@ GameObject:
   - component: {fileID: 190518414}
   - component: {fileID: 190518416}
   - component: {fileID: 190518415}
+  - component: {fileID: 190518417}
   m_Layer: 5
   m_Name: ButtonPanel
   m_TagString: Untagged
@@ -1440,6 +1441,24 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 190518413}
+--- !u!95 &190518417
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 190518413}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e4427793877aa64286e0fc80d2db34b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &238370773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,76 +1902,45 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4158892054094282, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+    - target: {fileID: 4901102531864274, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.258
       objectReference: {fileID: 0}
-    - target: {fileID: 4158892054094282, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+    - target: {fileID: 4901102531864274, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4158892054094282, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+    - target: {fileID: 4901102531864274, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
       propertyPath: m_LocalPosition.z
       value: -0.68
       objectReference: {fileID: 0}
-    - target: {fileID: 4158892054094282, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+    - target: {fileID: 4901102531864274, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4158892054094282, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+    - target: {fileID: 4901102531864274, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4158892054094282, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+    - target: {fileID: 4901102531864274, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4158892054094282, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+    - target: {fileID: 4901102531864274, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4158892054094282, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+    - target: {fileID: 4901102531864274, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
       propertyPath: m_RootOrder
       value: 24
       objectReference: {fileID: 0}
-    - target: {fileID: 1417414897459054, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
-      propertyPath: m_Name
-      value: NewAntPrice3
-      objectReference: {fileID: 0}
-    - target: {fileID: 212957348458141886, guid: a057d1a828ee0e241a6eb01dce3d2a7e,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cd93fd2ebd8785441a02d82d2fd98027,
-        type: 3}
-    - target: {fileID: 4484827148987866, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.06663354
-      objectReference: {fileID: 0}
-    - target: {fileID: 4484827148987866, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.066633455
-      objectReference: {fileID: 0}
-    - target: {fileID: 4484827148987866, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.066633455
-      objectReference: {fileID: 0}
-    - target: {fileID: 4484827148987866, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.016
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417414897459054, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+    - target: {fileID: 1645693293918926, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a057d1a828ee0e241a6eb01dce3d2a7e, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 109f94896d5bcf946a8d8e7b500f65ac, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &437333540 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1417414897459054, guid: a057d1a828ee0e241a6eb01dce3d2a7e,
-    type: 2}
-  m_PrefabInternal: {fileID: 437333539}
 --- !u!1 &466125795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5020,6 +5008,7 @@ MonoBehaviour:
   - 5
   - 6
   - 6
+  nowplacing: 0
   ghostbugs:
   - {fileID: 477774626}
   - {fileID: 406479911}
@@ -5040,8 +5029,8 @@ MonoBehaviour:
   - {fileID: 1850540080519820, guid: 269b9a55ab3676346b8b1bd739c598f7, type: 2}
   - {fileID: 1033743805694524, guid: d6aa52f62a59c3f4787ede0b907a8747, type: 2}
   - {fileID: 0}
+  swatterButton: {fileID: 82900986}
   cursorTexture: {fileID: 2800000, guid: b362c6497d40e00468f961cf7ac44ae3, type: 3}
-  swatterMode: 0
 --- !u!1 &1246829849 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1573738148510310, guid: 3728b3c37ed256941808a1344d5642c9,
@@ -6022,7 +6011,7 @@ Prefab:
     - target: {fileID: 114727462363990186, guid: 9477c60f307e71f419b3cbeb98d1c557,
         type: 2}
       propertyPath: levelEnemyPool
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114727462363990186, guid: 9477c60f307e71f419b3cbeb98d1c557,
         type: 2}
@@ -6059,7 +6048,8 @@ Prefab:
         type: 2}
       propertyPath: newAntCardPrefab
       value: 
-      objectReference: {fileID: 437333540}
+      objectReference: {fileID: 1645693293918926, guid: 109f94896d5bcf946a8d8e7b500f65ac,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9477c60f307e71f419b3cbeb98d1c557, type: 2}
   m_IsPrefabParent: 0

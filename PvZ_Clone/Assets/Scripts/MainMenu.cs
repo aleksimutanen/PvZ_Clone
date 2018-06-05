@@ -47,6 +47,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void QuitToMenu() {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }

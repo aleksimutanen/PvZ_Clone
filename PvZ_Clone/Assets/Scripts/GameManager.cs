@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour {
     public Animator leveloverview;
     public GameObject buildPanel;
 
+    public AudioSource crop;
+    public AudioSource gameover;
+
     bool paused = false;
     int countdownCounter = 3;
 
@@ -114,8 +117,10 @@ public class GameManager : MonoBehaviour {
         Invoke("StartPauseOff", 6.5f);
         Invoke("ShowCountdown", 6.5f);
         startingTime = Time.time;
-        swatterLives.text = "Lives left:\n" + swatterModeLivesLeft;
-        highscore.text = "Highscore:\n" + pd.highScore;
+        if (levelData.swatterMode) {
+            swatterLives.text = "Lives left:\n" + swatterModeLivesLeft;
+            highscore.text = "Highscore:\n" + pd.highScore;
+        }
         //leveloverview.Play("LevelOverview");
     }
 
@@ -143,6 +148,7 @@ public class GameManager : MonoBehaviour {
 
     public void ResourceClick() {
         //print("resource hit");
+        crop.Play();
         resourceAmount += resourceClick;
         UpdateResourceAmountText();
         //print(resourceAmount);
@@ -275,7 +281,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameOver() {
-
+        gameover.Play();
         if (levelData.swatterMode) {
             highscore.text = "Highscore:\n" + resourceAmount;
             Time.timeScale = 0f;

@@ -16,6 +16,8 @@ public class BuyableItems : MonoBehaviour {
     public LayerMask bug;
     public List<GameObject> bugPrefabs;
     public Button swatterButton;
+    public AudioSource press;
+    public AudioSource place;
 
     public Texture2D cursorTexture;
     Vector2 hotspot = Vector2.zero;
@@ -44,30 +46,35 @@ public class BuyableItems : MonoBehaviour {
    public void BuyBasicshooter() {
         if (gm.resourceAmount >= 100f /*&& bs.fillAmount <=0f*/) {
             Buy(UIMode.Basicshooter);
+            
         }
     }
 
     public void BuyGenerator() {
         if (gm.resourceAmount >= 50f /*&& bs.fillAmount <= 0f*/) {
             Buy(UIMode.Generator);
+            
         }
     }
 
     public void BuyBlock() {
         if (gm.resourceAmount >= 50f) {
             Buy(UIMode.Block);
+            
         }
     }
 
     public void BuyMine() {
         if (gm.resourceAmount >= 25f) {
             Buy(UIMode.Mine);
+            
         }
     }
     
     public void BuyFreeze() {
         if (gm.resourceAmount >= 175f) {
             Buy(UIMode.Freeze);
+            
         }
     }
 
@@ -129,30 +136,35 @@ public class BuyableItems : MonoBehaviour {
                         gm.UpdateResourceAmountText();
                         print("cost 100 resource");
                         nowplacing = UIMode.None;
+                        place.Play();
                     }
                     if (nowplacing == UIMode.Generator) {
                         gm.resourceAmount -= 50f;
                         gm.UpdateResourceAmountText();
                         print("cost 50 resource");
                         nowplacing = UIMode.None;
+                        place.Play();
                     }
                     if (nowplacing == UIMode.Block) {
                         gm.resourceAmount -= 50f;
                         gm.UpdateResourceAmountText();
                         print("cost 50 resource");
                         nowplacing = UIMode.None;
+                        place.Play();
                     }
                     if (nowplacing == UIMode.Mine) {
                         gm.resourceAmount -= 25f;
                         gm.UpdateResourceAmountText();
                         print("cost 25 resource");
                         nowplacing = UIMode.None;
+                        place.Play();
                     }
                     if (nowplacing == UIMode.Freeze) {
                         gm.resourceAmount -= 175f;
                         gm.UpdateResourceAmountText();
                         print("cost 175 resource");
                         nowplacing = UIMode.None;
+                        place.Play();
                     }
                     bugCooldownTimers[index] = bugCooldowns[index];
 

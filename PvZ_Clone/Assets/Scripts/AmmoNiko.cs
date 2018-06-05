@@ -10,11 +10,17 @@ public class AmmoNiko : MonoBehaviour {
     public GameObject recource;
     EnemyMovement em;
     int enemyLayer;
+    public AudioSource hit;
+    public AudioClip damage;
+    public AudioSource freeze;
+    public float maxPitch;
+    float origPitch;
 
 
     private void Start() {
         em = GetComponent<EnemyMovement>();
         enemyLayer = LayerMask.NameToLayer("Enemy");
+        origPitch = hit.pitch;
     }
 
     void Update() {
@@ -40,7 +46,11 @@ public class AmmoNiko : MonoBehaviour {
         if (gameObject.name == "Ammo(Clone)") {
             b.TakeDamage(ammoDamage);
             print("ammo hit");
+            float randomPitch = Random.Range(origPitch, maxPitch);
+            hit.pitch = randomPitch;
+            AudioSource.PlayClipAtPoint(damage, Camera.main.transform.position);
             Destroy(gameObject);
+
         }
             if (/*collision.gameObject.layer == enemyLayer && */gameObject.name == "Ammo_Freezing(Clone)") {
             b.TakeDamage(ammoDamage);
@@ -48,6 +58,9 @@ public class AmmoNiko : MonoBehaviour {
             em.state = EnemyState.Freezed;
             em.EnemyStatusStart(em.state);
             print("freezed hit");
+            float randomPitch = Random.Range(origPitch, maxPitch);
+            hit.pitch = randomPitch;
+            AudioSource.PlayClipAtPoint(damage, Camera.main.transform.position);
             Destroy(gameObject);
         }
     }

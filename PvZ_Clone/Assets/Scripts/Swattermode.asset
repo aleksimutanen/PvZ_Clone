@@ -22,10 +22,10 @@ MonoBehaviour:
   - 60
   - 75
   - 90
-  - 105
-  - 120
-  - 135
+  - 110
+  - 130
   - 150
+  - 170
   swatterModeSpawnInterval:
   - 0.55
   - 0.5

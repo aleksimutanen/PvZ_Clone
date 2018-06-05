@@ -722,6 +722,7 @@ GameObject:
   - component: {fileID: 190518414}
   - component: {fileID: 190518416}
   - component: {fileID: 190518415}
+  - component: {fileID: 190518417}
   m_Layer: 5
   m_Name: ButtonPanel
   m_TagString: Untagged
@@ -785,6 +786,24 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 190518413}
+--- !u!95 &190518417
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 190518413}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e4427793877aa64286e0fc80d2db34b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &216667535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,6 +3313,7 @@ MonoBehaviour:
   - 5
   - 6
   - 6
+  nowplacing: 0
   ghostbugs:
   - {fileID: 477774626}
   - {fileID: 406479911}
@@ -3314,8 +3334,8 @@ MonoBehaviour:
   - {fileID: 1850540080519820, guid: 269b9a55ab3676346b8b1bd739c598f7, type: 2}
   - {fileID: 1033743805694524, guid: d6aa52f62a59c3f4787ede0b907a8747, type: 2}
   - {fileID: 0}
+  swatterButton: {fileID: 837849925}
   cursorTexture: {fileID: 2800000, guid: b362c6497d40e00468f961cf7ac44ae3, type: 3}
-  swatterMode: 0
 --- !u!1 &837849922
 GameObject:
   m_ObjectHideFlags: 0

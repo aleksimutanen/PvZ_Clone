@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour {
     public GameObject pdPrefab;
     PersistentDataStorage pd;
     public int swatterModeLivesLeft;
+    public GameObject highscorePanel;
+    public GameObject gameoverPanel;
 
     public bool Paused() {
         return paused;
@@ -72,18 +74,25 @@ public class GameManager : MonoBehaviour {
     void StartPauseOff() {
         paused = false;
     }
+
+    public void SetTimeScaleNormal() {
+        Time.timeScale = 1f;
+    }
     void ShowBuildPanel() {
         buildPanel.SetActive(true);
     }
 
     void Start() {
-        //Time.timeScale = 1f;
+        if (levelData.name == "LevelData1") {
+            Time.timeScale = 0f;
+        }
+        Time.timeScale = 1f;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         pd = FindObjectOfType<PersistentDataStorage>();
-        //if (pd = null) {
-        //    var pdp = Instantiate(pdPrefab);
-        //    pd = pdp.GetComponent<PersistentDataStorage>();
-        //}
+        if (pd == null) {
+            var pdp = Instantiate(pdPrefab);
+            pd = pdp.GetComponent<PersistentDataStorage>();
+        }
         AtGameStart();
     }
 
@@ -110,28 +119,25 @@ public class GameManager : MonoBehaviour {
         paused = true;
 
         Invoke("ShowCountdown", 2f);
-        //Invoke("ShowBuildPanel", 3f);
+        Invoke("ShowBuildPanel", 2f);
         Invoke("ShowCountdown", 3f);
         Invoke("ShowCountdown", 4f);
         Invoke("ShowCountdown", 5f);
         Invoke("StartPauseOff", 6.5f);
         Invoke("ShowCountdown", 6.5f);
-        startingTime = Time.time;
+     
+        //leveloverview.Play("LevelOverview");
+
         if (levelData.swatterMode) {
+            startingTime = Time.time;
             swatterLives.text = "Lives left:\n" + swatterModeLivesLeft;
             highscore.text = "Highscore:\n" + pd.highScore;
+            //highscorePanel.SetActive(false);
+            //gameoverPanel.SetActive(false);
         }
         //leveloverview.Play("LevelOverview");
     }
 
-    void OnGUI() {
-        
-        if (paused) {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
-                paused = TogglePaused();
-            }
-        }
-    }
 
     public bool TogglePaused() {
 
@@ -154,7 +160,8 @@ public class GameManager : MonoBehaviour {
         //print(resourceAmount);
         if (levelData.swatterMode) {
             if (resourceAmount > pd.highScore) {
-                pd.highScore = resourceAmount;
+                //pd.highScore = resourceAmount;
+                highscore.text = "Highscore:\n" + pd.highScore;
                 //Text.diibadaaba
             }
         }
@@ -190,11 +197,12 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
-        
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            SceneManager.LoadScene(6);
-            Time.timeScale = 1f;
 
+        if (levelData.swatterMode) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                SceneManager.LoadScene(6);
+                Time.timeScale = 1f;
+            }
         }
 
         //roundStartDelay -= Time.deltaTime;
@@ -283,12 +291,19 @@ public class GameManager : MonoBehaviour {
     public void GameOver() {
         gameover.Play();
         if (levelData.swatterMode) {
-            highscore.text = "Highscore:\n" + resourceAmount;
             Time.timeScale = 0f;
             var b = FindObjectOfType<BuyableItems>();
             b.swatterButton.interactable = false;
-            b.GameOver();
+            b.ResetCursor();
+            if (resourceAmount > pd.highScore) {
+                pd.highScore = resourceAmount;
+                highscore.text = "Highscore:\n" + pd.highScore;
+                highscorePanel.SetActive(true);
+            } else {
+                gameoverPanel.SetActive(true);
+            }
         }
+        Time.timeScale = 0f;
     }
 
     void Wave() {

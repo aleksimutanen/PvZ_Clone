@@ -13,8 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpawnInterval:
   - 15
-  - 60
-  - 60
+  - 59
   lastEnemySpawn:
   - 0
   - 0
@@ -22,7 +21,6 @@ MonoBehaviour:
   levelPool: 3
   levelEnemies:
   - {fileID: 1326102619074756, guid: 4b4e3d00881ad314c99efed220473ef3, type: 2}
-  - {fileID: 1065129760730974, guid: 78184d7750809804b936926a31bf1083, type: 2}
   - {fileID: 1291704373786314, guid: f72979b99594e464abce4db594636058, type: 2}
   swatterModeTimes: []
   swatterModeSpawnInterval: []

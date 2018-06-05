@@ -61,12 +61,13 @@ public class Landmine : MonoBehaviour, Bug {
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerStay(Collider other) {
         if (willExplode && other.gameObject.layer == enemyLayer) {
             // other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             print("explosion");
             var b = other.GetComponent<Bot>();
             //bool dead = b.TakeDamage(givenDamage);
+            b.TakeDamage(givenDamage);
             b.TakeDamage(givenDamage);
             //if (dead) {
             GetComponent<EaterList>().NotifyEaters();

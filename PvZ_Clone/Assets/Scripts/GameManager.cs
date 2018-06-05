@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour {
         if (levelData.name == "LevelData1") {
             Time.timeScale = 0f;
         }
-        //Time.timeScale = 1f;
+        Time.timeScale = 1f;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         pd = FindObjectOfType<PersistentDataStorage>();
         if (pd == null) {
@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour {
             return;
 
         if (levelData.swatterMode) {
-            kpm.text = "Swats per minute:\n" + (resourceAmount * 60) / (Time.time - startingTime);
+            kpm.text = "Swats per\n minute:\n" + (resourceAmount * 60) / (Time.time - startingTime);
             if (resourceSpawn >= 0.15f) { 
                 for (int i = 0; i < levelData.swatterModeTimes.Length; i++) {
                     if (resourceSpawn >= levelData.swatterModeSpawnInterval[i]) {

@@ -22,6 +22,11 @@ public class EnemyMovement : MonoBehaviour, Bot {
     public string hitanimation;
     public string walkinganimation;
     ShieldFlash sf;
+    public AudioSource rob;
+    public AudioClip robdeath;
+    public AudioSource movement;
+    
+
 
     private void Awake() {
         sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
@@ -58,7 +63,11 @@ public class EnemyMovement : MonoBehaviour, Bot {
         }
     }
 
-    void Update() {
+
+    void Update() { 
+        if (state == EnemyState.Walking || state == EnemyState.Freezed) {
+            movement.Play();
+        }
         transform.Translate(-1 * movespeed * Time.deltaTime, 0, 0);
         if (state == EnemyState.Freezed) {
             freezeTime += Time.deltaTime;
@@ -139,7 +148,9 @@ public class EnemyMovement : MonoBehaviour, Bot {
                 gm.EnemyKilled(transform.position);
                 if (el) {
                     el.eaters.Remove(this);
+                    
                 }
+                AudioSource.PlayClipAtPoint(robdeath, Camera.main.transform.position);
                 Destroy(gameObject);
             }
         }

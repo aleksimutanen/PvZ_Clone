@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
     public AudioSource rob;
     public AudioClip robdeath;
     public AudioSource movement;
+    public AudioClip move;
     public AudioClip punch;
     public AudioSource hit;
 
@@ -47,6 +48,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
     public void EnemyStatusStart(EnemyState starting) {
         if (starting == EnemyState.Eating) {
             movespeed = 0f;
+            movement.Stop();
             if (!hit.isPlaying) {
                 hit.PlayOneShot(punch);
             }
@@ -70,7 +72,9 @@ public class EnemyMovement : MonoBehaviour, Bot {
 
     void Update() { 
         if (state == EnemyState.Walking || state == EnemyState.Freezed) {
-            movement.Play();
+            if (!movement.isPlaying) {
+                movement.PlayOneShot(move);
+            }
         }
         transform.Translate(-1 * movespeed * Time.deltaTime, 0, 0);
         if (state == EnemyState.Freezed) {

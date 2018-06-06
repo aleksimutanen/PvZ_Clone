@@ -100,6 +100,7 @@ MonoBehaviour:
   recourceSpawn: 23
   dropPosition: {fileID: 4187470864845172}
   bugHealth: 3
+  flashspeed: 0
 --- !u!212 &212496590903532026
 SpriteRenderer:
   m_ObjectHideFlags: 1

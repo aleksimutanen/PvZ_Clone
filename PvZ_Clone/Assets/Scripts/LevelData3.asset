@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpawnInterval:
   - 16
-  - 47
-  - 31
+  - 46
+  - 40
   lastEnemySpawn: []
   levelPool: 0
   levelEnemies:

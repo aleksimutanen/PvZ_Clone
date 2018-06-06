@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: LevelData4
   m_EditorClassIdentifier: 
   enemySpawnInterval:
-  - 15
-  - 31
-  - 29
+  - 14
+  - 40
+  - 34
   lastEnemySpawn: []
   levelPool: 0
   levelEnemies:

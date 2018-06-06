@@ -2216,6 +2216,8 @@ MonoBehaviour:
   phase2: {fileID: 0}
   phase3: {fileID: 0}
   splash: {fileID: 0}
+  boom: {fileID: 0}
+  bam: {fileID: 0}
   flashspeed: 0
 --- !u!65 &385826775
 BoxCollider:
@@ -5895,7 +5897,7 @@ Prefab:
     - target: {fileID: 114727462363990186, guid: 9477c60f307e71f419b3cbeb98d1c557,
         type: 2}
       propertyPath: levelEnemyPool
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 114727462363990186, guid: 9477c60f307e71f419b3cbeb98d1c557,
         type: 2}

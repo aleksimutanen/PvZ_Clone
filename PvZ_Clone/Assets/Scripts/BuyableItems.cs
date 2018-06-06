@@ -91,17 +91,17 @@ public class BuyableItems : MonoBehaviour {
     }
 
     void Buy(UIMode b) {
-            nowplacing = b;
-            int index = (int)b - 2;
-            for (int i = 0; i < ghostbugs.Count; i++) {
-                if (i == index) {
-                    ghostbugs[i].SetActive(true);
-                }
-                else ghostbugs[i].SetActive(false);
+        nowplacing = b;
+        int index = (int)b - 2;
+        for (int i = 0; i < ghostbugs.Count; i++) {
+            if (i == index) {
+                ghostbugs[i].SetActive(true);
+                Cursor.SetCursor(null, Vector2.zero, cm);
+            } else ghostbugs[i].SetActive(false);
         }
     }
 
-     void Start() {
+    void Start() {
         hotspot = new Vector2(0, 40);
         swatterButton.interactable = true;
         Cursor.SetCursor(null, Vector2.zero, cm);

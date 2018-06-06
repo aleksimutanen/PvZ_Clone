@@ -280,7 +280,7 @@ public class GameManager : MonoBehaviour {
             enemySpawningOnOff = true;
         }
 
-        if (roundStartDelay < 0) {
+        //if (roundStartDelay < 0) {
             if (levelEnemyPool < waveEnemies) {
                 waveDelay -= Time.deltaTime;
                 enemySpawningOnOff = false;
@@ -289,7 +289,7 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
-    }
+    //}
 
     public void EnemySpawn(float[] enemySpawnInterval, ref float[] lastEnemySpawn, GameObject[] enemies) {
         if (levelEnemyPool != 0) {

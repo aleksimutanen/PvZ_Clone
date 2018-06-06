@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour {
     public AudioSource gameover;
     public AudioSource melody;
     public AudioSource perc;
+    public AudioSource drum;
+    public AudioSource bass;
+    public AudioSource saw;
     public AudioSource clear;
     public AudioSource chime;
     public AudioSource three;

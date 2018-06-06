@@ -1199,6 +1199,8 @@ MonoBehaviour:
   phase2: {fileID: 0}
   phase3: {fileID: 0}
   splash: {fileID: 0}
+  boom: {fileID: 0}
+  bam: {fileID: 0}
   flashspeed: 0
 --- !u!65 &299290090
 BoxCollider:
@@ -2198,8 +2200,8 @@ RectTransform:
   - {fileID: 116905240}
   - {fileID: 1760161781}
   - {fileID: 1829497300}
-  - {fileID: 607923422}
   - {fileID: 732640231}
+  - {fileID: 607923422}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2624,7 +2626,7 @@ Prefab:
     - target: {fileID: 224202498468248060, guid: 93ce7f7cb3a15e944b96226c77cf59b8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224202498468248060, guid: 93ce7f7cb3a15e944b96226c77cf59b8,
         type: 2}
@@ -6698,7 +6700,7 @@ Prefab:
     - target: {fileID: 224922413733735298, guid: 6863c65131d840144a149f9b5a55d7e1,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224922413733735298, guid: 6863c65131d840144a149f9b5a55d7e1,
         type: 2}

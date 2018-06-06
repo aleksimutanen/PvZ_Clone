@@ -4903,7 +4903,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Blue ant comes from cold Nordic climate and because of that it shoots frozen
+  m_Text: Cool-Ant comes from cold Nordic climate and because of that it shoots frozen
     slime instead of normal. Frozen slime slows down robot movement when hit.
 --- !u!222 &871718905
 CanvasRenderer:
@@ -9288,7 +9288,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7b073ca18b56d944088f7a40e5d00d60, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10457,6 +10457,8 @@ MonoBehaviour:
   phase2: {fileID: 0}
   phase3: {fileID: 0}
   splash: {fileID: 0}
+  boom: {fileID: 0}
+  bam: {fileID: 0}
   flashspeed: 0
 --- !u!65 &1992492734
 BoxCollider:
@@ -10623,7 +10625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -53.4}
+  m_AnchoredPosition: {x: 0, y: -76}
   m_SizeDelta: {x: 230.25, y: 58.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2067725356

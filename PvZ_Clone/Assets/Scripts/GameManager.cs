@@ -98,6 +98,9 @@ public class GameManager : MonoBehaviour {
     void LevelMusic() {
         melody.Play();
         perc.Play();
+        saw.Play();
+        bass.Play();
+        drum.Play();
     }
 
     
@@ -325,6 +328,9 @@ public class GameManager : MonoBehaviour {
         resourceSpawnOnOff = false;
         melody.Stop();
         perc.Stop();
+        bass.Stop();
+        saw.Stop();
+        drum.Stop();
         clear.Play();
         chime.Play();
     }

@@ -17,6 +17,10 @@ public class Landmine : MonoBehaviour, Bug {
 
     public GameObject splash;
 
+    public AudioSource boom;
+    public AudioClip bam;
+
+
     SpriteRenderer sr;
     public float flashspeed;
     bool lastdamageTaken;
@@ -65,6 +69,7 @@ public class Landmine : MonoBehaviour, Bug {
         if (willExplode && other.gameObject.layer == enemyLayer) {
             // other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             print("explosion");
+            AudioSource.PlayClipAtPoint(bam, Camera.main.transform.position);
             var b = other.GetComponent<Bot>();
             //bool dead = b.TakeDamage(givenDamage);
             b.TakeDamage(givenDamage);

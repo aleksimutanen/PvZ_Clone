@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour {
         drum.Play();
     }
 
+    
 
     void Start() {
         Time.timeScale = 0f;
@@ -193,9 +194,7 @@ public class GameManager : MonoBehaviour {
 
     public void ResourceClick() {
         //print("resource hit");
-        if (levelData.swatterMode == false) {
-            crop.Play();
-        }
+        crop.Play();
         resourceAmount += resourceClick;
         UpdateResourceAmountText();
         //print(resourceAmount);
@@ -339,7 +338,7 @@ public class GameManager : MonoBehaviour {
     public void GameOver() {
         melody.Stop();
         perc.Stop();
-        gameover.Play();
+
         if (levelData.swatterMode) {
             Time.timeScale = 0f;
             var b = FindObjectOfType<BuyableItems>();
@@ -349,11 +348,15 @@ public class GameManager : MonoBehaviour {
                 pd.highScore = resourceAmount;
                 highscore.text = "Highscore:\n" + pd.highScore;
                 highscorePanel.SetActive(true);
+                clear.Play();
             } else {
                 gameoverPanel.SetActive(true);
+                gameover.Play();
             }
+        } else {
+            gameover.Play();
+            Time.timeScale = 0f;
         }
-        Time.timeScale = 0f;
     }
 
     void Wave() {

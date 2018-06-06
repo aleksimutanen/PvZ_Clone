@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 3899579}
   - component: {fileID: 3899578}
   - component: {fileID: 3899577}
+  - component: {fileID: 3899580}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -147,8 +148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 131, y: -122.32036}
-  m_SizeDelta: {x: 62.5, y: 25.91}
+  m_AnchoredPosition: {x: 227.1, y: -115.6}
+  m_SizeDelta: {x: 62.5, y: 34.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3899577
 MonoBehaviour:
@@ -246,6 +247,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 3899575}
+--- !u!114 &3899580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3899575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 967136972}
+          m_MethodName: SelectSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &23926033
 Prefab:
   m_ObjectHideFlags: 0

@@ -863,7 +863,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 190518413}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1089,7 +1089,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4100052712132156, guid: e290aa90bf824584598083817d5ba7cb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4100052712132156, guid: e290aa90bf824584598083817d5ba7cb, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4429,7 +4429,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243126700113160132, guid: 302e212b54dba1b44ac88049b74ff5bf,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2caa4c0ed52af054a9bc0b2f8f27b71b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a820a3c789d3a1646aac5325c682ff94, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6349,6 +6349,8 @@ MonoBehaviour:
   phase2: {fileID: 0}
   phase3: {fileID: 0}
   splash: {fileID: 0}
+  boom: {fileID: 0}
+  bam: {fileID: 0}
   flashspeed: 0
 --- !u!65 &1622321587
 BoxCollider:

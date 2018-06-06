@@ -13,6 +13,7 @@ public class AmmoNiko : MonoBehaviour {
     public AudioSource hit;
     public AudioClip damage;
     public AudioSource freeze;
+    public AudioClip ice;
     public float maxPitch;
     float origPitch;
 
@@ -60,6 +61,7 @@ public class AmmoNiko : MonoBehaviour {
             print("freezed hit");
             float randomPitch = Random.Range(origPitch, maxPitch);
             hit.pitch = randomPitch;
+            AudioSource.PlayClipAtPoint(ice, Camera.main.transform.position);
             AudioSource.PlayClipAtPoint(damage, Camera.main.transform.position);
             Destroy(gameObject);
         }

@@ -2181,6 +2181,11 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224883035774480696, guid: d76c35972281fd642a20a8f7c198950f,
     type: 2}
   m_PrefabInternal: {fileID: 607923421}
+--- !u!1 &607923423 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1860274046549038, guid: d76c35972281fd642a20a8f7c198950f,
+    type: 2}
+  m_PrefabInternal: {fileID: 607923421}
 --- !u!224 &633473142
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3220,8 +3225,7 @@ Prefab:
         type: 2}
       propertyPath: gameover_screen
       value: 
-      objectReference: {fileID: 1860274046549038, guid: d76c35972281fd642a20a8f7c198950f,
-        type: 2}
+      objectReference: {fileID: 607923423}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38a495c9d0d675149bba0c655e1b949a, type: 2}
   m_IsPrefabParent: 0

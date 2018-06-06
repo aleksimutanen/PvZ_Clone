@@ -100,17 +100,16 @@ public class GameManager : MonoBehaviour {
     
 
     void Start() {
-        if (levelData.name == "LevelData1") {
-            Time.timeScale = 0f;
-        }
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         pd = FindObjectOfType<PersistentDataStorage>();
         if (pd == null) {
             var pdp = Instantiate(pdPrefab);
             pd = pdp.GetComponent<PersistentDataStorage>();
         }
-        AtGameStart();
+        if (levelData.name != "LevelData1") {
+            AtGameStart();
+        }
     }
 
     void ShowCountdown() {
@@ -141,6 +140,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void AtGameStart() {
+        Time.timeScale = 1f;
         paused = true;
 
         Invoke("ShowCountdown", 2f);

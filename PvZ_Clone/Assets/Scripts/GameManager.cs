@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour {
     public AudioSource two;
     public AudioSource one;
     public AudioSource go;
+    public AudioSource start;
 
     bool paused = false;
     int countdownCounter = 3;
@@ -148,6 +149,9 @@ public class GameManager : MonoBehaviour {
     public void AtGameStart() {
         Time.timeScale = 1f;
         paused = true;
+
+        start.Play();
+        saw.Stop();
 
         Invoke("ShowCountdown", 2f);
         Invoke("ShowBuildPanel", 2f);

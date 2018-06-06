@@ -80,9 +80,10 @@ AudioSource:
   m_GameObject: {fileID: 1533043300769862}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243542198259056318, guid: 302e212b54dba1b44ac88049b74ff5bf,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -178,7 +179,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 243542882832625858, guid: 302e212b54dba1b44ac88049b74ff5bf,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -281,7 +282,7 @@ MonoBehaviour:
   hit: {fileID: 82457358259871370}
   damage: {fileID: 8300000, guid: 9af5546fe815b1f4e8b382b4c6e76a90, type: 3}
   freeze: {fileID: 82754119729192372}
-  ice: {fileID: 8300000, guid: 7fa2c6c73566fb5469f39a25dcb1432f, type: 3}
+  ice: {fileID: 8300000, guid: 66f8409cccbb2d44887a0ffbf3eb87a1, type: 3}
   maxPitch: 0
 --- !u!212 &212381391404965510
 SpriteRenderer:

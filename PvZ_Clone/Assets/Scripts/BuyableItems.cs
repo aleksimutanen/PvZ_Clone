@@ -107,6 +107,9 @@ public class BuyableItems : MonoBehaviour {
         Cursor.SetCursor(null, Vector2.zero, cm);
         gm = GameObject.FindObjectOfType<GameManager>();
         bugCooldownTimers = new List<float>(bugCooldowns);
+        if (gm.levelData.name == "Swattermode") {
+            Flyswatter();
+        }
         //cursorTexture.Resize(2000, 2000);
     }
 

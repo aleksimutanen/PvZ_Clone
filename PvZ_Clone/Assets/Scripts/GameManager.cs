@@ -58,7 +58,11 @@ public class GameManager : MonoBehaviour {
     public AudioSource melody;
     public AudioSource perc;
     public AudioSource clear;
-    
+    public AudioSource chime;
+    public AudioSource three;
+    public AudioSource two;
+    public AudioSource one;
+    public AudioSource go;
 
     bool paused = false;
     int countdownCounter = 3;
@@ -93,6 +97,8 @@ public class GameManager : MonoBehaviour {
         perc.Play();
     }
 
+    
+
     void Start() {
         if (levelData.name == "LevelData1") {
             Time.timeScale = 0f;
@@ -110,18 +116,26 @@ public class GameManager : MonoBehaviour {
     void ShowCountdown() {
         if (countdownCounter <= 3) {
             newcountdownText.text = ("3");
+            three.Play();
         }
         if (countdownCounter <= 2) {
             newcountdownText.text = ("2");
+            two.Play();
+            three.Stop();
         }
         if (countdownCounter <= 1) {
             newcountdownText.text = ("1");
+            one.Play();
+            two.Stop();
         }
         if (countdownCounter == 0) {
             newcountdownText.text = ("GO!");
+            go.Play();
+            one.Stop();
         }
         if (countdownCounter < 0) {
             newcountdownText.text = ("");
+            one.Stop();
         }
         countdownCounter--;
     }
@@ -132,8 +146,11 @@ public class GameManager : MonoBehaviour {
         Invoke("ShowCountdown", 2f);
         Invoke("ShowBuildPanel", 2f);
         Invoke("ShowCountdown", 3f);
+        
         Invoke("ShowCountdown", 4f);
+        
         Invoke("ShowCountdown", 5f);
+        
         Invoke("StartPauseOff", 6.5f);
         Invoke("ShowCountdown", 6.5f);
         Invoke("LevelMusic", 6.5f);
@@ -302,6 +319,7 @@ public class GameManager : MonoBehaviour {
         melody.Stop();
         perc.Stop();
         clear.Play();
+        chime.Play();
     }
 
     public void GameOver() {

@@ -7,6 +7,7 @@ public class EMP : MonoBehaviour {
     public GameObject empWave;
     float destroyTimer = 2f;
     bool active;
+    public AudioSource laser;
 
 	void Start () {
         empWave.SetActive(false);
@@ -24,6 +25,7 @@ public class EMP : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         empWave.SetActive(true);
+        laser.Play();
         active = true;
     }
 }

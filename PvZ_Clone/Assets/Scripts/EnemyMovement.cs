@@ -45,6 +45,12 @@ public class EnemyMovement : MonoBehaviour, Bot {
         state = newState;
     }
 
+    void Pause() {
+        if (movespeed == 0f) {
+            movement.Stop();
+        }
+    }
+
     public void EnemyStatusStart(EnemyState starting) {
         if (starting == EnemyState.Eating) {
             movespeed = 0f;

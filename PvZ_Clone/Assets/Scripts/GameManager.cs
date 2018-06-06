@@ -161,6 +161,10 @@ public class GameManager : MonoBehaviour {
         } else {
             Time.timeScale = 0f;
             PauseMenu.SetActive(true);
+            var b = FindObjectOfType<BuyableItems>();
+            if (b.nowplacing == UIMode.Flyswatter) {
+                b.ResetCursor();
+            }
             return (true);
         }
     }

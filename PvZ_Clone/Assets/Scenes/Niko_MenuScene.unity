@@ -2203,8 +2203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.950005, y: -27.065022}
-  m_SizeDelta: {x: 87.499985, y: -2.4700413}
+  m_AnchoredPosition: {x: 73.84998, y: -27.065022}
+  m_SizeDelta: {x: 215.30005, y: -2.4700413}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887008013
 MonoBehaviour:
@@ -2238,8 +2238,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Developers: Aleksi, Niko, Kristiina, Kemi\nMentor: Yrj\xF6 Peussa\nGame
-    made by Unity Engine\nLaajasalon Opisto"
+  m_Text: "Programming: Aleksi, Niko\nGraphics & Animations: Kristiina, Niko\nAudio:
+    Kemi\nMentor: Yrj\xF6 Peussa\nLaajasalon Opisto"
 --- !u!222 &887008014
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2632,7 +2632,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 9.6, y: -16.4}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 178.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1231013546
 MonoBehaviour:
@@ -3435,7 +3435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1796485579
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3455,7 +3455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.8, y: -308.38116}
+  m_AnchoredPosition: {x: 87.8, y: -293.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796485580

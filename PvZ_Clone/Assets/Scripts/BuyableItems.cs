@@ -100,8 +100,9 @@ public class BuyableItems : MonoBehaviour {
     }
 
      void Start() {
+        hotspot = new Vector2(0, 40);
         swatterButton.interactable = true;
-        Cursor.SetCursor(null, hotspot, cm);
+        Cursor.SetCursor(null, Vector2.zero, cm);
         gm = GameObject.FindObjectOfType<GameManager>();
         bugCooldownTimers = new List<float>(bugCooldowns);
         //cursorTexture.Resize(2000, 2000);
@@ -194,13 +195,12 @@ public class BuyableItems : MonoBehaviour {
             // poistetaan
             // disabloidaan flyswatter
         } else if (nowplacing == UIMode.Flyswatter && Input.GetKeyDown(KeyCode.Mouse1)) {
-            Cursor.SetCursor(null, hotspot, cm);
-            nowplacing = UIMode.None;
+            ResetCursor();
         }
     }
 
     public void ResetCursor() {
-        Cursor.SetCursor(null, hotspot, cm);
+        Cursor.SetCursor(null, Vector2.zero, cm);
         nowplacing = UIMode.None;
     }
 }

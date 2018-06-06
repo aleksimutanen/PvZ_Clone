@@ -56,6 +56,9 @@ TagManager:
   - name: playerammo
     uniqueID: 3192661617
     locked: 0
+  - name: laserbeam
+    uniqueID: 662525613
+    locked: 0
   - name: Resource
     uniqueID: 1748421703
     locked: 0

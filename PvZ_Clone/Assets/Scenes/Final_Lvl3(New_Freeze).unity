@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: d52dc18fe78497b4bb5342c4effca908,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -5145,7 +5146,8 @@ MonoBehaviour:
   swatterButton: {fileID: 82900986}
   press: {fileID: 0}
   place: {fileID: 0}
-  cursorTexture: {fileID: 2800000, guid: b362c6497d40e00468f961cf7ac44ae3, type: 3}
+  swat: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: 053a0517c51fe45429486f87edd3e29a, type: 3}
 --- !u!1 &1246829849 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1573738148510310, guid: 3728b3c37ed256941808a1344d5642c9,

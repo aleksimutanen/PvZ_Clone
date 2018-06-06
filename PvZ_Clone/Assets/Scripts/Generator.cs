@@ -18,6 +18,7 @@ public class Generator : MonoBehaviour, Bug {
 
     void Start() {
         gm = FindObjectOfType<GameManager>();
+        timeSinceLastRecource = Time.time;
     }
 
     void Awake() {

@@ -7212,6 +7212,66 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803196683109490, guid: 6863c65131d840144a149f9b5a55d7e1,
+        type: 2}
+      propertyPath: m_fontSizeMin
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6863c65131d840144a149f9b5a55d7e1, type: 2}
   m_IsPrefabParent: 0
@@ -8708,7 +8768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1675679823
 RectTransform:
   m_ObjectHideFlags: 0

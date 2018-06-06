@@ -9,6 +9,11 @@ public class MainMenu : MonoBehaviour {
     public AudioClip clicksound;
     public Animator animator;
     public string extramenuDrop;
+    GameManager gm;
+
+    private void Awake() {
+        gm = FindObjectOfType<GameManager>();
+    }
 
     public void PlayGame() {
         AudioSource.PlayClipAtPoint(clicksound, Camera.main.transform.position);
@@ -20,7 +25,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void QuitGame() {
-        AudioSource.PlayClipAtPoint(clicksound, Camera.main.transform.position);
+        //AudioSource.PlayClipAtPoint(clicksound, Camera.main.transform.position);
         print("Goodbye!");
         Application.Quit();
     }
@@ -36,8 +41,13 @@ public class MainMenu : MonoBehaviour {
 
     public void RetryLevel() {
         print("retrylvl");
+        gm.TogglePaused();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // lataa sama lvl uudestaan
+    }
+    public void SwatterRetry() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Time.timeScale = 1f;
     }
 
     public void ResumeGame() {

@@ -1927,7 +1927,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4100052712132156, guid: e290aa90bf824584598083817d5ba7cb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4100052712132156, guid: e290aa90bf824584598083817d5ba7cb, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5147,6 +5147,7 @@ MonoBehaviour:
   press: {fileID: 0}
   place: {fileID: 0}
   swat: {fileID: 0}
+  ouch: {fileID: 0}
   cursorTexture: {fileID: 2800000, guid: 053a0517c51fe45429486f87edd3e29a, type: 3}
 --- !u!1 &1246829849 stripped
 GameObject:

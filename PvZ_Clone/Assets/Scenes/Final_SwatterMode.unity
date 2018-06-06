@@ -3271,6 +3271,8 @@ MonoBehaviour:
   swatterButton: {fileID: 1111246104}
   press: {fileID: 0}
   place: {fileID: 0}
+  swat: {fileID: 0}
+  ouch: {fileID: 0}
   cursorTexture: {fileID: 2800000, guid: b362c6497d40e00468f961cf7ac44ae3, type: 3}
 --- !u!1 &796720090
 GameObject:
@@ -4938,7 +4940,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4100052712132156, guid: e290aa90bf824584598083817d5ba7cb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4100052712132156, guid: e290aa90bf824584598083817d5ba7cb, type: 2}
       propertyPath: m_LocalPosition.y

@@ -96,14 +96,19 @@ public class GameManager : MonoBehaviour {
     }
 
     void LevelMusic() {
-        melody.Play();
-        perc.Play();
-        saw.Play();
-        bass.Play();
-        drum.Play();
+        if (levelData.swatterMode) {
+            melody.Play();
+            perc.Play();
+        } else {
+            melody.Play();
+            perc.Play();
+            saw.Play();
+            bass.Play();
+            drum.Play();
+        }
     }
 
-    
+
 
     void Start() {
         Time.timeScale = 0f;
@@ -194,7 +199,9 @@ public class GameManager : MonoBehaviour {
 
     public void ResourceClick() {
         //print("resource hit");
-        crop.Play();
+        if (levelData.swatterMode == false) {
+            crop.Play();
+        }
         resourceAmount += resourceClick;
         UpdateResourceAmountText();
         //print(resourceAmount);

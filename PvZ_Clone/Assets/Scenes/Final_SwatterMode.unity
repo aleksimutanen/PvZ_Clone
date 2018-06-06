@@ -3757,7 +3757,7 @@ MonoBehaviour:
   place: {fileID: 0}
   swat: {fileID: 794658464}
   ouch: {fileID: 794658463}
-  cursorTexture: {fileID: 2800000, guid: b362c6497d40e00468f961cf7ac44ae3, type: 3}
+  cursorTexture: {fileID: 2800000, guid: 053a0517c51fe45429486f87edd3e29a, type: 3}
 --- !u!82 &794658463
 AudioSource:
   m_ObjectHideFlags: 0

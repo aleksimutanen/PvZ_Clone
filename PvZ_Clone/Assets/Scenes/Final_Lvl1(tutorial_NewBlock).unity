@@ -863,7 +863,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 190518413}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4429,7 +4429,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243126700113160132, guid: 302e212b54dba1b44ac88049b74ff5bf,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2caa4c0ed52af054a9bc0b2f8f27b71b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a820a3c789d3a1646aac5325c682ff94, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6349,6 +6349,8 @@ MonoBehaviour:
   phase2: {fileID: 0}
   phase3: {fileID: 0}
   splash: {fileID: 0}
+  boom: {fileID: 0}
+  bam: {fileID: 0}
   flashspeed: 0
 --- !u!65 &1622321587
 BoxCollider:
@@ -7995,6 +7997,7 @@ MonoBehaviour:
   press: {fileID: 1922048268}
   place: {fileID: 1922048269}
   swat: {fileID: 1922048270}
+  ouch: {fileID: 0}
   cursorTexture: {fileID: 2800000, guid: 053a0517c51fe45429486f87edd3e29a, type: 3}
 --- !u!82 &1922048268
 AudioSource:

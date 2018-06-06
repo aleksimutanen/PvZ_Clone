@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour {
         drum.Play();
     }
 
+
     void Start() {
         Time.timeScale = 0f;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
@@ -192,7 +193,9 @@ public class GameManager : MonoBehaviour {
 
     public void ResourceClick() {
         //print("resource hit");
-        crop.Play();
+        if (levelData.swatterMode == false) {
+            crop.Play();
+        }
         resourceAmount += resourceClick;
         UpdateResourceAmountText();
         //print(resourceAmount);

@@ -331,10 +331,11 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1326102619074756}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 718a8e7be3dd1fd459baf4b9876c6ca4, type: 3}
+  OutputAudioMixerGroup: {fileID: 243135272755644120, guid: 302e212b54dba1b44ac88049b74ff5bf,
+    type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -428,7 +429,8 @@ AudioSource:
   m_GameObject: {fileID: 1326102619074756}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243542882832625858, guid: 302e212b54dba1b44ac88049b74ff5bf,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -557,6 +559,7 @@ MonoBehaviour:
   rob: {fileID: 82685841224835082}
   robdeath: {fileID: 8300000, guid: 3584e98f19627cf42936d5434c74b28e, type: 3}
   movement: {fileID: 82650667822289930}
+  move: {fileID: 8300000, guid: 43acfd7d32e81a541b46ea16aab4fc5d, type: 3}
   punch: {fileID: 8300000, guid: a01b5459095b0ce4c96403cbb377977b, type: 3}
   hit: {fileID: 82359085268472450}
 --- !u!114 &114847589793196108

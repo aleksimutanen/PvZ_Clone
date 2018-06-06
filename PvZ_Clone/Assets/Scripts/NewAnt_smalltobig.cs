@@ -9,7 +9,7 @@ public class NewAnt_smalltobig : MonoBehaviour {
         gm = GetComponent<GameManager>();
     }
     void FixedUpdate() {
-        if (transform.localScale.x < 1f)
+        if (transform.localScale.x < 1.5f)
        transform.localScale += new Vector3(0.8f, 0.8f, 0.8f) * Time.deltaTime;
         
     }

@@ -19,6 +19,7 @@ public class BuyableItems : MonoBehaviour {
     public AudioSource press;
     public AudioSource place;
     public AudioSource swat;
+    public AudioSource ouch;
 
     public Texture2D cursorTexture;
     Vector2 hotspot = Vector2.zero;
@@ -183,6 +184,7 @@ public class BuyableItems : MonoBehaviour {
                 hit.transform.gameObject.GetComponent<EaterList>().NotifyEaters();
                 print("swatted");
                 swat.Play();
+                ouch.Play();
                 Destroy(hit.transform.gameObject);
                 if (gm.levelData.swatterMode == false) {
                     ResetCursor();

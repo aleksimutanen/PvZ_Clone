@@ -11,7 +11,9 @@ public class Obstacle : MonoBehaviour, Bug {
     public Sprite secondcrack;
     public Sprite thirdcrack;
     public float flashspeed;
-    bool lastdamageTaken;
+    bool lastdamageTaken;   
+    public AudioSource death;
+    public AudioClip[] screams;
 
     SpriteRenderer sr;
 
@@ -25,6 +27,7 @@ public class Obstacle : MonoBehaviour, Bug {
         }
         lastdamageTaken = false;
     }
+
 
     //public void Moving() {
     //    movespeed = 1f;
@@ -63,6 +66,7 @@ public class Obstacle : MonoBehaviour, Bug {
         }
         if (bugHealth <= 0) {
             GetComponent<EaterList>().NotifyEaters();
+            AudioSource.PlayClipAtPoint(screams[Random.Range(0, screams.Length)], Camera.main.transform.position);
             Destroy(gameObject);
             //return true;
         }

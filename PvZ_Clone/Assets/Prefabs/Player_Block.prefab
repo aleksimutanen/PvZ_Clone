@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114013794794689102}
   - component: {fileID: 95477539257053416}
   - component: {fileID: 114226673804894400}
+  - component: {fileID: 82407229208434312}
   m_Layer: 12
   m_Name: Player_Block
   m_TagString: Untagged
@@ -115,6 +116,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.388397, y: 6.560548, z: 1}
   m_Center: {x: 0.028473755, y: 0.25085458, z: 0}
+--- !u!82 &82407229208434312
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1570851421297912}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95477539257053416
 Animator:
   serializedVersion: 3
@@ -132,6 +228,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114013794794689102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +246,12 @@ MonoBehaviour:
   secondcrack: {fileID: 21300000, guid: 9cd4c0b3ba6ffc24e9c96dd30e1c2ab1, type: 3}
   thirdcrack: {fileID: 21300000, guid: 01c92589bfcf84c46a639eb3dabcc2d2, type: 3}
   flashspeed: 10
+  death: {fileID: 82407229208434312}
+  screams:
+  - {fileID: 8300000, guid: 2ea9d7108e2a0c54589b9133df2d40c2, type: 3}
+  - {fileID: 8300000, guid: 732f09535676ac24e825bf88ce318f82, type: 3}
+  - {fileID: 8300000, guid: aba77d89243081447962cece3617aaae, type: 3}
+  - {fileID: 8300000, guid: 8b6e61ed1493695498326c7e66a57a6e, type: 3}
 --- !u!114 &114226673804894400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +276,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9730100572f24a3498c9f0b2c9812515, type: 2}
   m_StaticBatchInfo:
@@ -192,7 +296,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 375706575
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2984e6d8332fcc146ae174eac871d2d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -217,6 +321,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9730100572f24a3498c9f0b2c9812515, type: 2}
   m_StaticBatchInfo:
@@ -236,7 +341,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 375706575
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f67303eb841240f4688dba3bdb62daa4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

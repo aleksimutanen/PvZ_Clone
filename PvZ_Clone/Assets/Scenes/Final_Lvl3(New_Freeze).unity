@@ -5145,7 +5145,7 @@ MonoBehaviour:
   swatterButton: {fileID: 82900986}
   press: {fileID: 0}
   place: {fileID: 0}
-  cursorTexture: {fileID: 2800000, guid: b362c6497d40e00468f961cf7ac44ae3, type: 3}
+  cursorTexture: {fileID: 2800000, guid: 053a0517c51fe45429486f87edd3e29a, type: 3}
 --- !u!1 &1246829849 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1573738148510310, guid: 3728b3c37ed256941808a1344d5642c9,

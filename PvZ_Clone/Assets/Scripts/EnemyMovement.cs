@@ -25,8 +25,8 @@ public class EnemyMovement : MonoBehaviour, Bot {
     public AudioSource rob;
     public AudioClip robdeath;
     public AudioSource movement;
-    
-
+    public AudioClip punch;
+    public AudioSource hit;
 
     private void Awake() {
         sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
@@ -47,6 +47,10 @@ public class EnemyMovement : MonoBehaviour, Bot {
     public void EnemyStatusStart(EnemyState starting) {
         if (starting == EnemyState.Eating) {
             movespeed = 0f;
+            if (!hit.isPlaying) {
+                hit.PlayOneShot(punch);
+            }
+
         } else if (starting == EnemyState.Freezed) {
             movespeed = movespeed / 2;
         }
@@ -95,6 +99,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
         if (b != null) {
             state = EnemyState.Eating;
             EnemyStatusStart(state);
+            
             if (el == null) {
                 el = other.GetComponent<EaterList>();
                 el.RegisterEater(this);
@@ -104,6 +109,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
             }
             //var d = other.GetComponent<EaterList>();
             //el.RegisterEater(this);
+            
             animator.Play(hitanimation);
             b.TakeDamage(Time.deltaTime * damagePerSecond);
             //state = EnemyState.Walking;
@@ -119,6 +125,7 @@ public class EnemyMovement : MonoBehaviour, Bot {
     public void NotifyBugEaten() {
         if (state == EnemyState.Eating) {
             el = null;
+            
             EnemyStatusEnd(state);
             state = EnemyState.Walking;
             animator.Play(walkinganimation);

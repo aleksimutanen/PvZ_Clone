@@ -3498,7 +3498,7 @@ MonoBehaviour:
   swatterButton: {fileID: 837849925}
   press: {fileID: 0}
   place: {fileID: 0}
-  cursorTexture: {fileID: 2800000, guid: b362c6497d40e00468f961cf7ac44ae3, type: 3}
+  cursorTexture: {fileID: 2800000, guid: 053a0517c51fe45429486f87edd3e29a, type: 3}
 --- !u!1 &837849922
 GameObject:
   m_ObjectHideFlags: 0

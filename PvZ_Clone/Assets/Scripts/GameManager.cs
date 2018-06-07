@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour {
             return;
 
         if (levelData.swatterMode) {
-            kpm.text = "Swats per\n minute:\n" + (resourceAmount * 60) / (Time.time - startingTime);
+            kpm.text = "Swats per\n minute:\n" + ((resourceAmount * 60) / (Time.time - startingTime)).ToString("n2");
             if (resourceSpawn >= 0.15f) { 
                 for (int i = 0; i < levelData.swatterModeTimes.Length; i++) {
                     if (resourceSpawn >= levelData.swatterModeSpawnInterval[i]) {

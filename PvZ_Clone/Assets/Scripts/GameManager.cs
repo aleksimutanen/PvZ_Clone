@@ -136,6 +136,9 @@ public class GameManager : MonoBehaviour {
         }
         if (countdownCounter == 0) {
             newcountdownText.text = ("GO!");
+            if (levelData.swatterMode) {
+                newcountdownText.text = ("Slam all Tick-Tock's!");
+            }
             go.Play();
             one.Stop();
         }

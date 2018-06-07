@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour {
     public AudioSource go;
     public AudioSource start;
 
-    bool paused = false;
+    public bool paused = false;
     int countdownCounter = 3;
 
     GameObject le;
@@ -107,6 +107,9 @@ public class GameManager : MonoBehaviour {
     
 
     void Start() {
+        for (int i = 0; i < lastEnemySpawn.Length; i++) {
+            lastEnemySpawn[i] = Time.time;
+        }
         Time.timeScale = 0f;
         lanes = GameObject.FindGameObjectsWithTag("Lane");
         pd = FindObjectOfType<PersistentDataStorage>();
